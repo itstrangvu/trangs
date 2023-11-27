@@ -4,7 +4,7 @@ eleventyNavigation:
   key: Now
   order: 3
 ---
-
+# Now
 {%- css %}{% include "public/css/message-box.css" %}{% endcss %}
 <div class="message-box">
 	<p>The goal of this page is to share with you what I’m up to right now. </p>
@@ -12,25 +12,23 @@ eleventyNavigation:
 
 ## Random skills learning
 
-**For a month**
-
-- Do a handstand
+- Fixing a hole in socks
 - Peeling fruits in one go/piece
 
 ## Meals that I’m tinkering lately
 
-**For a week**
-
 Here’s a list of recipes or rather ways of preparation that I’m learning to master/tinker at the moment:
 
-- Heavenly potato chips
-- Mayo from scratch
+- Crispy potato pancakes
+- Pickled daikon
+
 
 ## Reading
 
-- Designing for Behavior Change by Stephen Wendel
-- Around the World in 80 Plants by Jonathan Drori
+- <a href="https://www.oreilly.com/library/view/designing-for-behavior/9781492056027/" target="_blank">Designing for Behavior Change by Stephen Wendel</a>
+- <a href="https://www.goodreads.com/book/show/58817755-a-trillion-trees" target="_blank">A Trillion Trees: How We Can Reforest Our World by Fred Pearce</a>
 
 ## Listening to
 
-- Birds singing
+- <a href="https://chuquimamani-condori.bandcamp.com/album/dj-e" target="_blank">DJ E by Chuquimamani-Condori</a>
+- <a href="https://www.radiofrance.fr/franceculture/podcasts/serie-aliments-du-quotidien-une-histoire-populaire" target="_blank">Huile, pain, pâtes et pommes de terre, une histoire populaire</a>

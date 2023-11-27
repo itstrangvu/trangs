@@ -10,6 +10,8 @@ Focusing my energy on creating data visualizations and digital experiences for p
 
 Previously, I served as a software design lead for several years, and before that, I crafted frontends for various operational dashboards and systems.
 
+My temporary work portfolio is available on <a href="https://trang-vu.notion.site/141a20a912114958b81a5869916cf9cb?v=7046a53bc0714379ab15bdabbb766028&pvs=4" target="_blank">this Notion public site</a>.
+
 Here's a list of a few things I enjoy in my spare time: drinking loose-leaf tea, journaling, exploring wild gastronomy, wandering in greenery, community cooking.
 
 Anyway, I’m very much open to collaboration for fun data storytelling, so if it’s something on your mind, feel free to say hi.

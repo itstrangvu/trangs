@@ -13,3 +13,6 @@ Thumbs.db
 
 # VS Code settings #
 .vscode/
+
+# Netlify #
+.netlify
