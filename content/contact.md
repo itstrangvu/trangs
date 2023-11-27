@@ -7,8 +7,11 @@ eleventyNavigation:
 
 # Contact
 
-You can find me here: 
-- [Mastodon](https://mas.to/@tomatosoul)
-- [Tumblr](https://wakamidori.tumblr.com/)
+You can find me on: 
+- <a href="https://mas.to/@tomatosoul" target="_blank">Mastodon</a>
+- <a href="https://www.instagram.com/pagedeciel/" target="_blank">Instagram</a>
+- <a href="https://wakamidori.tumblr.com/" target="_blank">Tumblr</a>
 
 Or you can <a href="mailto:thientrangvu@proton.me?subject=Hi there">send me an email</a>.
+
+{% image "./trang-profile-illustration.png", "Trang's illustration of her profile." %}

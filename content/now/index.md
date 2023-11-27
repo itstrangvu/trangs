@@ -17,8 +17,6 @@ eleventyNavigation:
 
 ## Meals that I’m tinkering lately
 
-Here’s a list of recipes or rather ways of preparation that I’m learning to master/tinker at the moment:
-
 - Crispy potato pancakes
 - Pickled daikon
 
