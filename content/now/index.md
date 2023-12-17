@@ -15,10 +15,10 @@ eleventyNavigation:
 - Fixing a hole in socks
 - Peeling fruits in one go/piece
 
-## Meals that I’m tinkering lately
+## Meal techniques
 
-- Crispy potato pancakes
-- Pickled daikon
+- Opening oysters
+- Making crêpes
 
 
 ## Reading
