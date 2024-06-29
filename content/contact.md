@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 eleventyNavigation:
   key: Contact
-  order: 4
+  order: 3
 ---
 
 # Contact
