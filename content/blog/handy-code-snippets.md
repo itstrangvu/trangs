@@ -1,12 +1,11 @@
 ---
-title: Handy code snippets
-description: A few snippets that I tend to forget
-date: 2023-08-24
+title: "Handy code snippets"
+date: "2023-09-16"
 tags:
-  - code
+- code
 ---
 
-### Sleep on Mac  
+## Sleep on Mac
 
 Disable sleeping when the lid is closed running on battery
 
@@ -14,12 +13,17 @@ Disable sleeping when the lid is closed running on battery
 sudo pmset -b sleep 0; sudo pmset -b disablesleep 1
 ```
 
+
+
 Re-enable sleeping when the lid is closed running on battery
+
 ```bash
 sudo pmset -b sleep 5; sudo pmset -b disablesleep 0
 ```
 
-### Hidden files in Finder
+
+
+## Hidden files in Finder
 
 Show hidden files
 
@@ -31,6 +35,8 @@ defaults write com.apple.finder AppleShowAllFiles TRUE
 killall Finder
 ```
 
+
+
 Hide hidden files
 
 ```bash
@@ -40,3 +46,7 @@ defaults write com.apple.finder AppleShowAllFiles FALSE
 ```bash
 killall Finder
 ```
+
+
+
+

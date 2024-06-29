@@ -273,3 +273,9 @@ img {
     height: 100%; 
     object-fit: contain;
 }
+
+footer {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}

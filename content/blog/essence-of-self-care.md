@@ -1,11 +1,11 @@
 ---
-title: Essence of self-care
-description: This is a post on My Blog about agile frameworks.
-date: 2023-11-17
+title: "Essence of self-care"
+date: "2024-06-11"
 tags:
-  - selfcare
+- health
 ---
-**Being active in nature**
+
+Being active in nature
 
 - Listening to birds singing
 
@@ -13,7 +13,7 @@ tags:
 
 - Breathing fresh air
 
-**Eating well**
+Eating well
 
 - Cooking from a local produce
 
@@ -21,7 +21,7 @@ tags:
 
 - Meal preparation with someone I care for
 
-**Reflection**
+Reflection
 
 - Gratitude journaling
 
@@ -29,10 +29,14 @@ tags:
 
 - Reading a beautiful book
 
-**Rituals and ceremonies**
+Rituals and ceremonies
 
 - Taking care of my skin
 
 - Staying hydrated
 
 - Drinking loose-leaf tea during gong-fu cha ceremony
+
+
+
+
