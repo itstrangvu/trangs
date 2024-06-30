@@ -56,6 +56,17 @@ body {
 	max-width: 40em;
 }
 
+::selection {
+    background-color: #014421; /* Deep Forest Green */
+    color: white;
+}
+
+::-moz-selection {
+    background-color: #014421; /* Deep Forest Green for Firefox */
+    color: white;
+}
+
+
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
 .visually-hidden {
 	clip: rect(0 0 0 0);
@@ -182,19 +193,19 @@ header {
 .postlist {
 	list-style: none;
 	padding: 0;
-	padding-left: 1.5rem;
+	/* padding-left: 1.5rem; */
 }
 .postlist-item {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
-	counter-increment: start-from -1;
+	/*counter-increment: start-from -1;*/
 	margin-bottom: 1em;
 }
 .postlist-item:before {
 	display: inline-block;
 	pointer-events: none;
-	content: "" counter(start-from, decimal-leading-zero) ". ";
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
 	line-height: 100%;
 	text-align: right;
 	margin-left: -1.5rem;
@@ -211,8 +222,8 @@ header {
 	font-size: 1.1875em; /* 19px /16 */
 	font-weight: 700;
 	flex-basis: calc(100% - 1.5rem);
-	padding-left: .25em;
-	padding-right: .5em;
+	/* padding-left: .25em;
+	padding-right: .5em; */
 	text-underline-position: from-font;
 	text-underline-offset: 0;
 	text-decoration-thickness: 1px;
@@ -279,3 +290,5 @@ footer {
 	flex-direction: row-reverse;
 	justify-content: space-between;
 }
+
+
