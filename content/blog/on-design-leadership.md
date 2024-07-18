@@ -5,11 +5,17 @@ tags:
 - design
 ---
 
+These are my personal notes on leadership that I would appreciate back when I was all new to the role of a leader. Hopefully, someone out there will find this insightful as well.
+
 ## How It All Started
 
 In the spring of 2021, I had the privilege of stepping into the role of Product Design Lead. During one of my one-on-one sessions with Honza Čurn, I expressed my ambition to transition from an individual contributor to a leader. With his trust and support, I embarked on the journey of building an in-house design team, starting by hiring our first Product Designer. Before we knew it, our team had grown to five talented designers.
 
 Given that leadership was a new frontier for me, I enrolled in a leadership workshop cohort provided by Femme Palette for female leaders. Additionally, I benefited from monthly mentorship sessions with Lusine Yeremyan, whose invaluable insights, lectures, and tips have been instrumental to my growth.
+
+
+
+### TL;DR
 
 Here are the key takeaways I'd like to share with fellow leaders, official or unofficial:
 
@@ -71,7 +77,7 @@ Effective communication is essential, especially during times of uncertainty lik
 
 ## Lead by example
 
-Strive to be an exemplary designer, have confidence in your work, and avoid subpar efforts. Authenticity is crucial; over time, people will recognize if you are not genuine.
+Strive to be an exemplary designer, have confidence in your work, and avoid lousy outputs. Authenticity is crucial – over time, people will recognize if you are not genuine.
 
 ## Educate others in the company
 
@@ -79,4 +85,6 @@ Advocate for design's equal place alongside engineering and product development.
 
 
 
-I hope these insights help you on your leadership journey. Remember, leadership is not just a position but an ongoing commitment to personal and team growth.
+I hope these insights will be helpful to someone out there in their leadership journey. Remember, leadership is not just a position but an ongoing commitment to personal and team growth.
+
+
