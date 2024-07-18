@@ -66,6 +66,12 @@ function parseBlocksToMarkdown(blocks) {
   try {
     const response = await notion.databases.query({
       database_id: databaseId,
+      filter: {
+        property: 'Is Published',
+        checkbox: {
+          equals: true
+        }
+      }
     });
 
     const fetchedPosts = response.results.map(async page => {
