@@ -25,7 +25,7 @@ Self-care is ongoing. It's not a one and done fix for everything. So I strive to
 
 - Cooking from a local produce
 
-- Prepare a meal with a friend
+- Share a meal with friends
 
 - Consuming healthy, anti-inflammatory foods
 
@@ -42,8 +42,6 @@ Self-care is ongoing. It's not a one and done fix for everything. So I strive to
 - Hygiene of body and space
 
 - Drinking loose-leaf tea
-
-- Meditation
 
 ## Play
 
