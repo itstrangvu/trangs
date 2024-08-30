@@ -9,7 +9,7 @@ This is the ideal setting/environment for me to work effectively as a product de
 
 ### Build with the end users in mind 
 
-Implement continuous research, talk to the users daily and gather the insights.
+Implement continuous research, talk to the users on a regular basis and gather the insights.
 
 ### Meaningful direction
 
