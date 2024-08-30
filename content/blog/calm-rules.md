@@ -25,8 +25,6 @@ I like to think of earplugs as masks for ear canals.
 
 Of course, there is a time and a place for excitement, euphoria, joy, and even nervous anticipation. But living at the extremes of emotion for an extended period is exhausting. Layering extreme emotions over daily stress and uncertainty equals chaos.
 
-
-
 ## Summary
 
 I seek simplicity and serenity whenever I can. Calmness is a welcome tonic that brings me back into balance, offering clarity, serenity, and quiet genius.
