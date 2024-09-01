@@ -29,6 +29,6 @@ Escape the algorithm by selecting information content with intention. Also consi
 
 ### Warmth
 
-Antidote to negativity is warmth, not positivity. Feeling down? I won’t cheer you up. 
+Antidote to negativity is warmth, not positivity. Positivity tells a sad person that there is no reason to be sad. Warmth asks the sad person if they want to go get some ice cream. 
 
 
