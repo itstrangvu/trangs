@@ -19,10 +19,6 @@ Give zero fuel to poor behavior, bad ideas, performative smartness. Focus your e
 
 Celebrate incremental accomplishments and enjoying the journey.
 
-### Context > consistency
-
-When it comes to design, I think designing around the current context is better than designing to satisfy prior consistency. 
-
 ### Careful curation
 
 Escape the algorithm by selecting information content with intention. Also consider stepping away from your screen and doing something completely different and unrelated. 

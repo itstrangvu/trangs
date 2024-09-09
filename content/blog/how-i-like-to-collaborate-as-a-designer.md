@@ -39,6 +39,10 @@ Ping-pong between designer and developer.
 
 Crucial to keep the team motivated. 
 
+### Context > consistency
+
+When it comes to design, I think designing around the current context is better than designing to satisfy prior consistency. 
+
 
 
 So, these are the main points that come to my mind. Most of them are must-haves and I will challenge the status quo when the work setting lacks any of these. 
