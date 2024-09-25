@@ -23,6 +23,8 @@ Here are the key takeaways I'd like to share with fellow leaders, official or un
 
 1. Grow and nurture your team
 
+1. Learn business
+
 1. Communication is key
 
 1. Lead by example
@@ -70,6 +72,18 @@ I created and continually updated a spider chart for each team member, assessing
 ### Create a sense of belonging
 
 A great leader fosters a sense of belonging within the team. We held regular design sessions to discuss specific design-related topics, encouraging each designer to share their insights, opinions, and ideas.
+
+
+
+## Learn about business
+
+It is crucial to learn the business & its politics: how the organization makes money, how designer roles contribute to that, and how to get others to see that.
+
+Part of why so many design-adjacent roles are struggling is because market conditions (e.g., higher interest rates, over-hiring during the pandemic, etc.) shifted emphasis from growth to profitability. If the role isn't seen to contribute to the bottom line, it won't be around long.
+
+Alas, many designers aren't used to thinking in these terms. I hear from many who seem to think that 'user centricity' is self-evidently desirable. As a result, they can't make convincing business arguments for their role. 
+
+Know how your work impacts business metrics. 
 
 ## Communication is key
 
