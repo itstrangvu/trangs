@@ -1,6 +1,6 @@
 ---
 title: "On (design) leadership"
-date: "2024-07-03"
+date: "2024-09-25"
 tags:
 - design
 ---
@@ -75,15 +75,15 @@ A great leader fosters a sense of belonging within the team. We held regular des
 
 
 
-## Learn about business
+## Learn business
 
-It is crucial to learn the business & its politics: how the organization makes money, how designer roles contribute to that, and how to get others to see that.
+It is crucial to learn the business and its politics: how the organization makes money, how designer roles contribute to that, and how to get others to see that.
 
 Part of why so many design-adjacent roles are struggling is because market conditions (e.g., higher interest rates, over-hiring during the pandemic, etc.) shifted emphasis from growth to profitability. If the role isn't seen to contribute to the bottom line, it won't be around long.
 
 Alas, many designers aren't used to thinking in these terms. I hear from many who seem to think that 'user centricity' is self-evidently desirable. As a result, they can't make convincing business arguments for their role. 
 
-Know how your work impacts business metrics. 
+Know how your team’s work impacts business metrics. 
 
 ## Communication is key
 
