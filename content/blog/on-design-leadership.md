@@ -47,11 +47,23 @@ As a leader, you share in both the successes and failures of your team.
 
 At the beginning of each month, I would post my available slots in a private Slack channel for team members to reserve their 1-on-1 sessions. During these meetings, we would discuss:
 
+- What did you complete over past month?
+
 - What made you happy in the past month?
 
 - What did you not like about last month?
 
-- What can I do to help you succeed?
+- What are the blockers or where do you need my help? 
+
+- Where do you see yourself in half a year/year/5 years?
+
+### Provide a clear path for promotion
+
+Ideally in a format of rubric of skills or knowledge the member’s role needs to acquire. Call that a career ladder. 
+
+It serves two things – folks have structure to fall into and can feel progress. But also those who want to chill, can chill.  When a designer asks for a promotion, I would go pull it out and say for example “To get a raise, you should first become an expert contributor to our design system.”
+
+Here’s an example of a Product Design rubric. 
 
 ### Keep Track of Your Team’s Strengths and Weaknesses
 
