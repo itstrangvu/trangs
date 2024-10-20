@@ -1,6 +1,6 @@
 ---
 title: "Principles now"
-date: "2024-08-28"
+date: "2024-10-20"
 tags:
 - life
 ---

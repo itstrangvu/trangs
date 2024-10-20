@@ -1,5 +1,5 @@
 ---
-title: "How I like to collaborate as a designer"
+title: "How I like to collaborate"
 date: ""
 tags:
 - design

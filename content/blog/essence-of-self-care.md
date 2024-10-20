@@ -60,3 +60,5 @@ Self-care is ongoing. It's not a one and done fix for everything. So I strive to
 - Communicate boundaries
 
 
+
+

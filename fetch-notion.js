@@ -2,14 +2,21 @@ require('dotenv').config();
 const { Client } = require('@notionhq/client');
 const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
+const sharp = require('sharp');
+const urlModule = require('url');
 
 // Initializing a client
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-// Ensure the directory exists
+// Ensure the directories exist
 const dataDir = path.join(__dirname, 'content/blog');
+const imageDir = path.join(__dirname, 'public/images');
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
+}
+if (!fs.existsSync(imageDir)) {
+  fs.mkdirSync(imageDir, { recursive: true });
 }
 
 // Function to retrieve blocks for a page
@@ -30,12 +37,33 @@ async function getBlocks(blockId) {
   return blocks;
 }
 
+// Function to download and optimize image
+async function downloadAndOptimizeImage(url, filename) {
+  const response = await axios.get(url, { responseType: 'arraybuffer' });
+  const buffer = Buffer.from(response.data, 'binary');
+  
+  const optimizedImageBuffer = await sharp(buffer)
+    .resize(800) // Resize to max width of 800px
+    .webp({ quality: 80 }) // Convert to WebP format with 80% quality
+    .toBuffer();
+  
+  const localPath = path.join(imageDir, `${filename}.webp`);
+  await fs.promises.writeFile(localPath, optimizedImageBuffer);
+  
+  return `/images/${filename}.webp`;
+}
+
 // Function to parse blocks to markdown
-function parseBlocksToMarkdown(blocks) {
-  return blocks.map(block => {
+async function parseBlocksToMarkdown(blocks) {
+  const markdownBlocks = await Promise.all(blocks.map(async block => {
     switch (block.type) {
       case 'paragraph':
-        return block.paragraph.rich_text.map(text => text.plain_text).join('');
+      return block.paragraph.rich_text.map(text => {
+        if (text.href) {
+          return `<a href="${text.href}" target="_blank" rel="noopener noreferrer">${text.plain_text}</a>`;
+        }
+        return text.plain_text;
+      }).join('');
       case 'heading_1':
         return `# ${block.heading_1.rich_text.map(text => text.plain_text).join('')}`;
       case 'heading_2':
@@ -53,11 +81,19 @@ function parseBlocksToMarkdown(blocks) {
       case 'code':
         return `\`\`\`${block.code.language}\n${block.code.rich_text.map(text => text.plain_text).join('')}\n\`\`\``;
       case 'image':
-        return `![${block.image.caption.map(text => text.plain_text).join('')}](${block.image.file.url})`;
+        const imageUrl = block.image.file?.url || block.image.external?.url;
+        if (imageUrl) {
+          const filename = urlModule.parse(imageUrl).pathname.split('/').pop();
+          const localImagePath = await downloadAndOptimizeImage(imageUrl, filename);
+          return `![${block.image.caption.map(text => text.plain_text).join('')}](${localImagePath})`;
+        }
+        return '';
       default:
         return '';
     }
-  }).join('\n\n');
+  }));
+
+  return markdownBlocks.join('\n\n');
 }
 
 (async () => {
@@ -79,13 +115,13 @@ function parseBlocksToMarkdown(blocks) {
       const dateProperty = page.properties.Date?.date?.start || '';
       const tagsProperty = page.properties.Tags?.multi_select.map(tag => tag.name) || [];
 
-      console.log(`Fetched post: ${titleProperty}`); // Log title to check if it is fetched correctly
+      console.log(`Fetched post: ${titleProperty}`);
 
       // Retrieve blocks for this page
       const blocks = await getBlocks(page.id);
-      const contentProperty = parseBlocksToMarkdown(blocks);
+      const contentProperty = await parseBlocksToMarkdown(blocks);
 
-      console.log(`Content: ${contentProperty}`); // Log content to check if it is fetched correctly
+      console.log(`Content processed for: ${titleProperty}`);
 
       return {
         id: page.id,
@@ -110,7 +146,7 @@ function parseBlocksToMarkdown(blocks) {
     // Create/update posts and mark them as existing
     posts.forEach(post => {
       const { title, content, date, tags } = post;
-      const safeTitle = title.replace(/[^a-z0-9]+/gi, '-').toLowerCase(); // create a URL-safe title
+      const safeTitle = title.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
       const filename = `${safeTitle}.md`;
       const tagsMarkdown = tags.map(tag => `- ${tag}`).join('\n');
       const markdownContent = `---
