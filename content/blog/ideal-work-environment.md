@@ -1,6 +1,6 @@
 ---
-title: "How I like to collaborate"
-date: ""
+title: "Ideal work environment"
+date: "2024-08-15"
 tags:
 - design
 ---
@@ -29,11 +29,11 @@ Create small scoped tasks where you can show a diff in a design/code file.
 
 ### Give (radically candid) feedback along the way
 
-We can hop on a 1on1 call/chat anytime. 
+There should be a possibility to give radically candid feedback anytime. We can hop on a 1on1 call/chat anytime. 
 
 ### Make a space for cross-functional teams
 
-Ping-pong between designer and developer.
+Ping-pong between designer and developer and have enough autonomy/accountability. 
 
 ### Look back and celebrate
 
