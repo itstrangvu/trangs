@@ -55,7 +55,7 @@ For example, I prepared a Merchant Center account with a corresponding Customer 
 
 ### Record, edit and download
 
-Capture footage using <a href="https://www.tella.tv/" target="_blank" rel="noopener noreferrer">Tella</a> for desktop recordings and Bezel for mirroring and recording mobile device screens.
+Capture footage using <a href="https://www.tella.tv/" target="_blank" rel="noopener noreferrer">Tella</a> for desktop recordings and <a href="https://nonstrict.eu/bezel/" target="_blank" rel="noopener noreferrer">Bezel</a> for mirroring and recording mobile device screens.
 
 - Tella offers a flexible editing environment where you can trim, rearrange, or replace sections with ease.
 
@@ -67,11 +67,11 @@ Capture footage using <a href="https://www.tella.tv/" target="_blank" rel="noope
 
 Extract the original audio using FFmpeg:
 
-
-
 ```bash
 ffmpeg -i original_video.mp4 -q:a 0 -map a output_audio.mp3
 ```
+
+
 
 Use <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer">Eleven Labs</a> to replace the audio with a professional-quality voiceover. For instance, I prefer the River voice option. 
 
@@ -79,11 +79,15 @@ Use <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer">E
 
 Upload the extracted audio, generate the new version, and save it as main_audio.mp3.
 
+
+
 Remove the original audio from the video:
 
 ```bash
 ffmpeg -i original_video.mp4 -an video_without_audio.mp4
 ```
+
+
 
 Combine the video with the new voiceover and background music (set the music volume to 2% for balance):
 
