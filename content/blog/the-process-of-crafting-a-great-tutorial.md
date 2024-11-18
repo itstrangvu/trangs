@@ -115,6 +115,9 @@ To ensure a professional and visually appealing result:
 
 
 
+Here’s the output video: <a href="https://www.tella.tv/video/ai-how-to-redeem-vouchers-ai-h3yf" target="_blank" rel="noopener noreferrer">https://www.tella.tv/video/ai-how-to-redeem-vouchers-ai-h3yf</a>
+
+
 Creating tutorials can be a rewarding process, allowing you to share knowledge in an engaging and professional way. Happy creating! 
 
 
