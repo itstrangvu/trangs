@@ -63,19 +63,33 @@ Capture footage using <a href="https://www.tella.tv/" target="_blank" rel="noope
 
 ![Multiple recordings in Tella edit mode](/images/Screenshot_2024-11-18_at_21.58.44.png.webp)
 
-### Post processing
+## Post processing
 
-Polish your video with sound enhancements and aesthetic touches:
-
-1. Extract the original audio using FFmpeg:
-
-1. Use Eleven Labs to replace the audio with a professional-quality voiceover. For instance, I prefer the River voice option. 
-
-1. Remove the original audio from the video:
-
-1. Combine the video with the new voiceover and background music (set the music volume to 2% for balance):
+Extract the original audio using FFmpeg:
 
 
+
+```bash
+ffmpeg -i original_video.mp4 -q:a 0 -map a output_audio.mp3
+```
+
+Use <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer">Eleven Labs</a> to replace the audio with a professional-quality voiceover. For instance, I prefer the River voice option. 
+
+![Eleven Labs voice changer](/images/Screenshot_2024-11-14_at_10.22.04.png.webp)
+
+Upload the extracted audio, generate the new version, and save it as main_audio.mp3.
+
+Remove the original audio from the video:
+
+```bash
+ffmpeg -i original_video.mp4 -an video_without_audio.mp4
+```
+
+Combine the video with the new voiceover and background music (set the music volume to 2% for balance):
+
+```bash
+ffmpeg -i video_without_audio.mp4 -i main_audio.mp3 -i background_music.mp3 -filter_complex "[1:a]volume=1[a1];[2:a]volume=0.02[a2];[a1][a2]amix=inputs=2:duration=first[a]" -map 0:v -map "[a]" -c:v copy -shortest output_video_with_audio_and_bg_music.mp4
+```
 
 ### Share
 
