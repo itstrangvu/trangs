@@ -72,7 +72,12 @@ async function parseBlocksToMarkdown(blocks) {
       case 'heading_3':
         return `### ${block.heading_3.rich_text.map(text => text.plain_text).join('')}`;
       case 'bulleted_list_item':
-        return `- ${block.bulleted_list_item.rich_text.map(text => text.plain_text).join('')}`;
+        return `- ${block.bulleted_list_item.rich_text.map(text => {
+          if (text.href) {
+            return `<a href="${text.href}" target="_blank" rel="noopener noreferrer">${text.plain_text}</a>`;
+          }
+          return text.plain_text;
+        }).join('')}`;
       case 'numbered_list_item':
         return `1. ${block.numbered_list_item.rich_text.map(text => text.plain_text).join('')}`;
       case 'to_do':

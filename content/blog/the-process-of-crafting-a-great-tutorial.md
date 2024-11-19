@@ -17,15 +17,15 @@ In this guide, I’ll walk you through my approach to creating tutorials using a
 
 ## The tools
 
-- Claude and ChatGPT – for refining and perfecting the script.
+- <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a> and <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a> – for refining and perfecting the script.
 
-- Tella – for recording desktop content and editing the source materials.
+- <a href="https://www.tella.tv/" target="_blank" rel="noopener noreferrer">Tella</a> – for recording desktop content and editing the source materials.
 
-- Bezel – for capturing mobile device screens.
+- <a href="https://nonstrict.eu/bezel/" target="_blank" rel="noopener noreferrer">Bezel</a> – for capturing mobile device screens.
 
-- FFmpeg – for sound editing, including removing and merging audio tracks.
+- <a href="https://www.ffmpeg.org/" target="_blank" rel="noopener noreferrer">FFmpeg</a> – for sound editing, including removing and merging audio tracks.
 
-- Eleven Labs – for enhancing or changing voiceovers.
+- <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer">Eleven Labs</a> – for enhancing or changing voiceovers.
 
 
 
