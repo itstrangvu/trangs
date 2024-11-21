@@ -61,9 +61,14 @@ Capture footage using <a href="https://www.tella.tv/" target="_blank" rel="noope
 
 - For mobile recordings, Bezel mirrors the device screen onto your computer, ensuring high-quality visuals.
 
-![Multiple recordings in Tella edit mode](/images/Screenshot_2024-11-18_at_21.58.44.png.webp)
 
-## Post processing
+
+<figure>
+            <img src="/images/Screenshot_2024-11-18_at_21.58.44.png.webp" alt="Multiple recordings in Tella edit mode">
+            <figcaption>Multiple recordings in Tella edit mode</figcaption>
+          </figure>
+
+### Post processing
 
 Extract the original audio using FFmpeg:
 
@@ -75,7 +80,10 @@ ffmpeg -i original_video.mp4 -q:a 0 -map a output_audio.mp3
 
 Use <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer">Eleven Labs</a> to replace the audio with a professional-quality voiceover. For instance, I prefer the River voice option. 
 
-![Eleven Labs voice changer](/images/Screenshot_2024-11-14_at_10.22.04.png.webp)
+<figure>
+            <img src="/images/Screenshot_2024-11-14_at_10.22.04.png.webp" alt="Eleven Labs voice changer">
+            <figcaption>Eleven Labs voice changer</figcaption>
+          </figure>
 
 Upload the extracted audio, generate the new version, and save it as main_audio.mp3.
 
@@ -115,7 +123,10 @@ To ensure a professional and visually appealing result:
 
 
 
-Here’s the output video: <a href="https://www.tella.tv/video/ai-how-to-redeem-vouchers-ai-h3yf" target="_blank" rel="noopener noreferrer">https://www.tella.tv/video/ai-how-to-redeem-vouchers-ai-h3yf</a>
+Here’s the output video: 
+
+<a href="https://www.tella.tv/video/how-to-redeem-groupon-vouchers-ai-generated-voice-9emu" target="_blank" rel="noopener noreferrer">https://www.tella.tv/video/how-to-redeem-groupon-vouchers-ai-generated-voice-9emu</a>
+
 
 
 Creating tutorials can be a rewarding process, allowing you to share knowledge in an engaging and professional way. Happy creating! 

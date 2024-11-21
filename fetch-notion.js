@@ -91,7 +91,11 @@ async function parseBlocksToMarkdown(blocks) {
         if (imageUrl) {
           const filename = urlModule.parse(imageUrl).pathname.split('/').pop();
           const localImagePath = await downloadAndOptimizeImage(imageUrl, filename);
-          return `![${block.image.caption.map(text => text.plain_text).join('')}](${localImagePath})`;
+          const caption = block.image.caption.map(text => text.plain_text).join('');
+          return `<figure>
+            <img src="${localImagePath}" alt="${caption}">
+            ${caption ? `<figcaption>${caption}</figcaption>` : ''}
+          </figure>`;
         }
         return '';
       default:

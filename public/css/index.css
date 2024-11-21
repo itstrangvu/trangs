@@ -292,4 +292,12 @@ footer {
 	padding: 1em;
 }
 
+figcaption {
+	font-size: 0.8em;
+	padding-top: 0.6em;
+}
 
+figure {
+	padding: 0;
+	margin: 0; /* Optionally reset margins if needed */
+}
