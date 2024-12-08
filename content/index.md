@@ -9,7 +9,7 @@ eleventyNavigation:
 
 Focusing my energy on creating data visualizations and digital experiences for positive change since I like to spend my days doing something that aligns with my personal values: balance, inclusivity, sustainability. 
 
-Now I work as a **Lead Product Designer** at **<a href="https://www.groupon.com/" target="_blank">Groupon</a>** where I'm crafting intuitive tools that make life easier for Merchants and the supply side.
+Currently, I'm leading the charge as a **Lead Product Designer** at **<a href="https://www.groupon.com/" target="_blank">Groupon</a>** shaping tools that empower Merchants and streamline the supply side experience. 
 
 Previously, I was a Head of Design at Apify for several years, and before that, I crafted frontends for various operational dashboards and systems.
 
