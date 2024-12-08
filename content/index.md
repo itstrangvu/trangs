@@ -11,7 +11,7 @@ Focusing my energy on creating data visualizations and digital experiences for p
 
 Now I work as a **Lead Product Designer** at **<a href="https://www.groupon.com/" target="_blank">Groupon</a>** where I'm crafting intuitive tools that make life easier for Merchants and the supply side.
 
-Previously, I served as a software design lead for several years, and before that, I crafted frontends for various operational dashboards and systems.
+Previously, I was a Head of Design at Apify for several years, and before that, I crafted frontends for various operational dashboards and systems.
 
 My temporary work portfolio is available on <a href="https://trang-vu.notion.site/141a20a912114958b81a5869916cf9cb?v=7046a53bc0714379ab15bdabbb766028&pvs=4" target="_blank">this Notion public site</a>.
 
