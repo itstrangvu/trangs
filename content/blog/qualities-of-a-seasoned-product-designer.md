@@ -56,6 +56,4 @@ Of course, all of these qualities apply in ideal state. If the specific candidat
 
 
 
-Sooo, the list above is an answer that you get if you ask me “What is a seasoned product designer like?”. 
-
 
