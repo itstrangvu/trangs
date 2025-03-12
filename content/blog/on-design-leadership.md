@@ -63,7 +63,7 @@ Ideally in a format of rubric of skills or knowledge the member’s role needs t
 
 It serves two things – folks have structure to fall into and can feel progress. But also those who want to chill, can chill.  When a designer asks for a promotion, I would go pull it out and say for example “To get a raise, you should first become an expert contributor to our design system.”
 
-Here’s an example of <a href="https://docs.google.com/spreadsheets/d/1FnpTF9kfRj9ZriQYATrLO9J0whroFMn6qGc18LdAuQY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">a Product Design rubric</a>. 
+Here’s an example of [a Product Design rubric](https://docs.google.com/spreadsheets/d/1FnpTF9kfRj9ZriQYATrLO9J0whroFMn6qGc18LdAuQY/edit?usp=sharing). 
 
 ### Keep Track of Your Team’s Strengths and Weaknesses
 

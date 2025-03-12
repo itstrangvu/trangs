@@ -11,15 +11,15 @@ This is my personal cheat sheet to recall those Figma shortcuts I find handy dur
 
 ### Show/Hide UI
 
-⌘ + \
+`⌘` + `\`
 
 ### Bulk rename
 
-Select layers then ⌘ + R
+Select layers then `⌘` + `R`
 
 ### Pick color 
 
-control + C
+`control` + `C`
 
 
 

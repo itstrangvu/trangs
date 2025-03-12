@@ -33,7 +33,7 @@ Ensure that each Figma file includes a thumbnail cover. A well-crafted thumbnail
 
 ### Ensuring the right access
 
-Please ensure your Figma file is accessible to all relevant team members (ideally everyone at Groupon). Avoid keeping shared files in your Drafts. If an assigned developer doesn’t have a Dev seat or a PM lacks view rights, please make sure they get the necessary access. For access-related issues, you can use our dedicated Google Chat space called Figma Access.
+Please ensure your Figma file is accessible to all relevant team members (ideally everyone at Groupon). Avoid keeping shared files in your Drafts. If an assigned developer doesn’t have a Dev seat or a PM lacks view rights, please make sure they get the necessary access. For access-related issues, you can use our dedicated Google Chat space called **Figma Access**.
 
 ## All necessary resolutions
 
@@ -63,7 +63,7 @@ Unless you've agreed otherwise with your product manager, please prepare screens
 
 - Where applicable, specify the error reason.
 
-### Missing data or images
+### **Missing data or images**
 
 - Use placeholders for images or data that might not arrive from the backend.
 

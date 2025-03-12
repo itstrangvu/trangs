@@ -5,7 +5,7 @@ tags:
 - code
 ---
 
-## Sleep on Mac
+## **Sleep on Mac**
 
 Disable sleeping when the lid is closed running on battery
 
@@ -23,7 +23,7 @@ sudo pmset -b sleep 5; sudo pmset -b disablesleep 0
 
 
 
-## Hidden files in Finder
+## **Hidden files in Finder**
 
 Show hidden files
 

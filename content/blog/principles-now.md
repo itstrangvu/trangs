@@ -11,7 +11,7 @@ This is a catalogue of principles that drive me now.
 
 And meet them in a way so that you can see where they’re at conceptually, emotionally. Verbally recognize their wisdom and emphasize when things go well.
 
-### Stay real
+### **Stay real**
 
 Give zero fuel to poor behavior, bad ideas, performative smartness. Focus your emotional and intellectual energy on the right things.
 

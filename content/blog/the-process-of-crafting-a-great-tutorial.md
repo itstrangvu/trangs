@@ -11,41 +11,41 @@ Effective knowledge sharing requires the right tools and a thoughtful process. H
 
 
 
-In this guide, I’ll walk you through my approach to creating tutorials using a specific example: How to Redeem Vouchers, designed for Groupon Merchants.
+In this guide, I’ll walk you through my approach to creating tutorials using a specific example: **How to Redeem Vouchers**, designed for Groupon Merchants.
 
 
 
-## The tools
+## **The tools**
 
-- <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a> and <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a> – for refining and perfecting the script.
+- [**Claude**](https://claude.ai/)** and **[**ChatGPT**](https://chatgpt.com/) – for refining and perfecting the script.
 
-- <a href="https://www.tella.tv/" target="_blank" rel="noopener noreferrer">Tella</a> – for recording desktop content and editing the source materials.
+- [**Tella**](https://www.tella.tv/) – for recording desktop content and editing the source materials.
 
-- <a href="https://nonstrict.eu/bezel/" target="_blank" rel="noopener noreferrer">Bezel</a> – for capturing mobile device screens.
+- [**Bezel**](https://nonstrict.eu/bezel/) – for capturing mobile device screens.
 
-- <a href="https://www.ffmpeg.org/" target="_blank" rel="noopener noreferrer">FFmpeg</a> – for sound editing, including removing and merging audio tracks.
+- [**FFmpeg**](https://www.ffmpeg.org/) – for sound editing, including removing and merging audio tracks.
 
-- <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer">Eleven Labs</a> – for enhancing or changing voiceovers.
+- [**Eleven Labs**](https://elevenlabs.io/) – for enhancing or changing voiceovers.
 
 
 
-## The process
+## **The process**
 
-1. Script
+1. **Script**
 
-1. Preparation
+1. **Preparation**
 
-1. Record, edit and download
+1. **Record, edit and download**
 
-1. Post processing
+1. **Post processing**
 
-1. Share
+1. **Share**
 
 
 
 ### Script
 
-First, it is crucial to draft the script with the screenshots. For signing it off with stakeholders, the draft lives in a Google doc. Then have it proofread using an AI tool of your choice – I used a combination of <a href="https://claude.ai/new" target="_blank" rel="noopener noreferrer">Claude</a> and <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>. 
+First, it is crucial to draft the script with the screenshots. For signing it off with stakeholders, the draft lives in a Google doc. Then have it proofread using an AI tool of your choice – I used a combination of [Claude](https://claude.ai/new) and [ChatGPT](https://chatgpt.com/). 
 
 ### Preparation
 
@@ -55,22 +55,22 @@ For example, I prepared a Merchant Center account with a corresponding Customer 
 
 ### Record, edit and download
 
-Capture footage using <a href="https://www.tella.tv/" target="_blank" rel="noopener noreferrer">Tella</a> for desktop recordings and <a href="https://nonstrict.eu/bezel/" target="_blank" rel="noopener noreferrer">Bezel</a> for mirroring and recording mobile device screens.
+Capture footage using [**Tella**](https://www.tella.tv/) for desktop recordings and [**Bezel**](https://nonstrict.eu/bezel/) for mirroring and recording mobile device screens.
 
-- Tella offers a flexible editing environment where you can trim, rearrange, or replace sections with ease.
+- **Tella** offers a flexible editing environment where you can trim, rearrange, or replace sections with ease.
 
-- For mobile recordings, Bezel mirrors the device screen onto your computer, ensuring high-quality visuals.
+- For mobile recordings, **Bezel** mirrors the device screen onto your computer, ensuring high-quality visuals.
 
 
 
 <figure>
-            <img src="/images/Screenshot_2024-11-18_at_21.58.44.png.webp" alt="Multiple recordings in Tella edit mode">
-            <figcaption>Multiple recordings in Tella edit mode</figcaption>
-          </figure>
+  <img src="/images/Screenshot_2024-11-18_at_21.58.44.png.webp" alt="Multiple recordings in Tella edit mode">
+  <figcaption>Multiple recordings in Tella edit mode</figcaption>
+</figure>
 
 ### Post processing
 
-Extract the original audio using FFmpeg:
+Extract the original audio using **FFmpeg**:
 
 ```bash
 ffmpeg -i original_video.mp4 -q:a 0 -map a output_audio.mp3
@@ -78,14 +78,14 @@ ffmpeg -i original_video.mp4 -q:a 0 -map a output_audio.mp3
 
 
 
-Use <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer">Eleven Labs</a> to replace the audio with a professional-quality voiceover. For instance, I prefer the River voice option. 
+Use [Eleven Labs](https://elevenlabs.io/) to replace the audio with a professional-quality voiceover. For instance, I prefer the River voice option. 
 
 <figure>
-            <img src="/images/Screenshot_2024-11-14_at_10.22.04.png.webp" alt="Eleven Labs voice changer">
-            <figcaption>Eleven Labs voice changer</figcaption>
-          </figure>
+  <img src="/images/Screenshot_2024-11-14_at_10.22.04.png.webp" alt="Eleven Labs voice changer">
+  <figcaption>Eleven Labs voice changer</figcaption>
+</figure>
 
-Upload the extracted audio, generate the new version, and save it as main_audio.mp3.
+Upload the extracted audio, generate the new version, and save it as `main_audio.mp3`.
 
 
 
@@ -109,7 +109,7 @@ Upload your polished tutorial to YouTube or your preferred platform and share it
 
 
 
-## Guidelines for tutorial design
+## **Guidelines for tutorial design**
 
 To ensure a professional and visually appealing result:
 
@@ -125,7 +125,7 @@ To ensure a professional and visually appealing result:
 
 Here’s the output video: 
 
-<a href="https://www.tella.tv/video/how-to-redeem-groupon-vouchers-ai-generated-voice-9emu" target="_blank" rel="noopener noreferrer">https://www.tella.tv/video/how-to-redeem-groupon-vouchers-ai-generated-voice-9emu</a>
+[https://www.tella.tv/video/how-to-redeem-groupon-vouchers-ai-generated-voice-9emu](https://www.tella.tv/video/how-to-redeem-groupon-vouchers-ai-generated-voice-9emu)
 
 
 
