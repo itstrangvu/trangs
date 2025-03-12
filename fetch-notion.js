@@ -77,10 +77,14 @@ async function downloadAndOptimizeImage(url, filename) {
   const response = await axios.get(url, { responseType: 'arraybuffer' });
   const buffer = Buffer.from(response.data, 'binary');
 
-  // Resize to max width of 960px, apply sharpen, then convert to WebP
+  // Resize to max width of 1200px, apply sharpen with parameters, then convert to WebP
   const optimizedImageBuffer = await sharp(buffer)
-    .resize(960)
-    .sharpen() // <-- optionally pass parameters to tweak sharpness
+    .resize(1200, null, { withoutEnlargement: true }) // Optional: Prevents enlarging the image if smaller than 960px
+    .sharpen({ 
+      sigma: 1.5,  // Increase to sharpen more
+      flat: 1,     // Helps preserve flat areas
+      jagged: 1    // Helps preserve jagged edges
+    })
     .webp({ quality: 80 })
     .toBuffer();
 
@@ -89,6 +93,7 @@ async function downloadAndOptimizeImage(url, filename) {
 
   return `/images/${filename}.webp`;
 }
+
 
 /**
  * Convert a list of Notion blocks into a Markdown string

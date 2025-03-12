@@ -17,6 +17,7 @@
 	--text-color-link-active: #02b368;
 	--text-color-link-visited: #17050F;
 
+	--code-color: #014421;
 	--syntax-tab-size: 2;
 }
 
@@ -32,6 +33,7 @@
 		--text-color-link-visited: #fff;
 
 		--background-color: #02211c;
+		--code-color: #02b368;
 	}
 }
 
@@ -48,7 +50,9 @@ body {
 	font-family: var(--font-family);
 	color: var(--text-color);
 	background-color: var(--background-color);
+	max-width: 40em;
 }
+
 html {
 	overflow-y: scroll;
 }
@@ -279,11 +283,21 @@ h2 + .header-anchor {
 	font-size: 1.5em;
 }
 
+/* Existing image defaults for mobile/smaller screens */
 img {
-    width: 100%; /* or any custom size */
-    height: 100%; 
-    object-fit: contain;
-}
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+  }
+  
+  /* On desktop (≥960px wide screens), fix the image width at 960px and center it */
+  @media (min-width: 960px) {
+	img {
+	  width: 960px;
+	  display: block;        /* Inline images need display: block to center with auto margins */
+	  margin: 0 auto;        /* Center horizontally */
+	}
+  }  
 
 footer {
 	display: flex;
@@ -305,10 +319,50 @@ figure {
 
 code {
 	background-color: rgba(135, 131, 120, 0.15); /* Soft gray background */
-	color: #014421;
+	color: var(--code-color);
 	font-size: 0.9em;
 	padding: 2px 4px;
 	border-radius: 4px;
 	white-space: nowrap;
-  }
+}
+  
+/* Mobile default: images fill container, no bleed */
+.full-bleed {
+	margin: 2em 0; /* space above/below figure */
+	text-align: center; /* center the figcaption text */
+}
+.full-bleed img {
+display: block;
+width: 100%; 
+height: auto;
+margin: 0 auto;
+object-fit: contain; /* or cover, as you prefer */
+border-radius: 4px;
+}
+.full-bleed figcaption {
+font-size: 0.9em;
+margin-top: 0.5em;
+text-align: center;
+}
+
+@media (min-width: 960px) {
+	.full-bleed {
+	  position: relative;
+	  left: 50%;
+	  right: 50%;
+	  width: 100vw;
+	  margin-left: -50vw;
+	  margin-right: -50vw;
+	}
+	.full-bleed img {
+	  width: 60%; /* fill that 100vw container */
+	  border-radius: 12px;
+	}
+	.full-bleed figcaption {
+	  width: 100%;       /* same full width as figure */
+	  display: block;    /* ensure it’s on its own line */
+	}
+}
+  
+
   
