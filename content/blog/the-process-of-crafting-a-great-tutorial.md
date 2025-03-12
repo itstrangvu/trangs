@@ -17,15 +17,15 @@ In this guide, I’ll walk you through my approach to creating tutorials using a
 
 ## **The tools**
 
-- [**Claude**](https://claude.ai/)** and **[**ChatGPT**](https://chatgpt.com/) – for refining and perfecting the script.
+- [Claude](https://claude.ai/) and [ChatGPT](https://chatgpt.com/) – for refining and perfecting the script.
 
-- [**Tella**](https://www.tella.tv/) – for recording desktop content and editing the source materials.
+- [Tella](https://www.tella.tv/) – for recording desktop content and editing the source materials.
 
-- [**Bezel**](https://nonstrict.eu/bezel/) – for capturing mobile device screens.
+- [Bezel](https://nonstrict.eu/bezel/) – for capturing mobile device screens.
 
-- [**FFmpeg**](https://www.ffmpeg.org/) – for sound editing, including removing and merging audio tracks.
+- [FFmpeg](https://www.ffmpeg.org/) – for sound editing, including removing and merging audio tracks.
 
-- [**Eleven Labs**](https://elevenlabs.io/) – for enhancing or changing voiceovers.
+- [Eleven Labs](https://elevenlabs.io/) – for enhancing or changing voiceovers.
 
 
 
