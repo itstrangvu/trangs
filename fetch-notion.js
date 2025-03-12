@@ -7,10 +7,9 @@ const axios = require('axios');
 const sharp = require('sharp');
 const urlModule = require('url');
 
-// Initializing a client
+// Initializing the Notion client
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-// Ensure the directories exist
 const dataDir = path.join(__dirname, 'content/blog');
 const imageDir = path.join(__dirname, 'public/images');
 if (!fs.existsSync(dataDir)) {
@@ -26,17 +25,17 @@ if (!fs.existsSync(imageDir)) {
 function applyAnnotations(text) {
   let content = text.plain_text;
 
-  // If it's code, wrap with backticks first
+  // If code annotation is set, wrap in backticks
   if (text.annotations.code) {
     content = `\`${content}\``;
   }
 
-  // If it's bold, wrap with double asterisks (this also works if code is already applied)
+  // If bold annotation is set, wrap in ** **
   if (text.annotations.bold) {
     content = `**${content}**`;
   }
 
-  // If there's a link, turn the entire content (with any bold/code included) into a link
+  // If the text has a link, wrap the annotated string in [link](url)
   if (text.href) {
     content = `[${content}](${text.href})`;
   }
@@ -78,9 +77,10 @@ async function downloadAndOptimizeImage(url, filename) {
   const response = await axios.get(url, { responseType: 'arraybuffer' });
   const buffer = Buffer.from(response.data, 'binary');
 
-  // Resize to max width of 800px and convert to WebP
+  // Resize to max width of 960px, apply sharpen, then convert to WebP
   const optimizedImageBuffer = await sharp(buffer)
-    .resize(800)
+    .resize(960)
+    .sharpen() // <-- optionally pass parameters to tweak sharpness
     .webp({ quality: 80 })
     .toBuffer();
 
@@ -113,8 +113,6 @@ async function parseBlocksToMarkdown(blocks) {
           return `- ${parseRichTextArray(block.bulleted_list_item.rich_text)}`;
 
         case 'numbered_list_item':
-          // Markdown doesn't care if you actually number them all as '1.' 
-          // It will auto-increment in a rendered list. 
           return `1. ${parseRichTextArray(block.numbered_list_item.rich_text)}`;
 
         case 'to_do':
@@ -124,26 +122,28 @@ async function parseBlocksToMarkdown(blocks) {
           return `> ${parseRichTextArray(block.quote.rich_text)}`;
 
         case 'code':
-          // This is for code blocks (not inline code). 
-          // They come with a `language` property and rich_text for the code itself.
           return `\`\`\`${block.code.language}\n${block.code.rich_text
             .map(text => text.plain_text)
             .join('')}\n\`\`\``;
 
-        case 'image':
-          {
-            const imageUrl = block.image.file?.url || block.image.external?.url;
-            if (imageUrl) {
-              const filename = urlModule.parse(imageUrl).pathname.split('/').pop();
-              const localImagePath = await downloadAndOptimizeImage(imageUrl, filename);
-              const caption = block.image.caption.map(text => text.plain_text).join('');
-              return `<figure>
+        case 'image': {
+          const imageUrl = block.image.file?.url || block.image.external?.url;
+          if (imageUrl) {
+            // Derive a filename from the image URL
+            const filename = urlModule.parse(imageUrl).pathname.split('/').pop();
+            const localImagePath = await downloadAndOptimizeImage(imageUrl, filename);
+
+            // Grab the caption from the block
+            const caption = block.image.caption.map(text => text.plain_text).join('');
+
+            // Wrap the image in a <figure> with the .full-bleed class
+            return `<figure class="full-bleed">
   <img src="${localImagePath}" alt="${caption}">
   ${caption ? `<figcaption>${caption}</figcaption>` : ''}
 </figure>`;
-            }
-            return '';
           }
+          return '';
+        }
 
         default:
           return '';
@@ -169,6 +169,7 @@ async function parseBlocksToMarkdown(blocks) {
       }
     });
 
+    // Process each page
     const fetchedPosts = response.results.map(async page => {
       const titleProperty =
         page.properties.Name?.title[0]?.text?.content || 'Untitled';
@@ -178,7 +179,7 @@ async function parseBlocksToMarkdown(blocks) {
 
       console.log(`Fetched post: ${titleProperty}`);
 
-      // Retrieve blocks for this page
+      // Retrieve the content blocks
       const blocks = await getBlocks(page.id);
       const contentProperty = await parseBlocksToMarkdown(blocks);
 
@@ -196,7 +197,7 @@ async function parseBlocksToMarkdown(blocks) {
     // Wait for all posts to be fetched
     const posts = await Promise.all(fetchedPosts);
 
-    // Map of existing posts to detect deletions
+    // Track existing .md files for cleanup
     const existingPosts = new Map();
     fs.readdirSync(dataDir).forEach(file => {
       if (file.endsWith('.md')) {
@@ -204,7 +205,7 @@ async function parseBlocksToMarkdown(blocks) {
       }
     });
 
-    // Create/update posts and mark them as existing
+    // Create/update post markdown
     posts.forEach(post => {
       const { title, content, date, tags } = post;
       const safeTitle = title.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
@@ -221,14 +222,15 @@ ${tagsMarkdown}
 ${content}
 `;
 
+      // Write file
       const markdownOutputPath = path.join(dataDir, filename);
       fs.writeFileSync(markdownOutputPath, markdownContent);
       console.log(`Post "${title}" saved to ${markdownOutputPath}`);
 
-      existingPosts.set(filename, true); // Mark as existing
+      existingPosts.set(filename, true);
     });
 
-    // Delete markdown files that were not marked as existing
+    // Delete old .md files that are no longer published in Notion
     for (const [file, exists] of existingPosts) {
       if (!exists) {
         fs.unlinkSync(path.join(dataDir, file));

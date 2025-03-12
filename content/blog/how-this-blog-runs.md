@@ -36,6 +36,13 @@ This blog is a work in progress, and that’s part of the fun.
 
 1. Deploy the site
 
+
+
+<figure class="full-bleed">
+  <img src="/images/How_this_blog_runs.png.webp" alt="A visual of how this blog runs">
+  <figcaption>A visual of how this blog runs</figcaption>
+</figure>
+
 ### **Tools and technologies**
 
 - **Notion** – Content creation and organization
@@ -54,19 +61,12 @@ I needed a way to organize tags and have control over when a note gets published
 
 
 
-<figure>
+<figure class="full-bleed">
   <img src="/images/Screenshot_2025-03-12_at_16.25.00.png.webp" alt="The database in Notion with tags and flag if the post is published or note">
   <figcaption>The database in Notion with tags and flag if the post is published or note</figcaption>
 </figure>
 
 I usually start by drafting the post, refining it, and making adjustments until I’m satisfied. Once it’s ready, I mark the **Is Published** checkbox in Notion to publish it.
-
-
-
-<figure>
-  <img src="/images/3584c61b-7b3b-40b9-a174-ad04cb4fc4ed.png.webp" alt="A note detail with the tag and a flag to be published.">
-  <figcaption>A note detail with the tag and a flag to be published.</figcaption>
-</figure>
 
 ## Generate the blog
 
@@ -86,9 +86,9 @@ After ensuring I’m happy with the note(s), I run a Node.js script that:
 
 
 
-<figure>
-  <img src="/images/75878d16-a5fc-4aa6-9bb3-ba01186206cf.png.webp" alt="">
-  
+<figure class="full-bleed">
+  <img src="/images/11dcebdb-5468-40b7-b4fd-b5798348a27c.png.webp" alt="Output from the script that fetches the content">
+  <figcaption>Output from the script that fetches the content</figcaption>
 </figure>
 
 
@@ -101,16 +101,14 @@ After checking the script output to ensure everything looks good, I commit the c
 
 After pushing the changes to the repository, Netlify automatically builds and deploys the site. 
 
-<figure>
+As part of this process, a Lighthouse check runs to ensure the site meets performance, accessibility, and SEO standards.
+
+<figure class="full-bleed">
   <img src="/images/Screenshot_2025-03-12_at_17.16.12.png.webp" alt="Netlify deploy log">
   <figcaption>Netlify deploy log</figcaption>
 </figure>
 
-
-
-As part of this process, a Lighthouse check runs to ensure the site meets performance, accessibility, and SEO standards.
-
-<figure>
+<figure class="full-bleed">
   <img src="/images/Screenshot_2025-03-12_at_17.18.09.png.webp" alt="Lighthouse scores with 100 for performance, accessibility, best practices and SEO">
   <figcaption>Lighthouse scores with 100 for performance, accessibility, best practices and SEO</figcaption>
 </figure>

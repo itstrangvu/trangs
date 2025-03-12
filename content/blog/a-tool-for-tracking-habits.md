@@ -52,7 +52,7 @@ Now I have this habit tracker that feels personal, peaceful, and refreshingly an
 
 
 
-<figure>
+<figure class="full-bleed">
   <img src="/images/A6.png.webp" alt="Habit tracker for print">
   <figcaption>Habit tracker for print</figcaption>
 </figure>
@@ -67,7 +67,7 @@ So, if apps feel too loud for you too, maybe a DIY habit tracker is worth a shot
 
 
 
-<figure>
+<figure class="full-bleed">
   <img src="/images/How_to_use.png.webp" alt="How I use the habit tracker">
   <figcaption>How I use the habit tracker</figcaption>
 </figure>

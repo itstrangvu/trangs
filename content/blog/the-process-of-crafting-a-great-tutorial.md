@@ -63,7 +63,7 @@ Capture footage using [**Tella**](https://www.tella.tv/) for desktop recordings 
 
 
 
-<figure>
+<figure class="full-bleed">
   <img src="/images/Screenshot_2024-11-18_at_21.58.44.png.webp" alt="Multiple recordings in Tella edit mode">
   <figcaption>Multiple recordings in Tella edit mode</figcaption>
 </figure>
@@ -80,7 +80,7 @@ ffmpeg -i original_video.mp4 -q:a 0 -map a output_audio.mp3
 
 Use [Eleven Labs](https://elevenlabs.io/) to replace the audio with a professional-quality voiceover. For instance, I prefer the River voice option. 
 
-<figure>
+<figure class="full-bleed">
   <img src="/images/Screenshot_2024-11-14_at_10.22.04.png.webp" alt="Eleven Labs voice changer">
   <figcaption>Eleven Labs voice changer</figcaption>
 </figure>
