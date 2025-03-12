@@ -6,9 +6,9 @@ tags:
 - design
 ---
 
-# Why
+## Why
 
-I created this site as my little corner of the internet—a space that’s truly mine. I didn’t want to rely on paid platforms like Substack or Medium because I believe in the decentralized web. Owning my content and having full control over my site was important to me. Plus, I thought that building it myself might be a fun coding challenge.
+I created this site as my little corner of the internet. A space that’s truly mine. I didn’t want to rely on paid platforms like Substack or Medium because I believe in the decentralized web. Owning my content and having full control over my site is important to me. Plus, I thought that building it myself might be a fun coding challenge.
 
 
 
@@ -26,8 +26,6 @@ Here’s what I set out to achieve:
 
 This blog is a work in progress, and that’s part of the fun.
 
-# How
-
 ### The process
 
 1. Create notes in Notion
@@ -44,7 +42,7 @@ This blog is a work in progress, and that’s part of the fun.
 
 - **Eleventy** – Static site generator
 
-- **GitHub** – Version control and code management
+- **Git** – Version control and code management
 
 - **Netlify** – Automated deployment and performance monitoring
 
@@ -66,7 +64,7 @@ I usually start by drafting the post, refining it, and making adjustments until 
 
 
 <figure>
-  <img src="/images/3686ab76-7124-4dd3-ac8e-e8511fefc014.png.webp" alt="A note detail with the tag and a flag to be published.">
+  <img src="/images/3584c61b-7b3b-40b9-a174-ad04cb4fc4ed.png.webp" alt="A note detail with the tag and a flag to be published.">
   <figcaption>A note detail with the tag and a flag to be published.</figcaption>
 </figure>
 
@@ -117,17 +115,17 @@ As part of this process, a Lighthouse check runs to ensure the site meets perfor
   <figcaption>Lighthouse scores with 100 for performance, accessibility, best practices and SEO</figcaption>
 </figure>
 
-# Room for improvement
+## Room for improvement
 
-This coding journey has been a great learning experience, but there’s still room for improvement. Instead of manually generating Markdown files, I’d like to streamline the deployment process so that running the `fetch-notion.js` script isn’t necessary. Fortunately, Notion introduced **Webhooks** in December 2024, and I plan to explore how they can automate this workflow.
+Setting up this site and blog has been a great learning experience, but there’s still room for improvement. 
+
+Instead of manually generating Markdown files, I’d like to streamline the deployment process so that running the `fetch-notion.js` script isn’t necessary. Fortunately, Notion introduced **Webhooks** in December 2024, and I plan to explore how they can automate this workflow.
 
 Additionally, migrating my portfolio and generating it in the same way as the blog is something I’m considering.
 
-
+## Curiosity
 
 Do you fully own your content as well? I’d love to see what you’re building! Feel free to share your blogs, digital gardens, or small personal sites. I’m always curious to connect with like-minded creators.
-
-
 
 
 
