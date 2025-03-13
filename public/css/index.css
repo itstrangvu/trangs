@@ -18,6 +18,7 @@
 	--text-color-link-visited: #17050F;
 
 	--code-color: #014421;
+	--code-bg: #fff;
 	--syntax-tab-size: 2;
 }
 
@@ -34,6 +35,7 @@
 
 		--background-color: #02211c;
 		--code-color: #02b368;
+		--code-bg: #1a1a22;
 	}
 }
 
@@ -318,7 +320,7 @@ figure {
 
 
 code {
-	background-color: rgba(135, 131, 120, 0.15); /* Soft gray background */
+	background-color: var(--code-bg); /* Soft gray background */
 	color: var(--code-color);
 	font-size: 0.9em;
 	padding: 2px 4px;

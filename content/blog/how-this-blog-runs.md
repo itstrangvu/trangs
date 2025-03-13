@@ -119,11 +119,13 @@ As part of this process, a Lighthouse check runs to ensure the site meets perfor
 
 Setting up this site and blog has been a great learning experience, but there’s still room for improvement. 
 
-Instead of manually generating Markdown files, I’d like to streamline the deployment process so that running the `fetch-notion.js` script isn’t necessary. Fortunately, Notion introduced **Webhooks** in December 2024, and I plan to explore how they can automate this workflow.
+Instead of manually generating Markdown files, I’d like to streamline the deployment process so that explicit execution of the `fetch-notion.js` script isn’t necessary. 
+
+Fortunately, Notion introduced [Webhooks](https://www.notion.com/help/webhook-actions) in December ‘24, and I plan to explore how they can automate this workflow.
 
 Additionally, migrating my portfolio and generating it in the same way as the blog is something I’m considering.
 
-The ultimate goal is to self-host both the site (no need for Netlify) and the git repository (maybe using Gitea?). Dropping Notion is a nice-to-have down the line. Well, I’m getting ahead of myself here, though, mhihi.
+The ultimate goal is to self-host both the site (no need for Netlify) and the git repository (maybe using [Gitea](https://about.gitea.com/)?). Dropping Notion is a nice-to-have down the line. Well, I’m getting ahead of myself here, though, mhihi.
 
 ## Curiosity
 
