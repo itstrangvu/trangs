@@ -62,7 +62,7 @@ I needed a way to organize tags and have control over when a note gets published
 
 
 <figure class="full-bleed">
-  <img src="/images/Screenshot_2025-03-12_at_16.25.00.png.webp" alt="The database in Notion with tags and flag if the post is published or note">
+  <img src="/images/Screenshot_2025-03-12_at_22.49.58.png.webp" alt="The database in Notion with tags and flag if the post is published or note">
   <figcaption>The database in Notion with tags and flag if the post is published or note</figcaption>
 </figure>
 
