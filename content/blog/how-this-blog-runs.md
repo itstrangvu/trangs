@@ -123,7 +123,7 @@ Instead of manually generating Markdown files, I’d like to streamline the depl
 
 Additionally, migrating my portfolio and generating it in the same way as the blog is something I’m considering.
 
-The ultimate goal is to self-host both the site (no need for Netlify) and the git repository (maybe using Gitea?). Dropping Notion is a nice-to-have down the line. Getting ahead of myself here, though! Muhehe.
+The ultimate goal is to self-host both the site (no need for Netlify) and the git repository (maybe using Gitea?). Dropping Notion is a nice-to-have down the line. Well, I’m getting ahead of myself here, though, mhihi.
 
 ## Curiosity
 
