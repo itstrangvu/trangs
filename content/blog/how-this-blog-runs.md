@@ -72,7 +72,7 @@ I usually start by drafting the post, refining it, and making adjustments until 
 
 ## Generate the blog
 
-After ensuring I’m happy with the note(s), I run a Node.js script that:
+After ensuring I’m happy with the note(s), I run a Node.js script named `fetch-notion.js` that:
 
 1. Connects to Notion via Notion API.
 
