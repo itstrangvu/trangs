@@ -6,6 +6,8 @@ tags:
 - design
 ---
 
+This post is slightly technical. TL;DR is that I built this site and blog using Markdown files via Eleventy. 
+
 ## Why
 
 I created this site as my little corner of the internet. A space that’s truly mine. I didn’t want to rely on paid platforms like Substack or Medium because I believe in the decentralized web. Owning my content and having full control over my site is important to me. Plus, I thought that building it myself might be a fun coding challenge.
@@ -39,7 +41,7 @@ This blog is a work in progress, and that’s part of the fun.
 
 
 <figure class="full-bleed">
-  <img src="/images/How_this_blog_runs.png.webp" alt="A visual of how this blog runs">
+  <img src="/images/howthisblogruns.png.webp" alt="A visual of how this blog runs">
   <figcaption>A visual of how this blog runs</figcaption>
 </figure>
 
@@ -120,6 +122,8 @@ Setting up this site and blog has been a great learning experience, but there’
 Instead of manually generating Markdown files, I’d like to streamline the deployment process so that running the `fetch-notion.js` script isn’t necessary. Fortunately, Notion introduced **Webhooks** in December 2024, and I plan to explore how they can automate this workflow.
 
 Additionally, migrating my portfolio and generating it in the same way as the blog is something I’m considering.
+
+The ultimate goal is to self-host both the site (no need for Netlify) and the git repository (maybe using Gitea?). Dropping Notion is a nice-to-have down the line. Getting ahead of myself here, though! Muhehe.
 
 ## Curiosity
 
