@@ -1,5 +1,5 @@
 ---
-title: "Collaborative design principles at Groupon"
+title: "Product design at Groupon"
 date: "2025-02-03"
 tags:
 - work

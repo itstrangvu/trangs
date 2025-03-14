@@ -6,11 +6,11 @@ tags:
 - design
 ---
 
-This post is slightly technical. TL;DR is that I built this site and blog using Markdown files via Eleventy. 
+This post is slightly technical and it would be useful to have some knowledge of data fetching and website deployment. TL;DR is that I built this site and blog using Markdown files and Eleventy static site generator. 
 
 ## Why
 
-I created this site as my little corner of the internet. A space that’s truly mine. I didn’t want to rely on paid platforms like Substack or Medium because I believe in the decentralized web. Owning my content and having full control over my site is important to me. Plus, I thought that building it myself might be a fun coding challenge.
+I created this site as my little corner of the internet. A space that’s truly mine. I didn’t want to rely on paid platforms like Substack or Medium because I believe in decentralization. Owning my content and having full control over my site is important to me. Plus, I thought that building it myself might be a fun coding challenge.
 
 
 
