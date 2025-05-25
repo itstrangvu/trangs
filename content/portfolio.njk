@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+eleventyNavigation:
+  key: Portfolio
+  order: 3
+---
+<h1>Portfolio</h1>
+{%- css %}{% include "public/css/message-box.css" %}{% endcss %}
+<div class="message-box">
+	<p>Selected projects I've worked on. These showcase my approach to design and problem-solving across different domains.</p>
+</div>
+
+{% set projectslist = collections.projects %}
+{% include "projectslist.njk" %} 

@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+---
+{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
+{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+<h1>{{ title }}</h1>
+
+<ul class="post-metadata">
+	{% if year %}<li><time>{{ year }}</time></li>{% endif %}
+	{% if client %}<li>Client: {{ client }}</li>{% endif %}
+	{% if role %}<li>Role: {{ role }}</li>{% endif %}
+	{%- for category in categories %}
+	{%- set tagUrl %}/tags/{{ category | slugify }}/{% endset %}
+	<li><a href="{{ tagUrl }}" class="post-tag">{{ category }}</a>{%- if not loop.last %}, {% endif %}</li>
+	{%- endfor %}
+</ul>
+
+{% if featuredImage %}
+<figure class="full-bleed">
+  <img src="{{ featuredImage }}" alt="{{ title }}">
+</figure>
+{% endif %}
+
+{{ content | safe }}
+
+{%- if collections.projects %}
+{%- set previousProject = collections.projects | getPreviousCollectionItem %}
+{%- set nextProject = collections.projects | getNextCollectionItem %}
+{%- if nextProject or previousProject %}
+<ul class="links-nextprev">
+	{%- if previousProject %}<li>Previous: <a href="{{ previousProject.url }}">{{ previousProject.data.title }}</a></li>{% endif %}
+	{%- if nextProject %}<li>Next: <a href="{{ nextProject.url }}">{{ nextProject.data.title }}</a></li>{% endif %}
+</ul>
+{%- endif %}
+{%- endif %} 

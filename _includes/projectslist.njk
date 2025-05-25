@@ -1,0 +1,9 @@
+{# {%- css %}.projectlist { counter-reset: start-from {{ (projectslistCounter or projectslist.length) + 1 }} }{% endcss %} #}
+<ol reversed class="postlist">
+{% for project in projectslist | reverse %}
+	<li class="postlist-item{% if project.url == url %} postlist-item-active{% endif %}">
+		<a href="{{ project.url }}" class="postlist-link">{% if project.data.title %}{{ project.data.title }}{% else %}<code>{{ project.url }}</code>{% endif %}</a>
+		<time class="postlist-date" datetime="{{ project.date | htmlDateString }}">{{ project.data.year }}</time>
+	</li>
+{% endfor %}
+</ol> 

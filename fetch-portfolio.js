@@ -10,8 +10,8 @@ const urlModule = require('url');
 // Initializing the Notion client
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-const dataDir = path.join(__dirname, 'content/notes');
-const imageDir = path.join(__dirname, 'public/images');
+const dataDir = path.join(__dirname, 'content/portfolio');
+const imageDir = path.join(__dirname, 'public/images/portfolio');
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
@@ -79,7 +79,7 @@ async function downloadAndOptimizeImage(url, filename) {
 
   // Resize to max width of 1200px, apply sharpen with parameters, then convert to WebP
   const optimizedImageBuffer = await sharp(buffer)
-    .resize(1200, null, { withoutEnlargement: true }) // Optional: Prevents enlarging the image if smaller than 960px
+    .resize(1200, null, { withoutEnlargement: true }) // Optional: Prevents enlarging the image if smaller than 1200px
     .sharpen({ 
       sigma: 1.5,  // Increase to sharpen more
       flat: 1,     // Helps preserve flat areas
@@ -91,9 +91,8 @@ async function downloadAndOptimizeImage(url, filename) {
   const localPath = path.join(imageDir, `${filename}.webp`);
   await fs.promises.writeFile(localPath, optimizedImageBuffer);
 
-  return `/images/${filename}.webp`;
+  return `/images/portfolio/${filename}.webp`;
 }
-
 
 /**
  * Convert a list of Notion blocks into a Markdown string
@@ -160,21 +159,10 @@ async function parseBlocksToMarkdown(blocks) {
 }
 
 (async () => {
-  let databaseId = process.env.DATABASE_ID;
-  
-  // Remove any hyphens from the database ID
-  if (databaseId) {
-    databaseId = databaseId.replace(/-/g, '');
-  }
-  
-  if (!databaseId) {
-    console.error('Error: DATABASE_ID not found in environment variables.');
-    console.error('Please add it to your .env file.');
-    process.exit(1);
-  }
+  const databaseId = process.env.PORTFOLIO_DATABASE_ID;
 
   try {
-    // Query all published posts from the Notion database
+    // Query all published projects from the Notion database
     const response = await notion.databases.query({
       database_id: databaseId,
       filter: {
@@ -186,14 +174,28 @@ async function parseBlocksToMarkdown(blocks) {
     });
 
     // Process each page
-    const fetchedPosts = response.results.map(async page => {
+    const fetchedProjects = response.results.map(async page => {
       const titleProperty =
-        page.properties.Name?.title[0]?.text?.content || 'Untitled';
-      const dateProperty = page.properties.Date?.date?.start || '';
-      const tagsProperty =
-        page.properties.Tags?.multi_select.map(tag => tag.name) || [];
+        page.properties.Name?.title[0]?.text?.content || 'Untitled Project';
+      const yearProperty = page.properties.Year?.rich_text[0]?.plain_text || '';
+      const clientProperty = page.properties.Client?.rich_text[0]?.plain_text || '';
+      const roleProperty = page.properties.Role?.rich_text[0]?.plain_text || '';
+      const descriptionProperty = page.properties.Description?.rich_text[0]?.plain_text || '';
+      const categoriesProperty =
+        page.properties.Categories?.multi_select.map(category => category.name) || [];
+      
+      // Get featured image if available
+      let featuredImageUrl = '';
+      if (page.properties.FeaturedImage?.files && page.properties.FeaturedImage.files.length > 0) {
+        const imageFile = page.properties.FeaturedImage.files[0];
+        const imageUrl = imageFile.file?.url || imageFile.external?.url;
+        if (imageUrl) {
+          const filename = `${page.id}-featured`;
+          featuredImageUrl = await downloadAndOptimizeImage(imageUrl, filename);
+        }
+      }
 
-      console.log(`Fetched post: ${titleProperty}`);
+      console.log(`Fetched project: ${titleProperty}`);
 
       // Retrieve the content blocks
       const blocks = await getBlocks(page.id);
@@ -204,35 +206,43 @@ async function parseBlocksToMarkdown(blocks) {
       return {
         id: page.id,
         title: titleProperty,
-        content: contentProperty,
-        date: dateProperty,
-        tags: tagsProperty
+        year: yearProperty,
+        client: clientProperty,
+        role: roleProperty,
+        description: descriptionProperty,
+        categories: categoriesProperty,
+        featuredImage: featuredImageUrl,
+        content: contentProperty
       };
     });
 
-    // Wait for all posts to be fetched
-    const posts = await Promise.all(fetchedPosts);
+    // Wait for all projects to be fetched
+    const projects = await Promise.all(fetchedProjects);
 
     // Track existing .md files for cleanup
-    const existingPosts = new Map();
+    const existingProjects = new Map();
     fs.readdirSync(dataDir).forEach(file => {
       if (file.endsWith('.md')) {
-        existingPosts.set(file, false);
+        existingProjects.set(file, false);
       }
     });
 
-    // Create/update post markdown
-    posts.forEach(post => {
-      const { title, content, date, tags } = post;
+    // Create/update project markdown files
+    projects.forEach(project => {
+      const { title, year, client, role, description, categories, featuredImage, content } = project;
       const safeTitle = title.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
       const filename = `${safeTitle}.md`;
-      const tagsMarkdown = tags.map(tag => `- ${tag}`).join('\n');
+      const categoriesMarkdown = categories.map(category => `- ${category}`).join('\n');
 
       const markdownContent = `---
 title: "${title}"
-date: "${date}"
-tags:
-${tagsMarkdown}
+year: "${year}"
+client: "${client}"
+role: "${role}"
+description: "${description}"
+categories:
+${categoriesMarkdown}
+featuredImage: "${featuredImage}"
 ---
 
 ${content}
@@ -241,14 +251,14 @@ ${content}
       // Write file
       const markdownOutputPath = path.join(dataDir, filename);
       fs.writeFileSync(markdownOutputPath, markdownContent);
-      console.log(`Post "${title}" saved to ${markdownOutputPath}`);
+      console.log(`Project "${title}" saved to ${markdownOutputPath}`);
 
-      existingPosts.set(filename, true);
+      existingProjects.set(filename, true);
     });
 
     // Delete old .md files that are no longer published in Notion
-    for (const [file, exists] of existingPosts) {
-      if (!exists) {
+    for (const [file, exists] of existingProjects) {
+      if (!exists && file !== 'portfolio.11tydata.js') {
         fs.unlinkSync(path.join(dataDir, file));
         console.log(`Deleted markdown file: ${file}`);
       }
@@ -257,4 +267,4 @@ ${content}
   } catch (error) {
     console.error(error);
   }
-})();
+})(); 
