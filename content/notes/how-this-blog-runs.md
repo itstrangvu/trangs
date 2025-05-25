@@ -10,11 +10,11 @@ This post is slightly technical and it would be useful to have some knowledge of
 
 ## Why
 
-I created this site as my little corner of the internet. A space that's truly mine. I didn't want to rely on paid platforms like Substack or Medium because I believe in decentralization. Owning my content and having full control over my site is important to me. Plus, I thought that building it myself might be a fun coding challenge.
+I created this site as my little corner of the internet. A space that’s truly mine. I didn’t want to rely on paid platforms like Substack or Medium because I believe in decentralization. Owning my content and having full control over my site is important to me. Plus, I thought that building it myself might be a fun coding challenge.
 
 
 
-Here's what I set out to achieve:
+Here’s what I set out to achieve:
 
 - **Own my content** – No lock-ins, no platforms deciding what happens to my writing.
 
@@ -26,13 +26,13 @@ Here's what I set out to achieve:
 
 - **Content first** – The words should shine, not be buried under distractions.
 
-This blog is a work in progress, and that's part of the fun.
+This blog is a work in progress, and that’s part of the fun.
 
 ### The process
 
 1. Create notes in Notion
 
-1. Generate the notes
+1. Generate the blog
 
 1. Push to a Git repository
 
@@ -68,11 +68,11 @@ I needed a way to organize tags and have control over when a note gets published
   <figcaption>The database in Notion with tags and flag if the post is published or note</figcaption>
 </figure>
 
-I usually start by drafting the post, refining it, and making adjustments until I'm satisfied. Once it's ready, I mark the **Is Published** checkbox in Notion to publish it.
+I usually start by drafting the post, refining it, and making adjustments until I’m satisfied. Once it’s ready, I mark the **Is Published** checkbox in Notion to publish it.
 
-## Generate the notes
+## Generate the blog
 
-After ensuring I'm happy with the note(s), I run a Node.js script named `fetch-notion.js` that:
+After ensuring I’m happy with the note(s), I run a Node.js script named `fetch-notion.js` that:
 
 1. Connects to Notion via Notion API.
 
@@ -84,7 +84,7 @@ After ensuring I'm happy with the note(s), I run a Node.js script named `fetch-n
 
 1. Saves posts as `.md` files.
 
-1. Deletes old files to keep the notes clean.
+1. Deletes old files to keep the blog clean.
 
 
 
@@ -117,19 +117,19 @@ As part of this process, a Lighthouse check runs to ensure the site meets perfor
 
 ## Room for improvement
 
-Setting up this site and blog has been a great learning experience, but there's still room for improvement. 
+Setting up this site and blog has been a great learning experience, but there’s still room for improvement. 
 
-Instead of manually generating Markdown files, I'd like to streamline the deployment process so that explicit execution of the `fetch-notion.js` script isn't necessary. 
+Instead of manually generating Markdown files, I’d like to streamline the deployment process so that explicit execution of the `fetch-notion.js` script isn’t necessary. 
 
-Fortunately, Notion introduced [Webhooks](https://www.notion.com/help/webhook-actions) in December '24, and I plan to explore how they can automate this workflow.
+Fortunately, Notion introduced [Webhooks](https://www.notion.com/help/webhook-actions) in December ‘24, and I plan to explore how they can automate this workflow.
 
-Additionally, migrating my portfolio and generating it in the same way as the blog is something I'm considering.
+Additionally, migrating my portfolio and generating it in the same way as the blog is something I’m considering.
 
-The ultimate goal is to self-host both the site (no need for Netlify) and the git repository (maybe using [Gitea](https://about.gitea.com/)?). Dropping Notion is a nice-to-have down the line. Well, I'm getting ahead of myself here, though, mhihi.
+The ultimate goal is to self-host both the site (no need for Netlify) and the git repository (maybe using [Gitea](https://about.gitea.com/)?). Dropping Notion is a nice-to-have down the line. Well, I’m getting ahead of myself here, though, mhihi.
 
 ## Curiosity
 
-Do you fully own your content as well? I'd love to see what you're building! Feel free to share your blogs, digital gardens, or small personal sites. I'm always curious to connect with like-minded creators.
+Do you fully own your content as well? I’d love to see what you’re building! Feel free to share your blogs, digital gardens, or small personal sites. I’m always curious to connect with like-minded creators.
 
 
 

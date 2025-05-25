@@ -10,7 +10,7 @@ const urlModule = require('url');
 // Initializing the Notion client
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-const dataDir = path.join(__dirname, 'content/blog');
+const dataDir = path.join(__dirname, 'content/notes');
 const imageDir = path.join(__dirname, 'public/images');
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
