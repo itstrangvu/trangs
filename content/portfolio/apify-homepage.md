@@ -9,9 +9,9 @@ categories:
 featuredImage: ""
 ---
 
-# Opportunities
+## Opportunities
 
-## Context
+### Context
 
 The previous landing page was targeting both business owners and developers looking for web scraping solution, which created an inconsistent tone and voice and both marketing and sales teams had a hard time explaining the benefits to the potential customers. The company had made a strategy shift and decided to focus on developers only. 
 
@@ -26,7 +26,7 @@ The gist was to move from sales-led growth to a product-led one. To reflect this
 
 
 
-## Circumstances
+### Circumstances
 
 There were two options: either hire an external agency or create the new landing page in-house. 
 
@@ -40,7 +40,7 @@ Plus, the CEO wanted to be included in the process of brainstorming and was very
 
 
 
-## Research
+### Research
 
 I researched the anatomy of landing pages for most developer-focused platforms, tools and services. 
 
@@ -106,6 +106,8 @@ The supporting graphics should
 
 ### Solid CTAs
 
+Content and visibility.
+
 
 
 ### Compact Actor cards
@@ -128,28 +130,15 @@ I chose to end the storytelling with a fluid transition into the footer by using
 
 Key results we got a month after the release
 
-+14%
-Sign ups
++14% sign ups
 
 
 
-+27% 
-
-page views
++27% page views
 
 
 
-+4s
-
-average time spent on page
-
-
-
-sessions by source
-
-
-
-See it live
++4s average time spent on page
 
 # Challenges
 

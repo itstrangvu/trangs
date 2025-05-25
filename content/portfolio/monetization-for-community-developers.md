@@ -9,9 +9,7 @@ categories:
 featuredImage: ""
 ---
 
-# Opportunities
-
-
+## Opportunities
 
 Apify has a community of developers who can publish their Actors to the Store and get revenue this way. 
 
@@ -29,7 +27,7 @@ In the pilot phase, if a community developer wanted to get paid, they had to rea
 
 
 
-# Research
+## Research
 
 First of all, I had a quick huddle with a customer support folk on Slack to get informed on the specific issues tied to monetization (i.e. Billing etc.). I also wrote on Discord to the community channel to ask what steps the developer went through before monetizing their Actors. 
 
@@ -39,7 +37,7 @@ After that, we had a requirements meeting with the product owner and developer t
 
 I created two diagrams to make sure I have all the dots connected. 
 
-# Building
+## Building
 
 There were several restraints:
 
@@ -51,13 +49,22 @@ There were several restraints:
 
 
 
-# Testing
+## Testing
 
 Tested with 2 developers afterwards. 
 
 
 
-# Outcomes
+
+
+<figure class="full-bleed">
+  <img src="/images/portfolio/010ae5c0-ade2-46ad-a113-2d809da41688.png.webp" alt="A section with monetization being Active">
+  <figcaption>A section with monetization being Active</figcaption>
+</figure>
+
+
+
+## Outcomes
 
 After 2 months:
 
@@ -68,12 +75,3 @@ After 2 months:
 
 
 I am happy to provide more details upon request. 
-
-
-
-<figure class="full-bleed">
-  <img src="/images/portfolio/Monetization%281%29.png.webp" alt="A section with monetization being Active">
-  <figcaption>A section with monetization being Active</figcaption>
-</figure>
-
-

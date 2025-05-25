@@ -17,13 +17,15 @@ When I joined Apify, the company already had a solid user base but did not have 
 
 I created the survey using **Typeform**. I sat down with relevant stakeholders and collected ideas on things we could collect. 
 
-1. **How did they learn about Apify?**
+These are the questions that made it to the survey:
 
-1. **On a scale 0-10, how would they recommend Apify? **
+1. How did they learn about Apify?
 
-1. **What services could Apify integrate with?**
+1. On a scale 0-10, how would they recommend Apify? 
 
-1. **What could Apify improve? **
+1. What services could Apify integrate with?
+
+1. What could Apify improve? 
 
 
 
@@ -55,11 +57,11 @@ I placed each survey fill on a timeline and used a circle representation.
   <figcaption>The data visualization coded in d3.js. Note that I explicitly obfuscated the user’s mail address and ID for the purposes of keeping credentials private.</figcaption>
 </figure>
 
-**Size of the circle** – the 0-10 rating
+**Size of the circle** – Rating on a scale 0-10
 
-**Color of the circle** – acquisition channel
+**Color of the circle** – Acquisition channel
 
-**Position of the circle on the x axis** – date of submission
+**Position of the circle on the x axis** – Date of submission
 
 
 
@@ -67,11 +69,11 @@ Hovering the respective circle would display a tooltip with the details.
 
 On the right side to the timeline, I created groups of checkboxes with: 
 
-1. categories of areas of improvement for filtering
+1. Categories of areas of improvement for filtering
 
-1. acquisition channels
+1. Acquisition channels
 
-By interacting with the individual checkbox a related circle would either have full opacity or 
+By interacting with the individual checkbox a related circle would either have full opacity or low opacity, highlighting the filtered data at first glance. 
 
 ### Wordcloud
 
