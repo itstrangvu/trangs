@@ -23,6 +23,6 @@ Take care.
 
 Trang (pronounced as *Cha-an*)
 
-{% image "./trang-illustration.png", "Trang's illustration of her self-portrait." %}
+{% image "./trang-illustration2.png", "Trang's illustration of her self-portrait." %}
 
 
