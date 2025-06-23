@@ -45,7 +45,7 @@ This blog is a work in progress, and that’s part of the fun.
   <figcaption>A visual of how this blog runs</figcaption>
 </figure>
 
-### **Tools and technologies**
+## **Tools and technologies**
 
 - **Notion** – Content creation and organization
 
