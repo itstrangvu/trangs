@@ -2,18 +2,20 @@
 title: "Curated lists"
 date: "2025-05-25"
 tags:
-- life
+- interest
 ---
 
 This note contains few lists – of websites, films and sounds that I enjoy at the moment. The date of this note is the date of latest update as I make changes to it quite often. 
 
-## Read
+## Books
 
 - [A Sting in the Tale](https://www.goodreads.com/book/show/18465526-a-sting-in-the-tale) by Dave Goulson – A deep insight into the crucial importance of the bumblebee
 
 - [Japan: The Cookbook](https://www.goodreads.com/book/show/36423226-japan) by Nancy Singleton Hachisu – Simple and elegant dishes with insightful notes
 
 ## Websites
+
+- [https://www.growbyginkgo.com/](https://www.growbyginkgo.com/) – Digital and printed magazine on all things biology
 
 - [https://nomaprojects.com/blogs/recipes](https://nomaprojects.com/blogs/recipes) – NOMA recipes
 
@@ -43,7 +45,7 @@ This note contains few lists – of websites, films and sounds that I enjoy at t
 
 ## Sound
 
-- [The Cure – I Can Never Say Goodbye](https://open.spotify.com/track/2F9dlOrncL3EasS14mE5VE?si=eeb24b070f284642)
+- [Hania Rani – Eden](https://open.spotify.com/track/6Yy3QRfT2WsUXrdplVdt4h)
 
 - [Oklou – choke enough](https://oklou.bandcamp.com/album/choke-enough)
 
@@ -60,7 +62,7 @@ This note contains few lists – of websites, films and sounds that I enjoy at t
   <figcaption>Curation for the win. </figcaption>
 </figure>
 
-I made a promise to myself: to never stop going on the occasional “random quests”, both online and offline. There’s something exhilarating about an impromptu journey without a set destination, whether it’s wandering around the internet or heading to a local concert venue to support emerging artists. 
+I once made a promise to myself: to never stop going on the occasional “random quests”, both online and offline. There’s something exhilarating about an impromptu journey without a set destination, whether it’s wandering around the internet or heading to a local concert venue to support emerging artists. 
 
 Rather than passively taking what’s handed to me, I choose to discover, research, and refine my tastes. It keeps life interesting and ensures I’m always learning something new.
 
