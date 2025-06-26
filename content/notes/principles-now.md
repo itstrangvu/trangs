@@ -19,8 +19,6 @@ Give zero fuel to poor behavior, bad ideas, performative smartness. Focus your e
 
 Escape the algorithm by selecting information content with intention. Also consider stepping away from your screen and doing something completely different and unrelated. 
 
-Sometimes I visit this [reddit nosurf channel](https://www.reddit.com/r/nosurf/) to check out how others do it. 
-
 ### Trust
 
 Trust needs to be earned and is a glue to quality relationships. 
