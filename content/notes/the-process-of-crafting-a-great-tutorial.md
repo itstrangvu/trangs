@@ -15,7 +15,7 @@ In this guide, I’ll walk you through my approach to creating tutorials using a
 
 
 
-## **The tools**
+## The tools
 
 - [Claude](https://claude.ai/) and [ChatGPT](https://chatgpt.com/) – for refining and perfecting the script.
 
@@ -29,7 +29,7 @@ In this guide, I’ll walk you through my approach to creating tutorials using a
 
 
 
-## **The process**
+## The process
 
 1. **Script**
 
@@ -109,7 +109,7 @@ Upload your polished tutorial to YouTube or your preferred platform and share it
 
 
 
-## **Guidelines for tutorial design**
+### Guidelines for tutorial design
 
 To ensure a professional and visually appealing result:
 
