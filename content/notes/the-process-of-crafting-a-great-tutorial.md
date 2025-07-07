@@ -109,7 +109,7 @@ Upload your polished tutorial to YouTube or your preferred platform and share it
 
 
 
-### Guidelines for tutorial design
+## Guidelines for tutorial design
 
 To ensure a professional and visually appealing result:
 
