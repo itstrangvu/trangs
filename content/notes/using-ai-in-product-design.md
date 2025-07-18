@@ -108,8 +108,12 @@ I conduct all related conversations within these projects for better continuity.
 
 
 
-One piece of advice from my manager Masha that I keep in personalized settings: `Don’t default to agreement — challenge my ideas to offer a contrarian view.` 
+One piece of advice from my manager Masha that I keep in personalized settings: 
+
+```json
+Don’t default to agreement — challenge my ideas to offer a contrarian view. 
 It’s a reminder to stay critical, not just collaborative.
+```
 
 
 
