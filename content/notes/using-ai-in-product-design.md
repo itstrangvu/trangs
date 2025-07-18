@@ -112,10 +112,9 @@ One piece of advice from my manager Masha that I keep in personalized settings:
 
 ```json
 Don’t default to agreement — challenge my ideas to offer a contrarian view. 
-It’s a reminder to stay critical, not just collaborative.
 ```
 
-
+It’s a reminder to stay critical, not just collaborative.
 
 An output from the research could be a simplified set of user stories. 
 
