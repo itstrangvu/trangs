@@ -17,3 +17,5 @@ You can find me on:
 
 
 Or you can <a href="mailto:thientrangvu@proton.me?subject=Hi there">send me an email</a>.
+
+{% image "./trang-profile-illustration2.png", "Trang's illustration of her profile." %}
