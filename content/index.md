@@ -11,7 +11,7 @@ Focusing my energy on creating data visualizations and digital experiences for p
 
 I’m currently a **Senior Product Designer** at **Similarweb**, working on tools that help marketers better understand and improve their online advertising.
 
-Previously, I was leading product design teams at **Groupon** and **Apify**, and before that, I crafted frontends for various operational dashboards and systems.
+Previously, I was leading product design teams at Groupon and Apify, and before that, I crafted frontends for various operational dashboards and systems.
 
 My temporary work portfolio is available on <a href="https://trang-vu.notion.site/141a20a912114958b81a5869916cf9cb?v=7046a53bc0714379ab15bdabbb766028&pvs=4" target="_blank">this Notion public site</a>.
 
