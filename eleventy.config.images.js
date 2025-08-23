@@ -1,34 +1,45 @@
-const path = require("path");
-const eleventyImage = require("@11ty/eleventy-img");
+// eleventy.config.images.js
+const Image = require("@11ty/eleventy-img");
 
-module.exports = eleventyConfig => {
-	function relativeToInputPath(inputPath, relativeFilePath) {
-		let split = inputPath.split("/");
-		split.pop();
+module.exports = function(eleventyConfig) {
+  const isNetlify = !!process.env.NETLIFY;
 
-		return path.resolve(split.join(path.sep), relativeFilePath);
-	}
+  // CI skips AVIF to avoid "heifsave: Unsupported compression"
+  const DEFAULT_FORMATS = isNetlify ? ["webp", "jpeg"] : ["avif", "webp", "jpeg"];
 
-	// Eleventy Image shortcode
-	// https://www.11ty.dev/docs/plugins/image/
-	eleventyConfig.addAsyncShortcode("image", async function imageShortcode(src, alt, widths, sizes) {
-		// Full list of formats here: https://www.11ty.dev/docs/plugins/image/#output-formats
-		// Warning: Avif can be resource-intensive so take care!
-		let formats = ["avif", "webp", "auto"];
-		let file = relativeToInputPath(this.page.inputPath, src);
-		let metadata = await eleventyImage(file, {
-			widths: widths || ["auto"],
-			formats,
-			outputDir: path.join(eleventyConfig.dir.output, "img"), // Advanced usage note: `eleventyConfig.dir` works here because we’re using addPlugin.
-		});
+  async function imageShortcode(src, alt = "", sizes = "100vw", widths = [400, 800, 1280]) {
+    if (!alt) {
+      throw new Error(`Missing \`alt\` for image: ${src}`);
+    }
 
-		// TODO loading=eager and fetchpriority=high
-		let imageAttributes = {
-			alt,
-			sizes,
-			loading: "lazy",
-			decoding: "async",
-		};
-		return eleventyImage.generateHTML(metadata, imageAttributes);
-	});
+    const metadata = await Image(src, {
+      formats: DEFAULT_FORMATS,
+      widths,
+      urlPath: "/img/",
+      outputDir: "./_site/img/",
+      // cache helps local dev speed-ups
+      useCache: true,
+    });
+
+    const imageAttributes = {
+      alt,
+      sizes,
+      loading: "lazy",
+      decoding: "async",
+    };
+
+    return Image.generateHTML(metadata, imageAttributes);
+  }
+
+  // Nunjucks and 11ty.js async shortcodes
+  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+
+  // Liquid async shortcode
+  eleventyConfig.addLiquidShortcode("image", async (...args) => {
+    return await imageShortcode(...args);
+  });
+
+  // Optional: passthrough for raw image assets if you also reference originals
+  eleventyConfig.addPassthroughCopy({ "assets/img": "img" });
 };

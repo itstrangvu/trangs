@@ -15,7 +15,7 @@ In this guide, I’ll walk you through my approach to creating tutorials using a
 
 
 
-## **The tools**
+## The tools
 
 - [Claude](https://claude.ai/) and [ChatGPT](https://chatgpt.com/) – for refining and perfecting the script.
 
@@ -29,7 +29,7 @@ In this guide, I’ll walk you through my approach to creating tutorials using a
 
 
 
-## **The process**
+## The process
 
 1. **Script**
 
@@ -105,11 +105,11 @@ ffmpeg -i video_without_audio.mp4 -i main_audio.mp3 -i background_music.mp3 -fil
 
 ### Share
 
-Upload your polished tutorial to YouTube or your preferred platform and share it with your audience!
+Upload your polished tutorial to YouTube or your preferred platform and share it with your audience.
 
 
 
-## **Guidelines for tutorial design**
+## Guidelines for tutorial design
 
 To ensure a professional and visually appealing result:
 
@@ -125,10 +125,10 @@ To ensure a professional and visually appealing result:
 
 Here’s the output video: 
 
-[https://www.tella.tv/video/how-to-redeem-groupon-vouchers-ai-generated-voice-9emu](https://www.tella.tv/video/how-to-redeem-groupon-vouchers-ai-generated-voice-9emu)
+[https://www.tella.tv/video/how-to-redeem-groupon-vouchers-1-6rpj](https://www.tella.tv/video/how-to-redeem-groupon-vouchers-1-6rpj) 
 
 
 
-Creating tutorials can be a rewarding process, allowing you to share knowledge in an engaging and professional way. Happy creating! 
+Creating tutorials can be a rewarding process, allowing you to share knowledge in an engaging and professional way. Happy creating.
 
 
