@@ -100,7 +100,7 @@ The supporting graphics should
 
 - Embed psychological trust
 
-→ I created graphics of the user interface for the platform itself, used CLI, code blocks with real code and decided to apply a subtle animations on some of them on scroll
+→ Created graphics of the user interface for the platform itself, used CLI, code blocks with real code and decided to apply a subtle animations on some of them on scroll
 
 
 
@@ -128,17 +128,12 @@ I chose to end the storytelling with a fluid transition into the footer by using
 
 # Outcomes
 
-Key results we got a month after the release
+Key results we got a month after the release: 
+**+14%** sign ups
 
-+14% sign ups
+**+27%** page views
 
-
-
-+27% page views
-
-
-
-+4s average time spent on page
+**+4s** average time spent on page
 
 # Challenges
 
