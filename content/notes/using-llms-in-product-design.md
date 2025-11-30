@@ -7,7 +7,7 @@ tags:
 - design
 ---
 
-Since the rise of AI, I’ve experimented to understand its capabilities, test its boundaries, and assess what’s possible today and what still lies out of reach. Below are some notes on how I integrate AI into my daily work, across the entire design process.
+Since the rise of LLMs, I’ve experimented to understand its capabilities, test its boundaries, and assess what’s possible today and what still lies out of reach. Below are some notes on how I integrate AI into my daily work, across the entire design process.
 
 
 
@@ -17,7 +17,7 @@ Since the rise of AI, I’ve experimented to understand its capabilities, test i
 
 1. Ideation
 
-1. Prototyping with AI tools
+1. Prototyping with LLMs tools
 
 1. Validating and testing with users
 
@@ -315,6 +315,6 @@ While measuring impact is typically the responsibility of the Product Manager, I
 
 ## Summary
 
-I treat AI as another tool in my design toolkit, but one I’m not afraid to challenge. I plan to keep refining this approach over time. It’s important to work with AI responsibly and ethically, while also shaping the tools in a way that pushes my own thinking forward. 
+I treat LLMs as another tool in my design toolkit, but one I’m not afraid to challenge. I plan to keep refining this approach over time. It’s important to work with AI responsibly and ethically, while also shaping the tools in a way that pushes my own thinking forward. 
 
 
