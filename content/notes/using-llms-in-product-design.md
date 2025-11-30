@@ -1,5 +1,5 @@
 ---
-title: "Using AI in product design"
+title: "Using LLMs in product design"
 date: "2025-07-16"
 tags:
 - work
