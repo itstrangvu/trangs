@@ -25,7 +25,7 @@ Some tools dated back to recipes written in Latin. Others were new, but incompat
 
 ### Lies and court politics
 
-The “smart oven” reported every soufflé had been served, though half were raw. Some recipes took three winters to prepare (only to be forgotten on a dusty shelf before anyone ever tasted them). Decisions on what to cook were driven not by diners but by court politics. If Lord Curry liked spicy, everything was spicy, regardless of what citizens wanted or tolerated.
+The “smart oven” reported every soufflé had been served, though half were raw. Some recipes took three winters to prepare (only to be forgotten on a dusty shelf before anyone ever tasted them). Decisions on what to cook were driven not by diners but by court politics. If Lord Manuka liked sweet, everything was sweet, regardless of what citizens wanted or tolerated.
 
 ### Trust collapse
 
