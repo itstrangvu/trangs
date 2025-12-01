@@ -16,13 +16,13 @@ featuredImage: ""
   
 </figure>
 
-# Context
+## Context
 
 Joining as a merchant is one of the most important moments in Groupon’s ecosystem, and when I arrived, the experience wasn’t set up to support that moment well. The onboarding journey had grown messy over time. Steps were scattered, context was missing, and merchants struggled to understand where they were or what was required of them. Teams across the company felt the impact, and merchants often stalled before getting everything they needed in place.
 
 
 
-# Approach
+## Approach
 
 I took this on as an opportunity to rebuild the foundation properly by mapping the entire journey end to end, surfacing pain points that had been accepted as “just how it works,” and aligning stakeholders on what a healthy onboarding lifecycle should look like. 
 
@@ -37,7 +37,7 @@ Working closely with Sales, Customer Support, Engineering, Marketing and Analyti
 
 
 
-# Outcome
+## Outcome
 
 The result was a more scalable and measurable onboarding foundation. Close collaboration with Sales, Customer Support, Engineering, Marketing and Analytics shaped a solution that balanced user needs with operational realities.
 
@@ -52,7 +52,7 @@ While I cannot share specific performance figures, the first months after launch
   
 </figure>
 
-# Takeaways
+## Takeaways
 
 A critical takeaway for me was establishing proper tracking. The teams had been operating without a reliable view of the journey, which made decision-making reactive. By putting the right measurement in place, we created visibility for the first time. This meant we could identify friction points, understand behaviour, and iterate with purpose instead of guesswork.
 
