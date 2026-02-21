@@ -5,9 +5,8 @@ eleventyNavigation:
   order: 1
 ---
 # Hi, I’m Trang Vũ
-## Senior Software Designer
 
-Focusing my energy on creating data visualizations and digital experiences for positive change since I like to spend my days doing something that aligns with my personal values: balance, inclusivity, sustainability. 
+Insights, data visualization and digital experiences designer for positive change since I like to spend my days doing something that aligns with my personal values: balance, inclusivity, sustainability. 
 
 I’m currently a **Senior Product Designer** at **Similarweb**, working on tools that help marketers better understand and improve their online advertising.
 
