@@ -190,6 +190,7 @@ async function parseBlocksToMarkdown(blocks) {
       const titleProperty =
         page.properties.Name?.title[0]?.text?.content || 'Untitled';
       const dateProperty = page.properties.Date?.date?.start || '';
+      const descriptionProperty = page.properties['Short description']?.rich_text[0]?.plain_text || '';
       const tagsProperty =
         page.properties.Tags?.multi_select.map(tag => tag.name) || [];
 
@@ -206,6 +207,7 @@ async function parseBlocksToMarkdown(blocks) {
         title: titleProperty,
         content: contentProperty,
         date: dateProperty,
+        description: descriptionProperty,
         tags: tagsProperty
       };
     });
@@ -223,7 +225,7 @@ async function parseBlocksToMarkdown(blocks) {
 
     // Create/update post markdown
     posts.forEach(post => {
-      const { title, content, date, tags } = post;
+      const { title, content, date, description, tags } = post;
       const safeTitle = title.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
       const filename = `${safeTitle}.md`;
       const tagsMarkdown = tags.map(tag => `- ${tag}`).join('\n');
@@ -231,6 +233,7 @@ async function parseBlocksToMarkdown(blocks) {
       const markdownContent = `---
 title: "${title}"
 date: "${date}"
+description: "${description}"
 tags:
 ${tagsMarkdown}
 ---
