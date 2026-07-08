@@ -1,0 +1,61 @@
+/* Inter, self-hosted as a variable font, with the "disambiguation" stylistic set
+   enabled so 1/l/I and 0/O read distinctly. See ../font-playground for reference. */
+@font-feature-values "Inter" {
+	@styleset {
+		disambiguation: 2;
+	}
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-feature-settings: "calt" 0;
+	font-style: normal;
+	font-weight: 100 900;
+	src: url(/fonts/inter-latin.woff2) format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-feature-settings: "calt" 0;
+	font-style: italic;
+	font-weight: 100 900;
+	src: url(/fonts/inter-italic-latin.woff2) format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-feature-settings: "calt" 0;
+	font-style: normal;
+	font-weight: 100 900;
+	src: url(/fonts/inter-latin-extended.woff2) format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-feature-settings: "calt" 0;
+	font-style: italic;
+	font-weight: 100 900;
+	src: url(/fonts/inter-italic-latin-extended.woff2) format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-feature-settings: "calt" 0;
+	font-style: normal;
+	font-weight: 100 900;
+	src: url(/fonts/inter-cyrillic.woff2) format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-feature-settings: "calt" 0;
+	font-style: italic;
+	font-weight: 100 900;
+	src: url(/fonts/inter-italic-cyrillic.woff2) format("woff2");
+}
