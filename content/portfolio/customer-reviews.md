@@ -3,10 +3,11 @@ title: "Customer reviews"
 year: ""
 client: ""
 role: ""
-description: ""
+description: "Improve trust and long-term marketplace value"
 categories:
 
-featuredImage: ""
+featuredImage: "/images/portfolio/2bb8d0a5-5f27-806f-b5f5-f35ba887ea77-cover.webp"
+comingSoon: false
 ---
 
 

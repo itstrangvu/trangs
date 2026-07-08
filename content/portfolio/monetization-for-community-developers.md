@@ -3,10 +3,11 @@ title: "Monetization for community developers"
 year: ""
 client: ""
 role: ""
-description: ""
+description: "A platform feature for developers"
 categories:
 
-featuredImage: ""
+featuredImage: "/images/portfolio/c8470c9d-d2e6-458b-954a-48185a9139fe-cover.webp"
+comingSoon: false
 ---
 
 ## Opportunities

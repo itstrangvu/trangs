@@ -4,7 +4,8 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
-# Hi, I’m Trang Vũ
+# Hi, I’m Trang Vũ.
+# I'm a designer working on digital products.
 
 Insights, data visualization and digital experiences designer for positive change since I like to spend my days doing something that aligns with my personal values: balance, inclusivity, sustainability. 
 

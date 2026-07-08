@@ -1,0 +1,126 @@
+/* Portfolio grid — same width and background as the rest of the page */
+.portfolio-page {
+	--portfolio-radius: 16px;
+
+	margin-top: 2rem;
+}
+
+.portfolio-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.5rem;
+	margin: 0 0 2rem;
+}
+
+.portfolio-filter {
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	font-size: 0.9rem;
+	color: var(--color-gray-90);
+	cursor: pointer;
+	transition: color 0.16s ease-in-out;
+}
+.portfolio-filter:hover,
+.portfolio-filter:focus-visible {
+	color: var(--text-color-link-active);
+}
+.portfolio-filter.is-active {
+	color: var(--text-color);
+	font-weight: 700;
+}
+
+.portfolio-grid {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2.5rem 1.5rem;
+	margin: 0;
+	padding: 0;
+}
+
+@media (min-width: 700px) {
+	.portfolio-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.portfolio-card[hidden] {
+	display: none;
+}
+
+.portfolio-card-link {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+.portfolio-card-link:hover,
+.portfolio-card-link:focus-visible,
+.portfolio-card-link:visited {
+	color: inherit;
+}
+
+.portfolio-card-media {
+	position: relative;
+	aspect-ratio: 16 / 10;
+	border-radius: var(--portfolio-radius);
+	overflow: hidden;
+	background-color: var(--portfolio-card-bg, var(--color-gray-20));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.portfolio-card-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 0;
+	transition: transform 0.3s ease-in-out;
+}
+.portfolio-card-link:hover .portfolio-card-media img,
+.portfolio-card-link:focus-visible .portfolio-card-media img {
+	transform: scale(1.03);
+}
+
+.portfolio-card-wordmark {
+	font-size: 1.1rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-align: center;
+	padding: 0 1.5rem;
+	/* Sits on the generated color block, not the page background, so it stays light in both themes */
+	color: #f5f5f5;
+}
+
+.portfolio-badge {
+	position: absolute;
+	top: 0.75rem;
+	left: 0.75rem;
+	background-color: rgba(0, 0, 0, 0.55);
+	color: #f5f5f5;
+	font-size: 0.75rem;
+	line-height: 1;
+	padding: 0.5em 0.85em;
+	border-radius: 999px;
+	backdrop-filter: blur(6px);
+}
+
+.portfolio-card-title {
+	margin: 1rem 0 0.35rem;
+	font-size: 1.05rem;
+	font-weight: 700;
+}
+
+.portfolio-card-description {
+	margin: 0;
+	font-size: 0.9rem;
+	line-height: 1.5;
+	color: var(--color-gray-90);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.portfolio-card-media img {
+		transition: none;
+	}
+}

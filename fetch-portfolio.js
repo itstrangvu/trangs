@@ -180,13 +180,18 @@ async function parseBlocksToMarkdown(blocks) {
       const yearProperty = page.properties.Year?.rich_text[0]?.plain_text || '';
       const clientProperty = page.properties.Client?.rich_text[0]?.plain_text || '';
       const roleProperty = page.properties.Role?.rich_text[0]?.plain_text || '';
-      const descriptionProperty = page.properties.Description?.rich_text[0]?.plain_text || '';
+      const descriptionProperty = page.properties['Short description']?.rich_text[0]?.plain_text || '';
       const categoriesProperty =
         page.properties.Categories?.multi_select.map(category => category.name) || [];
-      
-      // Get featured image if available
+      const comingSoonProperty = page.properties['Coming Soon']?.checkbox || false;
+
+      // Use the page's Notion cover image as the thumbnail, falling back to a FeaturedImage property
       let featuredImageUrl = '';
-      if (page.properties.FeaturedImage?.files && page.properties.FeaturedImage.files.length > 0) {
+      const coverUrl = page.cover?.external?.url || page.cover?.file?.url;
+      if (coverUrl) {
+        const filename = `${page.id}-cover`;
+        featuredImageUrl = await downloadAndOptimizeImage(coverUrl, filename);
+      } else if (page.properties.FeaturedImage?.files && page.properties.FeaturedImage.files.length > 0) {
         const imageFile = page.properties.FeaturedImage.files[0];
         const imageUrl = imageFile.file?.url || imageFile.external?.url;
         if (imageUrl) {
@@ -212,6 +217,7 @@ async function parseBlocksToMarkdown(blocks) {
         description: descriptionProperty,
         categories: categoriesProperty,
         featuredImage: featuredImageUrl,
+        comingSoon: comingSoonProperty,
         content: contentProperty
       };
     });
@@ -229,7 +235,7 @@ async function parseBlocksToMarkdown(blocks) {
 
     // Create/update project markdown files
     projects.forEach(project => {
-      const { title, year, client, role, description, categories, featuredImage, content } = project;
+      const { title, year, client, role, description, categories, featuredImage, comingSoon, content } = project;
       const safeTitle = title.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
       const filename = `${safeTitle}.md`;
       const categoriesMarkdown = categories.map(category => `- ${category}`).join('\n');
@@ -243,6 +249,7 @@ description: "${description}"
 categories:
 ${categoriesMarkdown}
 featuredImage: "${featuredImage}"
+comingSoon: ${comingSoon}
 ---
 
 ${content}

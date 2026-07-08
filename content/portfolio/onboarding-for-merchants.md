@@ -3,10 +3,11 @@ title: "Onboarding for Merchants"
 year: ""
 client: ""
 role: ""
-description: ""
+description: "Help new Merchants become successful"
 categories:
 
-featuredImage: ""
+featuredImage: "/images/portfolio/2bb8d0a5-5f27-8002-b0ac-f4b099ae50d7-cover.webp"
+comingSoon: false
 ---
 
 

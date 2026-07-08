@@ -1,9 +1,59 @@
-{# {%- css %}.projectlist { counter-reset: start-from {{ (projectslistCounter or projectslist.length) + 1 }} }{% endcss %} #}
-<ol reversed class="postlist">
+{% set categories = projectslist | getAllCategories %}
+{% set hasInProgress = projectslist | hasComingSoon %}
+
+{% if categories.length or hasInProgress %}
+<div class="portfolio-filters" role="group" aria-label="Filter portfolio by category">
+	<button type="button" class="portfolio-filter is-active" data-filter="all" aria-pressed="true">All</button>
+	{%- for category in categories %}
+	<button type="button" class="portfolio-filter" data-filter="{{ category | slugify }}" aria-pressed="false">{{ category }}</button>
+	{%- endfor %}
+	{%- if hasInProgress %}
+	<button type="button" class="portfolio-filter" data-filter="in-progress" aria-pressed="false">In Progress</button>
+	{%- endif %}
+</div>
+{% endif %}
+
+<ul class="portfolio-grid">
 {% for project in projectslist | reverse %}
-	<li class="postlist-item{% if project.url == url %} postlist-item-active{% endif %}">
-		<a href="{{ project.url }}" class="postlist-link">{% if project.data.title %}{{ project.data.title }}{% else %}<code>{{ project.url }}</code>{% endif %}</a>
-		<time class="postlist-date" datetime="{{ project.date | htmlDateString }}">{{ project.data.year }}</time>
+	<li class="portfolio-card" data-categories="{{ project.data.categories | categorySlugs }}" data-status="{% if project.data.comingSoon %}in-progress{% else %}done{% endif %}">
+		<a href="{{ project.url }}" class="portfolio-card-link">
+			<div class="portfolio-card-media" style="--portfolio-card-bg: {{ project.data.title | colorFromString }};">
+				{%- if project.data.featuredImage %}
+				<img src="{{ project.data.featuredImage }}" alt="{{ project.data.title }}" loading="lazy" decoding="async">
+				{%- else %}
+				<span class="portfolio-card-wordmark">{{ project.data.title }}</span>
+				{%- endif %}
+				{%- if project.data.comingSoon %}<span class="portfolio-badge">Coming Soon</span>{% endif %}
+			</div>
+			<h2 class="portfolio-card-title">{{ project.data.title }}</h2>
+			{%- if project.data.description %}<p class="portfolio-card-description">{{ project.data.description }}</p>{% endif %}
+		</a>
 	</li>
 {% endfor %}
-</ol> 
+</ul>
+
+{% if categories.length or hasInProgress %}
+{% js %}
+document.querySelectorAll(".portfolio-filters").forEach(function(nav) {
+	nav.addEventListener("click", function(event) {
+		var button = event.target.closest(".portfolio-filter");
+		if (!button) return;
+
+		var filter = button.dataset.filter;
+		nav.querySelectorAll(".portfolio-filter").forEach(function(tab) {
+			var active = tab === button;
+			tab.classList.toggle("is-active", active);
+			tab.setAttribute("aria-pressed", active);
+		});
+
+		document.querySelectorAll(".portfolio-card").forEach(function(card) {
+			var categories = card.dataset.categories.split(" ");
+			var isMatch = filter === "all"
+				|| categories.indexOf(filter) !== -1
+				|| (filter === "in-progress" && card.dataset.status === "in-progress");
+			card.hidden = !isMatch;
+		});
+	});
+});
+{% endjs %}
+{% endif %}

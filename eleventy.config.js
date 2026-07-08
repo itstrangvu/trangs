@@ -79,6 +79,36 @@ module.exports = function(eleventyConfig) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts", "notes", "projects"].indexOf(tag) === -1);
 	});
 
+	// Return all the unique portfolio categories used across a collection of projects
+	eleventyConfig.addFilter("getAllCategories", collection => {
+		let categorySet = new Set();
+		for(let item of collection) {
+			(item.data.categories || []).forEach(category => categorySet.add(category));
+		}
+		return Array.from(categorySet);
+	});
+
+	// Space-separated slugs for a project's categories, for use as a filter data attribute
+	eleventyConfig.addFilter("categorySlugs", categories => {
+		const slugify = eleventyConfig.getFilter("slugify");
+		return (categories || []).map(category => slugify(category)).join(" ");
+	});
+
+	// Whether any project in the collection is flagged as still in progress
+	eleventyConfig.addFilter("hasComingSoon", collection => {
+		return collection.some(item => item.data.comingSoon);
+	});
+
+	// Deterministic muted background color for portfolio cards without a featured image
+	eleventyConfig.addFilter("colorFromString", str => {
+		let hash = 0;
+		for(let i = 0; i < (str || "").length; i++) {
+			hash = str.charCodeAt(i) + ((hash << 5) - hash);
+		}
+		const hue = Math.abs(hash) % 360;
+		return `hsl(${hue}, 28%, 16%)`;
+	});
+
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {
 		mdLib.use(markdownItAnchor, {

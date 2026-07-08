@@ -3,10 +3,11 @@ title: "Satisfaction survey"
 year: ""
 client: ""
 role: ""
-description: ""
+description: "An automated user satisfaction survey "
 categories:
 
-featuredImage: ""
+featuredImage: "/images/portfolio/fe39f772-a6bc-4951-82af-d9c5ec9cc440-cover.webp"
+comingSoon: false
 ---
 
 ## Context
