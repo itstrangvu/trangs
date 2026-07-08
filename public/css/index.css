@@ -209,9 +209,8 @@ header {
 .postlist-date {
 	flex: 0 0 auto;
 	width: 7.5rem;
-	font-size: 0.9em;
-	color: var(--text-color);
-	opacity: 0.55;
+	font-size: 0.9rem;
+	color: var(--color-gray-90);
 	word-spacing: -0.5px;
 }
 .postlist-content {
@@ -225,16 +224,22 @@ header {
 	text-underline-position: from-font;
 	text-underline-offset: 0;
 	text-decoration-thickness: 1px;
+	text-decoration-line: underline;
+	text-decoration-color: transparent;
+	transition: text-decoration-color 0.16s ease-in-out;
+}
+.postlist-link:hover,
+.postlist-link:focus-visible {
+	text-decoration-color: currentColor;
 }
 .postlist-item-active .postlist-link {
 	font-weight: bold;
 }
 .postlist-description {
 	margin: 0.35em 0 0;
-	font-size: 0.9375em; /* 15px /16 */
+	font-size: 0.9rem;
 	line-height: 1.5;
-	color: var(--text-color);
-	opacity: 0.65;
+	color: var(--color-gray-90);
 }
 
 /* Tags */

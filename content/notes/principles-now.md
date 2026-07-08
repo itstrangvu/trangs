@@ -1,6 +1,7 @@
 ---
 title: "Principles now"
 date: "2025-06-23"
+description: "List of principles I swear by"
 tags:
 - life
 ---

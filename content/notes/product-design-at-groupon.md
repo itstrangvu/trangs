@@ -1,6 +1,7 @@
 ---
 title: "Product design at Groupon"
 date: "2025-02-03"
+description: "Few guidelines in place for product design team"
 tags:
 - work
 - process

@@ -1,6 +1,7 @@
 ---
 title: "How this blog runs"
 date: "2025-03-12"
+description: "A sneak peek how this digital garden operates"
 tags:
 - code
 - design

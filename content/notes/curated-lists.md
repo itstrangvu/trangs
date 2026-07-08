@@ -1,6 +1,7 @@
 ---
 title: "Curated lists"
 date: "2025-05-25"
+description: "Films, music and books I favored"
 tags:
 - interest
 ---
@@ -14,6 +15,8 @@ This note contains few lists – of websites, films and sounds that I enjoy at t
 - [Japan: The Cookbook](https://www.goodreads.com/book/show/36423226-japan) by Nancy Singleton Hachisu – Simple and elegant dishes with insightful notes
 
 ## Websites
+
+- [https://worksinprogress.co/](https://worksinprogress.co/) – Both digital and printed magazine of new and underrated ideas to improve the world. 
 
 - [https://www.growbyginkgo.com/](https://www.growbyginkgo.com/) – Digital and printed magazine on all things biology
 
@@ -47,9 +50,9 @@ This note contains few lists – of websites, films and sounds that I enjoy at t
 
 - [Hania Rani – Eden](https://open.spotify.com/track/6Yy3QRfT2WsUXrdplVdt4h)
 
-- [Oklou – choke enough](https://oklou.bandcamp.com/album/choke-enough)
+- Birds singing in the forest
 
-- [La Science podcast by France Culture](https://www.radiofrance.fr/franceculture/podcasts/la-science-cqfd)
+- [Oklou – choke enough](https://oklou.bandcamp.com/album/choke-enough)
 
 - [Tumy – Sigh](https://soundcloud.com/seedlink_plus/tumy-sigh)
 

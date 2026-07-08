@@ -1,6 +1,7 @@
 ---
 title: "Qualities of a seasoned product designer"
 date: "2024-01-24"
+description: "What makes a product designer?"
 tags:
 - design
 - work

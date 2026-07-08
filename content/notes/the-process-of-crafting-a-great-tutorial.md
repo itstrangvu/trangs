@@ -1,6 +1,7 @@
 ---
 title: "The process of crafting a great tutorial"
 date: "2024-11-14"
+description: "Few tips and tricks I learned during making product tutorials"
 tags:
 - design
 - work

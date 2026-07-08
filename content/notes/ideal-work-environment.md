@@ -1,6 +1,7 @@
 ---
 title: "Ideal work environment"
 date: "2024-08-15"
+description: "How I choose my workplace"
 tags:
 - design
 ---

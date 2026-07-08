@@ -1,6 +1,7 @@
 ---
 title: "Using LLMs in product design"
 date: "2025-07-16"
+description: "How I use LLM in my workflows"
 tags:
 - work
 - process

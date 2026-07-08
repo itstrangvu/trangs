@@ -1,6 +1,7 @@
 ---
 title: "A tool for tracking habits"
 date: "2024-02-21"
+description: "A tiny project I worked on"
 tags:
 - process
 - life

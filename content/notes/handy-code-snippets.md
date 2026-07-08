@@ -1,6 +1,7 @@
 ---
 title: "Handy code snippets"
 date: "2023-09-16"
+description: "If LLMs stop working one day, this is where I go"
 tags:
 - code
 ---

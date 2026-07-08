@@ -1,6 +1,7 @@
 ---
 title: "A tale about a messy kitchen"
 date: "2025-09-11"
+description: "Absence of clarity in complex systems"
 tags:
 - work
 - life

@@ -1,6 +1,7 @@
 ---
 title: "Calm rules"
 date: "2024-06-30"
+description: "Tonic amidst the turbulent and noisy world"
 tags:
 - health
 ---

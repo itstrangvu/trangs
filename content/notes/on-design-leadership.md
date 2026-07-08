@@ -1,6 +1,7 @@
 ---
 title: "On (design) leadership"
 date: "2024-09-25"
+description: "Lessons for the design leader in me"
 tags:
 - design
 ---
