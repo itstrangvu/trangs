@@ -244,6 +244,28 @@ header {
 	color: var(--color-gray-90);
 }
 
+@media (max-width: 600px) {
+	.postlist-item {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.35em;
+	}
+	.postlist-content {
+		order: 1;
+		width: 100%;
+	}
+	.postlist-date {
+		order: 2;
+		width: auto;
+	}
+	.postlist-description {
+		margin-top: 0.15em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+
 /* Tags */
 .post-tag {
 	display: inline-flex;
