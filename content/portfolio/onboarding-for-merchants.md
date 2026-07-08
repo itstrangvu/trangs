@@ -1,6 +1,7 @@
 ---
 title: "Onboarding for Merchants"
 year: ""
+date: "2025-06-17"
 client: ""
 role: ""
 description: "Help new Merchants become successful"

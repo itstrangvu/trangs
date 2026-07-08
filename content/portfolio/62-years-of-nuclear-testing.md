@@ -1,6 +1,7 @@
 ---
 title: "62 years of nuclear testing"
 year: ""
+date: "2019-06-17"
 client: ""
 role: ""
 description: "A semestral project to help visualize a large dataset"

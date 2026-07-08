@@ -178,6 +178,7 @@ async function parseBlocksToMarkdown(blocks) {
       const titleProperty =
         page.properties.Name?.title[0]?.text?.content || 'Untitled Project';
       const yearProperty = page.properties.Year?.rich_text[0]?.plain_text || '';
+      const dateProperty = page.properties.Date?.date?.start || '';
       const clientProperty = page.properties.Client?.rich_text[0]?.plain_text || '';
       const roleProperty = page.properties.Role?.rich_text[0]?.plain_text || '';
       const descriptionProperty = page.properties['Short description']?.rich_text[0]?.plain_text || '';
@@ -212,6 +213,7 @@ async function parseBlocksToMarkdown(blocks) {
         id: page.id,
         title: titleProperty,
         year: yearProperty,
+        date: dateProperty,
         client: clientProperty,
         role: roleProperty,
         description: descriptionProperty,
@@ -235,7 +237,7 @@ async function parseBlocksToMarkdown(blocks) {
 
     // Create/update project markdown files
     projects.forEach(project => {
-      const { title, year, client, role, description, categories, featuredImage, comingSoon, content } = project;
+      const { title, year, date, client, role, description, categories, featuredImage, comingSoon, content } = project;
       const safeTitle = title.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
       const filename = `${safeTitle}.md`;
       const categoriesMarkdown = categories.map(category => `- ${category}`).join('\n');
@@ -243,6 +245,7 @@ async function parseBlocksToMarkdown(blocks) {
       const markdownContent = `---
 title: "${title}"
 year: "${year}"
+date: "${date}"
 client: "${client}"
 role: "${role}"
 description: "${description}"

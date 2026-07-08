@@ -1,6 +1,7 @@
 ---
 title: "Monetization for community developers"
 year: ""
+date: "2023-08-15"
 client: ""
 role: ""
 description: "A platform feature for developers"

@@ -1,6 +1,7 @@
 ---
 title: "Satisfaction survey"
 year: ""
+date: "2023-07-04"
 client: ""
 role: ""
 description: "An automated user satisfaction survey "
