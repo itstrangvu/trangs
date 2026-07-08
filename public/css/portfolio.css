@@ -1,6 +1,6 @@
 /* Portfolio grid — same width and background as the rest of the page */
 .portfolio-page {
-	--portfolio-radius: 16px;
+	--portfolio-radius: 8px;
 
 	margin-top: 2rem;
 }
@@ -66,7 +66,6 @@
 	aspect-ratio: 16 / 10;
 	border-radius: var(--portfolio-radius);
 	overflow: hidden;
-	background-color: var(--portfolio-card-bg, var(--color-gray-20));
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -76,11 +75,6 @@
 	height: 100%;
 	object-fit: cover;
 	border-radius: 0;
-	transition: transform 0.3s ease-in-out;
-}
-.portfolio-card-link:hover .portfolio-card-media img,
-.portfolio-card-link:focus-visible .portfolio-card-media img {
-	transform: scale(1.03);
 }
 
 .portfolio-card-wordmark {
@@ -117,10 +111,4 @@
 	font-size: 0.9rem;
 	line-height: 1.5;
 	color: var(--color-gray-90);
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.portfolio-card-media img {
-		transition: none;
-	}
 }
