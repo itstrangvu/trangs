@@ -14,7 +14,9 @@ layout: layouts/base.njk
 	{%- endfor %}
 </ul>
 
+<div class="markdown-content">
 {{ content | safe }}
+</div>
 
 {%- if collections.notes %}
 {%- set previousPost = collections.notes | getPreviousCollectionItem %}

@@ -21,7 +21,9 @@ layout: layouts/base.njk
 </figure>
 {% endif %}
 
+<div class="markdown-content">
 {{ content | safe }}
+</div>
 
 {%- if collections.projects %}
 {%- set previousProject = collections.projects | getPreviousCollectionItem %}

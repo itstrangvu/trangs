@@ -176,9 +176,12 @@ header {
 	font-size: 1em; /* 16px /16 */
 	font-weight: 700;
 	margin-right: 2em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
 }
 .home-link:link:not(:hover) {
-	text-decoration: none;
+	text-decoration-line: none;
 }
 
 /* Nav */
@@ -192,11 +195,16 @@ header {
 	display: inline-block;
 	margin-right: 1em;
 }
+.nav-item a[href] {
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
 .nav-item a[href]:not(:hover) {
-	text-decoration: none;
+	text-decoration-line: none;
 }
 .nav a[href][aria-current="page"] {
-	text-decoration: underline;
+	text-decoration-line: underline;
 }
 
 /* Posts list */
@@ -291,6 +299,15 @@ header {
 	margin-right: 1em;
 }
 
+/* Links within markdown-sourced content, using the same underline geometry as project/note titles, but always visible instead of hover-only */
+.markdown-content a[href]:not(.header-anchor) {
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+	text-decoration-line: underline;
+	text-decoration-color: currentColor;
+}
+
 /* Direct Links / Markdown Headers */
 .header-anchor {
 	text-decoration: none;
@@ -304,7 +321,10 @@ a[href].header-anchor:visited {
 }
 a[href].header-anchor:focus,
 a[href].header-anchor:hover {
-	text-decoration: underline;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+	text-decoration-line: underline;
 }
 a[href].header-anchor:focus,
 :hover > a[href].header-anchor {
