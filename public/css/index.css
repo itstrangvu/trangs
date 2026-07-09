@@ -58,9 +58,11 @@ body {
 }
 
 html {
+	font-size: 1.125em; /* 18px, relative to the 16px browser default */
 	overflow-y: scroll;
 }
 body {
+	font-size: 1rem; /* 18px, relative to html's root font-size */
 	max-width: 40em;
 }
 
@@ -221,8 +223,8 @@ header {
 }
 .postlist-link {
 	display: block;
-	font-size: 1.1875em; /* 19px /16 */
-	font-weight: 700;
+	font-size: 1.05rem;
+	font-weight: 600;
 	text-underline-position: from-font;
 	text-underline-offset: 0;
 	text-decoration-thickness: 1px;
