@@ -111,6 +111,19 @@ a[href]:active {
 	color: var(--text-color-link-active);
 }
 
+/* Shared underline geometry for titles, nav/home links, and markdown links */
+.home-link,
+.nav-item a[href],
+.postlist-link,
+.markdown-content a[href]:not(.header-anchor),
+a[href].header-anchor:focus,
+a[href].header-anchor:hover,
+.portfolio-card-title {
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+
 main {
 	padding: 1rem;
 }
@@ -176,9 +189,6 @@ header {
 	font-size: 1em; /* 16px /16 */
 	font-weight: 700;
 	margin-right: 2em;
-	text-underline-position: from-font;
-	text-underline-offset: 0;
-	text-decoration-thickness: 1px;
 }
 .home-link:link:not(:hover) {
 	text-decoration-line: none;
@@ -194,11 +204,6 @@ header {
 .nav-item {
 	display: inline-block;
 	margin-right: 1em;
-}
-.nav-item a[href] {
-	text-underline-position: from-font;
-	text-underline-offset: 0;
-	text-decoration-thickness: 1px;
 }
 .nav-item a[href]:not(:hover) {
 	text-decoration-line: none;
@@ -233,9 +238,6 @@ header {
 	display: block;
 	font-size: 1.05rem;
 	font-weight: 600;
-	text-underline-position: from-font;
-	text-underline-offset: 0;
-	text-decoration-thickness: 1px;
 	text-decoration-line: underline;
 	text-decoration-color: transparent;
 	transition: text-decoration-color 0.16s ease-in-out;
@@ -301,9 +303,6 @@ header {
 
 /* Links within markdown-sourced content, using the same underline geometry as project/note titles, but always visible instead of hover-only */
 .markdown-content a[href]:not(.header-anchor) {
-	text-underline-position: from-font;
-	text-underline-offset: 0;
-	text-decoration-thickness: 1px;
 	text-decoration-line: underline;
 	text-decoration-color: currentColor;
 }
@@ -321,9 +320,6 @@ a[href].header-anchor:visited {
 }
 a[href].header-anchor:focus,
 a[href].header-anchor:hover {
-	text-underline-position: from-font;
-	text-underline-offset: 0;
-	text-decoration-thickness: 1px;
 	text-decoration-line: underline;
 }
 a[href].header-anchor:focus,

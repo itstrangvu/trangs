@@ -104,9 +104,6 @@
 	margin: 1rem 0 0.35rem;
 	font-size: 1.05rem;
 	font-weight: 600;
-	text-underline-position: from-font;
-	text-underline-offset: 0;
-	text-decoration-thickness: 1px;
 	text-decoration-line: underline;
 	text-decoration-color: transparent;
 	transition: text-decoration-color 0.16s ease-in-out;
