@@ -100,6 +100,7 @@ async function downloadAndOptimizeImage(url, filename) {
 
 /**
  * Download a file (as-is, no optimization) from a URL and store it locally.
+ * Returns the public path and the byte size (for a human-readable size label).
  */
 async function downloadFile(url, filename) {
   const response = await axios.get(url, { responseType: 'arraybuffer' });
@@ -108,7 +109,20 @@ async function downloadFile(url, filename) {
   const localPath = path.join(fileDir, filename);
   await fs.promises.writeFile(localPath, buffer);
 
-  return `/files/portfolio/${filename}`;
+  return { url: `/files/portfolio/${filename}`, bytes: buffer.length };
+}
+
+/**
+ * Format a byte count using binary units, matching Notion's "470 KiB" style.
+ */
+function formatBytes(bytes) {
+  if (!bytes) return '';
+  if (bytes < 1024) return `${bytes} B`;
+  const kib = bytes / 1024;
+  if (kib < 1024) return `${Math.round(kib)} KiB`;
+  const mib = kib / 1024;
+  if (mib < 1024) return `${mib.toFixed(1)} MiB`;
+  return `${(mib / 1024).toFixed(1)} GiB`;
 }
 
 /**
@@ -133,24 +147,26 @@ async function parseFileBlock(fileData, blockId, fallbackLabel) {
 
   let href = fileUrl;
   let downloadAttr = ' download';
+  let sizeLabel = '';
   if (!isExternal) {
     // Prefix with the block id to avoid collisions between same-named files.
     const safeName = downloadName.replace(/[^a-z0-9._-]+/gi, '-');
     const storedName = `${blockId.replace(/-/g, '')}-${safeName}`;
-    href = await downloadFile(fileUrl, storedName);
+    const stored = await downloadFile(fileUrl, storedName);
+    href = stored.url;
+    sizeLabel = formatBytes(stored.bytes);
     downloadAttr = ` download="${downloadName}"`;
   }
 
   return `<a class="file-download" href="${href}"${downloadAttr}>
-  <svg class="file-download-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M12 3v12" />
-    <path d="m7 12 5 5 5-5" />
-    <path d="M5 21h14" />
+  <svg class="file-download-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+    <path d="M14 3v5h5" />
+    <path d="M12 17.5v-5" />
+    <path d="m9.5 14.5 2.5-2.5 2.5 2.5" />
   </svg>
-  <span class="file-download-text">
-    <span class="file-download-name">${label}</span>
-    <span class="file-download-hint">Download</span>
-  </span>
+  <span class="file-download-name">${label}</span>
+  ${sizeLabel ? `<span class="file-download-size">${sizeLabel}</span>` : ''}
 </a>`;
 }
 

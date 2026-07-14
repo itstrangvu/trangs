@@ -9,15 +9,14 @@ tags:
 ## Trang’s profile picture
 
 <a class="file-download" href="/files/39d8d0a55f27803789cdee2e2f710cdc-trang-vu-profile-picture.JPEG.jpeg" download="trang-vu-profile-picture.JPEG.jpeg">
-  <svg class="file-download-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M12 3v12" />
-    <path d="m7 12 5 5 5-5" />
-    <path d="M5 21h14" />
+  <svg class="file-download-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+    <path d="M14 3v5h5" />
+    <path d="M12 17.5v-5" />
+    <path d="m9.5 14.5 2.5-2.5 2.5 2.5" />
   </svg>
-  <span class="file-download-text">
-    <span class="file-download-name">trang-vu-profile-picture.JPEG.jpeg</span>
-    <span class="file-download-hint">Download</span>
-  </span>
+  <span class="file-download-name">trang-vu-profile-picture.JPEG.jpeg</span>
+  <span class="file-download-size">470 KiB</span>
 </a>
 
 

@@ -4,7 +4,8 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
-# Hi, I’m Trang, designer working on digital products.
+# Hi, I’m Trang. 
+# I design and build digital products.
 
 Insights, data visualization and digital experiences designer for positive change since I like to spend my days doing something that aligns with my personal values: balance, inclusivity, sustainability. 
 

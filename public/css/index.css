@@ -20,6 +20,9 @@
 	--code-color: #014421;
 	--code-bg: #fff;
 	--syntax-tab-size: 2;
+
+	--surface-subtle: rgba(0, 0, 0, 0.045);
+	--surface-subtle-hover: rgba(0, 0, 0, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,6 +39,9 @@
 		--background-color: #02211c;
 		--code-color: #02b368;
 		--code-bg: #1a1a22;
+
+		--surface-subtle: rgba(255, 255, 255, 0.06);
+		--surface-subtle-hover: rgba(255, 255, 255, 0.11);
 	}
 }
 
@@ -300,6 +306,10 @@ header {
 .post-metadata time {
 	margin-right: 1em;
 }
+/* One line of breathing room between the date/tags row and the post content */
+.post-metadata + .markdown-content {
+	margin-top: 1.5em;
+}
 
 /* Links within markdown-sourced content, using the same underline geometry as project/note titles, but always visible instead of hover-only */
 .markdown-content a[href]:not(.header-anchor) {
@@ -416,42 +426,37 @@ text-align: center;
 .file-download {
 	display: flex;
 	align-items: center;
-	gap: 0.8em;
-	margin: 1.75em 0;
-	padding: 0.85em 1em;
-	border: 1px solid var(--color-gray-20);
+	gap: 0.55em;
+	margin: 1.5em 0;
+	padding: 0.6em 0.8em;
 	border-radius: 8px;
-	background-color: var(--code-bg);
+	background-color: var(--surface-subtle);
 	color: var(--text-color);
-	transition: border-color 0.16s ease-in-out, color 0.16s ease-in-out;
+	transition: background-color 0.16s ease-in-out;
 }
-/* Override the always-underlined markdown link style for these card links */
-.markdown-content a[href].file-download {
+/* Override the always-underlined markdown link style for these bar links */
+.markdown-content a[href].file-download,
+.markdown-content a[href].file-download:hover {
 	text-decoration: none;
 }
 .file-download:hover,
 .file-download:focus-visible {
-	border-color: var(--text-color-link-active);
-	color: var(--text-color-link-active);
+	background-color: var(--surface-subtle-hover);
+	color: var(--text-color);
 }
 .file-download-icon {
 	flex: 0 0 auto;
-	color: var(--text-color-link-active);
-}
-.file-download-text {
-	display: flex;
-	flex-direction: column;
-	min-width: 0;
+	opacity: 0.7;
 }
 .file-download-name {
-	font-weight: 600;
+	min-width: 0;
 	word-break: break-word;
 }
-.file-download-hint {
-	font-size: 0.8em;
-	letter-spacing: 0.02em;
-	text-transform: uppercase;
-	opacity: 0.7;
+.file-download-size {
+	flex: 0 0 auto;
+	font-size: 0.82em;
+	color: var(--color-gray-90);
+	opacity: 0.6;
 }
   
 
