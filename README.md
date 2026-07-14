@@ -67,7 +67,9 @@ Notes and Portfolio entries are **not** hand-written in the repo. They are autho
 - Writes Markdown to **`content/portfolio/`** and images to **`public/images/portfolio/`**.
 - Preserves `portfolio.11tydata.js` during cleanup.
 
-Both scripts share the same block-to-Markdown conversion (paragraphs, headings, lists, to-dos, quotes, code, and images wrapped in `<figure class="full-bleed">`) and the same image handling (resize to max 1200px wide, sharpen, convert to WebP at quality 80).
+Both scripts share the same block-to-Markdown conversion (paragraphs, headings, lists, to-dos, quotes, code, images wrapped in `<figure class="full-bleed">`, and **file / PDF** blocks rendered as download links) and the same image handling (resize to max 1200px wide, sharpen, convert to WebP at quality 80).
+
+**Downloadable files:** add a Notion *File* or *PDF* block to a Note or Portfolio page and it becomes a click-to-download link on the page. Notion-hosted files are pulled into `public/files/` (Notes) or `public/files/portfolio/` (Portfolio) — because Notion's own file URLs expire — and served with a `download` attribute so a click saves the file under its original name. External file links are linked directly instead of downloaded.
 
 ### Environment variables
 

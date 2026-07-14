@@ -1,6 +1,6 @@
 ---
 title: "How this blog runs"
-date: "2025-03-12"
+date: "2026-07-14"
 description: "A sneak peek how this digital garden operates"
 tags:
 - code
@@ -126,7 +126,11 @@ Fortunately, Notion introduced [Webhooks](https://www.notion.com/help/webhook-ac
 
 Additionally, migrating my portfolio and generating it in the same way as the blog is something I’m considering.
 
+**Update:** Notion's webhooks made this click into place: now I have a Notion automation that pings a Netlify build hook whenever I publish, triggering a rebuild automatically. No need to run the fetch script by hand anymore, and the portfolio now syncs the same way.
+
 The ultimate goal is to self-host both the site (no need for Netlify) and the git repository (maybe using [Gitea](https://about.gitea.com/)?). Dropping Notion is a nice-to-have down the line. Well, I’m getting ahead of myself here, though, mhihi.
+
+
 
 ## Curiosity
 

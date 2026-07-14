@@ -125,7 +125,7 @@ a[href].header-anchor:hover,
 }
 
 main {
-	padding: 1rem;
+	padding: 4rem 1rem 1rem;
 }
 main :first-child {
 	margin-top: 0;
@@ -410,6 +410,48 @@ text-align: center;
 	  width: 100%;       /* same full width as figure */
 	  display: block;    /* ensure it’s on its own line */
 	}
+}
+
+/* File download links (from Notion file / pdf blocks) */
+.file-download {
+	display: flex;
+	align-items: center;
+	gap: 0.8em;
+	margin: 1.75em 0;
+	padding: 0.85em 1em;
+	border: 1px solid var(--color-gray-20);
+	border-radius: 8px;
+	background-color: var(--code-bg);
+	color: var(--text-color);
+	transition: border-color 0.16s ease-in-out, color 0.16s ease-in-out;
+}
+/* Override the always-underlined markdown link style for these card links */
+.markdown-content a[href].file-download {
+	text-decoration: none;
+}
+.file-download:hover,
+.file-download:focus-visible {
+	border-color: var(--text-color-link-active);
+	color: var(--text-color-link-active);
+}
+.file-download-icon {
+	flex: 0 0 auto;
+	color: var(--text-color-link-active);
+}
+.file-download-text {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+.file-download-name {
+	font-weight: 600;
+	word-break: break-word;
+}
+.file-download-hint {
+	font-size: 0.8em;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	opacity: 0.7;
 }
   
 

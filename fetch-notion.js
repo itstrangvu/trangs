@@ -12,11 +12,15 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 const dataDir = path.join(__dirname, 'content/notes');
 const imageDir = path.join(__dirname, 'public/images');
+const fileDir = path.join(__dirname, 'public/files');
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 if (!fs.existsSync(imageDir)) {
   fs.mkdirSync(imageDir, { recursive: true });
+}
+if (!fs.existsSync(fileDir)) {
+  fs.mkdirSync(fileDir, { recursive: true });
 }
 
 /**
@@ -94,6 +98,62 @@ async function downloadAndOptimizeImage(url, filename) {
   return `/images/${filename}.webp`;
 }
 
+/**
+ * Download a file (as-is, no optimization) from a URL and store it locally.
+ */
+async function downloadFile(url, filename) {
+  const response = await axios.get(url, { responseType: 'arraybuffer' });
+  const buffer = Buffer.from(response.data, 'binary');
+
+  const localPath = path.join(fileDir, filename);
+  await fs.promises.writeFile(localPath, buffer);
+
+  return `/files/${filename}`;
+}
+
+/**
+ * Turn a Notion `file`/`pdf` block into a download link. Notion-hosted files
+ * are pulled into public/files/ (their URLs expire), while external files are
+ * linked directly. The `download` attribute makes a click save the file.
+ */
+async function parseFileBlock(fileData, blockId, fallbackLabel) {
+  const isExternal = fileData.type === 'external';
+  const fileUrl = fileData.file?.url || fileData.external?.url;
+  if (!fileUrl) {
+    return '';
+  }
+
+  // Prefer Notion's original filename; otherwise derive one from the URL path.
+  const urlName = decodeURIComponent(urlModule.parse(fileUrl).pathname.split('/').pop() || '');
+  const downloadName = fileData.name || urlName || fallbackLabel;
+
+  // A caption, if present, is the friendliest visible label.
+  const caption = (fileData.caption || []).map(text => text.plain_text).join('').trim();
+  const label = caption || downloadName;
+
+  let href = fileUrl;
+  let downloadAttr = ' download';
+  if (!isExternal) {
+    // Prefix with the block id to avoid collisions between same-named files.
+    const safeName = downloadName.replace(/[^a-z0-9._-]+/gi, '-');
+    const storedName = `${blockId.replace(/-/g, '')}-${safeName}`;
+    href = await downloadFile(fileUrl, storedName);
+    downloadAttr = ` download="${downloadName}"`;
+  }
+
+  return `<a class="file-download" href="${href}"${downloadAttr}>
+  <svg class="file-download-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 3v12" />
+    <path d="m7 12 5 5 5-5" />
+    <path d="M5 21h14" />
+  </svg>
+  <span class="file-download-text">
+    <span class="file-download-name">${label}</span>
+    <span class="file-download-hint">Download</span>
+  </span>
+</a>`;
+}
+
 
 /**
  * Convert a list of Notion blocks into a Markdown string
@@ -149,6 +209,12 @@ async function parseBlocksToMarkdown(blocks) {
           }
           return '';
         }
+
+        case 'file':
+          return await parseFileBlock(block.file, block.id, 'File');
+
+        case 'pdf':
+          return await parseFileBlock(block.pdf, block.id, 'PDF');
 
         default:
           return '';
