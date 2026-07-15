@@ -47,6 +47,9 @@
 
 		--surface-subtle: rgba(255, 255, 255, 0.06);
 		--surface-subtle-hover: rgba(255, 255, 255, 0.11);
+
+		/* Subtler than gray-20 so the flanking dashed lines don't pop on dark */
+		--line-color: rgba(255, 255, 255, 0.1);
 	}
 }
 :root[data-theme="dark"] {

@@ -7,10 +7,13 @@
    races between them on every navigation (the FOUT glitch). Ranges match the Google
    Fonts Inter subsets. The latin subset is preloaded in the <head>.
 
-   `font-display: optional` avoids the swap-and-reflow flash on navigation: once
-   the font is cached it is used immediately with no fallback flicker, and it is
-   never swapped in mid-render (which, with different fallback metrics, is the
-   between-page glitch). The preload makes the font available on first paint too. */
+   `font-display: block` holds text rendering until Inter is ready rather than
+   painting a fallback first. Combined with the high-priority preload of the latin
+   subset, the font is normally ready before first paint, so text renders directly
+   in Inter — with the disambiguation set applied — on the very first page (e.g.
+   Home). Because a fallback is never shown, there's also no swap-and-reflow flash
+   between pages. (`optional` was avoided: its ~100ms window would leave the first
+   uncached page in the fallback font, dropping disambiguation until a later nav.) */
 @font-feature-values "Inter" {
 	@styleset {
 		disambiguation: 2;
@@ -18,7 +21,7 @@
 }
 
 @font-face {
-	font-display: optional;
+	font-display: block;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: normal;
@@ -28,7 +31,7 @@
 }
 
 @font-face {
-	font-display: optional;
+	font-display: block;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: italic;
@@ -38,7 +41,7 @@
 }
 
 @font-face {
-	font-display: optional;
+	font-display: block;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: normal;
@@ -48,7 +51,7 @@
 }
 
 @font-face {
-	font-display: optional;
+	font-display: block;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: italic;
@@ -58,7 +61,7 @@
 }
 
 @font-face {
-	font-display: optional;
+	font-display: block;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: normal;
@@ -68,7 +71,7 @@
 }
 
 @font-face {
-	font-display: optional;
+	font-display: block;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: italic;
