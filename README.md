@@ -1,8 +1,8 @@
-# trangs.website
+# trang.vu
 
 Personal website, blog, and design portfolio for **Trang Vũ** — a Senior Product Designer at Similarweb. Built as a fast, zero-JavaScript static site with [Eleventy (11ty)](https://www.11ty.dev/), with long-form content authored in [Notion](https://www.notion.so/) and synced into the repo as Markdown at build time.
 
-Live at **[trangs.website](https://trangs.website/)**.
+Live at **[trang.vu](https://trang.vu/)** (formerly trangs.website, which now redirects here).
 
 Based on [eleventy-base-blog v8](https://github.com/11ty/eleventy-base-blog), heavily customized with a Notion content pipeline, a Notes section, and a Portfolio section.
 

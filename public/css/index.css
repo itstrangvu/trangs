@@ -75,7 +75,11 @@ body {
 	padding: 0 0 2em 0;
 	margin: 0 auto;
 	font-family: var(--font-family);
-	font-feature-settings: "calt" 0;
+	/* Enable Inter's "disambiguation" set (ss02) via the low-level property so it
+	   stays applied through repaints (e.g. nav link hover transitions); the
+	   font-variant-alternates line is kept as a higher-level equivalent. "calt" 0
+	   turns off contextual alternates. */
+	font-feature-settings: "calt" 0, "ss02" 1;
 	font-variant-alternates: styleset(disambiguation);
 	color: var(--text-color);
 	background-color: var(--background-color);
@@ -306,6 +310,21 @@ header {
 	display: block;
 	width: 16px;
 	height: 16px;
+}
+
+/* Mobile header: brand (left) + theme toggle (right) on one row, nav on the row below */
+@media (max-width: 600px) {
+	.home-link {
+		order: 1;
+		margin-right: 0;
+	}
+	.theme-toggle {
+		order: 2;
+	}
+	header nav {
+		order: 3;
+		flex-basis: 100%;
+	}
 }
 
 /* Intro paragraph on the Notes / Portfolio listing pages */
