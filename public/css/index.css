@@ -23,6 +23,8 @@
 
 	--surface-subtle: rgba(0, 0, 0, 0.045);
 	--surface-subtle-hover: rgba(0, 0, 0, 0.08);
+
+	--line-color: var(--color-gray-20);
 }
 
 /* Dark theme values. Applied when the OS prefers dark (System mode, unless the
@@ -62,6 +64,9 @@
 
 	--surface-subtle: rgba(255, 255, 255, 0.06);
 	--surface-subtle-hover: rgba(255, 255, 255, 0.11);
+
+	/* Subtler than gray-20 so the flanking dashed lines don't pop on dark */
+	--line-color: rgba(255, 255, 255, 0.1);
 }
 
 
@@ -167,8 +172,8 @@ main {
 	/* Grow to fill the space below the header so the dashed lines run down to
 	   the footer; the lines flank the content and stop at the footer's top. */
 	flex: 1 0 auto;
-	border-left: 1px dashed var(--color-gray-20);
-	border-right: 1px dashed var(--color-gray-20);
+	border-left: 1px dashed var(--line-color);
+	border-right: 1px dashed var(--line-color);
 }
 main :first-child {
 	margin-top: 0;
