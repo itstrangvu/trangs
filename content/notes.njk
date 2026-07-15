@@ -5,10 +5,7 @@ eleventyNavigation:
   order: 2
 ---
 <h1>Trang's Notes</h1>
-{%- css %}{% include "public/css/message-box.css" %}{% endcss %}
-<div class="message-box">
-	<p>This is my mind garden, a space for me to post what I like and revisit it when I feel like it. </p>
-</div>
+<p class="page-intro">This is my mind garden, a space for my thoughts written down.</p>
 
 {% set postslist = collections.notes %}
 {% include "postslist.njk" %} 

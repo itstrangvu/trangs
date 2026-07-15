@@ -15,7 +15,7 @@ layout: layouts/base.njk
 </ul>
 
 <div class="markdown-content">
-{{ content | safe }}
+{{ content | externalLinksNewTab | safe }}
 </div>
 
 {%- if collections.notes %}

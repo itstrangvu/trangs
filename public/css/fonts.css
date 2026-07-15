@@ -5,7 +5,12 @@
    subset a page actually needs and picks the right file deterministically. Without
    it, the latin/latin-ext/cyrillic files overlap on the same family and the browser
    races between them on every navigation (the FOUT glitch). Ranges match the Google
-   Fonts Inter subsets. The latin subset is preloaded in the <head>. */
+   Fonts Inter subsets. The latin subset is preloaded in the <head>.
+
+   `font-display: optional` avoids the swap-and-reflow flash on navigation: once
+   the font is cached it is used immediately with no fallback flicker, and it is
+   never swapped in mid-render (which, with different fallback metrics, is the
+   between-page glitch). The preload makes the font available on first paint too. */
 @font-feature-values "Inter" {
 	@styleset {
 		disambiguation: 2;
@@ -13,7 +18,7 @@
 }
 
 @font-face {
-	font-display: swap;
+	font-display: optional;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: normal;
@@ -23,7 +28,7 @@
 }
 
 @font-face {
-	font-display: swap;
+	font-display: optional;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: italic;
@@ -33,7 +38,7 @@
 }
 
 @font-face {
-	font-display: swap;
+	font-display: optional;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: normal;
@@ -43,7 +48,7 @@
 }
 
 @font-face {
-	font-display: swap;
+	font-display: optional;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: italic;
@@ -53,7 +58,7 @@
 }
 
 @font-face {
-	font-display: swap;
+	font-display: optional;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: normal;
@@ -63,7 +68,7 @@
 }
 
 @font-face {
-	font-display: swap;
+	font-display: optional;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: italic;

@@ -49,6 +49,16 @@ module.exports = function(eleventyConfig) {
 		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
 	});
 
+	// Open external (http/https) links in a new tab. Internal links and heading
+	// anchors (href="#...") are left untouched. Used for note content.
+	eleventyConfig.addFilter("externalLinksNewTab", (html) => {
+		if (typeof html !== "string") return html;
+		return html.replace(/<a\s+([^>]*href="https?:\/\/[^"]*"[^>]*)>/gi, (match, attrs) => {
+			if (/\btarget=/.test(attrs)) return match; // don't double-add
+			return `<a ${attrs} target="_blank" rel="noopener noreferrer">`;
+		});
+	});
+
 	// Get the first `n` elements of a collection.
 	eleventyConfig.addFilter("head", (array, n) => {
 		if(!Array.isArray(array) || array.length === 0) {

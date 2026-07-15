@@ -8,7 +8,7 @@
 :root {
 	--color-gray-20: #e0e0e0;
 	--color-gray-50: #C0C0C0;
-	--color-gray-90: #333;
+	--color-gray-90: #424242;
 
 	--background-color: #faf8e9;
 
@@ -25,8 +25,11 @@
 	--surface-subtle-hover: rgba(0, 0, 0, 0.08);
 }
 
+/* Dark theme values. Applied when the OS prefers dark (System mode, unless the
+   user forced Light), and whenever the user explicitly selects Dark. The
+   [data-theme] attribute is set on <html> by a tiny inline script in the head. */
 @media (prefers-color-scheme: dark) {
-	:root {
+	:root:not([data-theme="light"]) {
 		--color-gray-20: #e0e0e0;
 		--color-gray-50: #C0C0C0;
 		--color-gray-90: #dad8d8;
@@ -43,6 +46,22 @@
 		--surface-subtle: rgba(255, 255, 255, 0.06);
 		--surface-subtle-hover: rgba(255, 255, 255, 0.11);
 	}
+}
+:root[data-theme="dark"] {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #dad8d8;
+
+	--text-color-link: #ffffff;
+	--text-color-link-active: #02b368;
+	--text-color-link-visited: #fff;
+
+	--background-color: #02211c;
+	--code-color: #02b368;
+	--code-bg: #1a1a22;
+
+	--surface-subtle: rgba(255, 255, 255, 0.06);
+	--surface-subtle-hover: rgba(255, 255, 255, 0.11);
 }
 
 
@@ -70,6 +89,10 @@ html {
 body {
 	font-size: 1rem; /* 18px, relative to html's root font-size */
 	max-width: 40em;
+	/* Flex column so main can grow to fill the height below the header */
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 ::selection {
@@ -105,6 +128,11 @@ li {
 	line-height: 1.5;
 }
 
+/* Headings use semibold rather than the browser-default bold */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+}
+
 a[href] {
 	color: var(--text-color-link);
 	transition: all 0.16s ease-in-out;
@@ -132,9 +160,22 @@ a[href].header-anchor:hover,
 
 main {
 	padding: 4rem 1rem 1rem;
+	/* Grow to fill the space below the header so the dashed lines run down to
+	   the footer; the lines flank the content and stop at the footer's top. */
+	flex: 1 0 auto;
+	border-left: 1px dashed var(--color-gray-20);
+	border-right: 1px dashed var(--color-gray-20);
 }
 main :first-child {
 	margin-top: 0;
+}
+/* On mobile the content column fills the viewport, so the flanking dashed lines
+   would hug the screen edges — hide them there. */
+@media (max-width: 768px) {
+	main {
+		border-left: 0;
+		border-right: 0;
+	}
 }
 
 header {
@@ -192,7 +233,8 @@ header {
 	padding: 1em;
 }
 .home-link {
-	font-size: 1em; /* 16px /16 */
+	font-size: 1em; /* matches the nav items */
+	line-height: 1.5; /* matches the nav items */
 	font-weight: 700;
 	margin-right: 2em;
 }
@@ -210,12 +252,65 @@ header {
 .nav-item {
 	display: inline-block;
 	margin-right: 1em;
+	line-height: 1.5; /* matches the home link */
 }
 .nav-item a[href]:not(:hover) {
 	text-decoration-line: none;
 }
 .nav a[href][aria-current="page"] {
 	text-decoration-line: underline;
+}
+
+/* Theme toggle (Light / Dark / System), pinned to the right of the header */
+.theme-toggle {
+	margin-left: auto;
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	padding: 2px;
+	border-radius: 999px;
+	background-color: var(--surface-subtle);
+}
+.theme-toggle button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.9em;
+	height: 1.9em;
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	color: var(--text-color);
+	line-height: 0;
+	opacity: 0.55;
+	cursor: pointer;
+	transition: background-color 0.16s ease-in-out, opacity 0.16s ease-in-out;
+}
+.theme-toggle button:hover {
+	opacity: 1;
+}
+.theme-toggle button[aria-pressed="true"],
+:root[data-theme="light"] .theme-toggle button[data-theme-value="light"],
+:root[data-theme="dark"] .theme-toggle button[data-theme-value="dark"],
+:root[data-theme="system"] .theme-toggle button[data-theme-value="system"] {
+	background-color: var(--background-color);
+	opacity: 1;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.theme-toggle button:focus-visible {
+	outline: 2px solid var(--text-color-link-active);
+	outline-offset: 2px;
+}
+.theme-toggle svg {
+	display: block;
+	width: 16px;
+	height: 16px;
+}
+
+/* Intro paragraph on the Notes / Portfolio listing pages */
+.page-intro {
+	margin-bottom: 2rem;
 }
 
 /* Posts list */
