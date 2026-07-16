@@ -145,6 +145,22 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
 }
 
+/* Site-wide Phosphor icon shown before a page's h1 (see _data/metadata.js) */
+.h1-icon {
+	display: block;
+	line-height: 0;
+	margin-bottom: 0.4rem;
+	color: var(--text-color-link-active);
+}
+.h1-icon .ph-icon {
+	display: block;
+	/* Size in rem so the icon scales with the user's font-size preference
+	   (WCAG 1.4.4). 2.5rem = 40px at the default root size. The svg's
+	   width/height attributes remain as a no-CSS fallback. */
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
 a[href] {
 	color: var(--text-color-link);
 	transition: all 0.16s ease-in-out;
@@ -171,7 +187,7 @@ a[href].header-anchor:hover,
 }
 
 main {
-	padding: 4rem 1rem 1rem;
+	padding: 2rem 1rem 1rem;
 	/* Grow to fill the space below the header so the dashed lines run down to
 	   the footer; the lines flank the content and stop at the footer's top. */
 	flex: 1 0 auto;

@@ -2,6 +2,8 @@
 layout: layouts/base.njk
 ---
 
+{% include "h1-icon.njk" %}
+{% if heading %}<h1>{{ heading | safe }}</h1>{% endif %}
 <div class="markdown-content">
 {{ content | safe }}
 </div>

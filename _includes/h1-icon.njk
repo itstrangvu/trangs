@@ -1,0 +1,9 @@
+{#- Icon rendered before a page's h1.
+    Set `icon` (and optionally `iconWeight`) in the page's front matter.
+    Falls back to the defaults in _data/metadata.js -#}
+{%- set iconName = icon or metadata.icon.name -%}
+{%- set iconWeightResolved = iconWeight or metadata.icon.weight -%}
+{%- set iconSize = iconSize or metadata.icon.size or 40 -%}
+{%- if iconName -%}
+<span class="h1-icon">{% phosphor iconName, iconSize, iconWeightResolved %}</span>
+{%- endif -%}

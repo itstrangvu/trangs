@@ -1,12 +1,11 @@
 ---
 layout: layouts/home.njk
+icon: flower-lotus
+heading: "Hi, I’m Trang.<br>I design and build digital products."
 eleventyNavigation:
   key: Home
   order: 1
 ---
-# Hi, I’m Trang. 
-# I design and build digital products.
-
 Insights, data visualization and digital experiences designer for positive change since I like to spend my days doing something that aligns with my personal values: balance, inclusivity, sustainability. 
 
 I’m currently a **Senior Product Designer** at **Similarweb**, working on tools that help marketers better understand and improve their online advertising.

@@ -1,11 +1,11 @@
 ---
 layout: layouts/home.njk
+icon: hand-peace
+heading: Contact
 eleventyNavigation:
   key: Contact
   order: 4
 ---
-
-# Contact
 
 You can find me on: 
 

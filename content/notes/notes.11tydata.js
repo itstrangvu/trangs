@@ -3,4 +3,5 @@ module.exports = {
 		"notes"
 	],
 	"layout": "layouts/post.njk",
-}; 
+	"icon": "note-pencil",
+};
