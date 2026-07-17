@@ -1,5 +1,6 @@
 ---
 layout: layouts/home.njk
+title: Contact
 icon: hand-peace
 heading: Contact
 eleventyNavigation:

@@ -1,8 +1,9 @@
 module.exports = {
-	title: "Trang's website",
-	url: "https://trang.vu/contact/",
+	title: "Trang Vu - Product Designer",
+	jobTitle: "Product Designer",
+	url: "https://trang.vu/",
 	language: "en",
-	description: "A software and information designer and developer.",
+	description: "Trang Vu is a Product Designer crafting insights, data visualization and digital experiences.",
 	// Default Phosphor icon for pages that don't set their own in front matter.
 	// Per page, set `icon` (and optionally `iconWeight`) in front matter.
 	// Browse names + weights at https://phosphoricons.com
