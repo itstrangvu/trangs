@@ -241,7 +241,18 @@ async function parseBlocksToMarkdown(blocks) {
 }
 
 (async () => {
-  const databaseId = process.env.PORTFOLIO_DATABASE_ID;
+  let databaseId = process.env.PORTFOLIO_DATABASE_ID;
+
+  // Remove any hyphens from the database ID
+  if (databaseId) {
+    databaseId = databaseId.replace(/-/g, '');
+  }
+
+  if (!databaseId) {
+    console.error('Error: PORTFOLIO_DATABASE_ID not found in environment variables.');
+    console.error('Please add it to your .env file.');
+    process.exit(1);
+  }
 
   try {
     // Query all published projects from the Notion database

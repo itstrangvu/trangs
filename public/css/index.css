@@ -294,8 +294,8 @@ header {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 1.9em;
-	height: 1.9em;
+	width: 2em;
+	height: 2em;
 	padding: 0;
 	border: 0;
 	border-radius: 999px;
@@ -323,8 +323,8 @@ header {
 }
 .theme-toggle svg {
 	display: block;
-	width: 16px;
-	height: 16px;
+	width: 20px;
+	height: 20px;
 }
 
 /* Mobile header: brand (left) + theme toggle (right) on one row, nav on the row below */
@@ -335,6 +335,13 @@ header {
 	}
 	.theme-toggle {
 		order: 2;
+	}
+	/* 48px min tap target on mobile (Lighthouse mobile-friendly). */
+	.theme-toggle button {
+		width: 3em;
+		height: 3em;
+		min-width: 48px;
+		min-height: 48px;
 	}
 	header nav {
 		order: 3;

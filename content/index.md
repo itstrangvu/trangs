@@ -6,13 +6,12 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
-Insights, data visualization and digital experiences designer for positive change since I like to spend my days doing something that aligns with my personal values: balance, inclusivity, sustainability. 
 
-I’m currently a **Senior Product Designer** at **Similarweb**, working on tools that help marketers better understand and improve their online advertising.
+I’m currently a **Senior Product Designer** at Similarweb, working on tools that help businesses better understand and improve their online strategies. 
 
-Previously, I was leading product design teams at Groupon and Apify, and before that, I crafted frontends for various operational dashboards and systems.
+Previously, I led product design teams at Groupon and Apify and crafted frontends for various operational dashboards and systems.
 
-My temporary work portfolio is available on <a href="https://trang-vu.notion.site/141a20a912114958b81a5869916cf9cb?v=7046a53bc0714379ab15bdabbb766028&pvs=4" target="_blank">this Notion public site</a>.
+Now I build insights, data visualizations and digital experiences for positive change since I like to spend my days doing something that aligns with my personal values: balance, inclusivity, sustainability. 
 
 Here's a list of a few things I enjoy in my spare time: drinking loose-leaf tea, journaling, exploring wild gastronomy, wandering in <a href="https://unsplash.com/@heycharlo" target="_blank">nature with my camera</a>, playing football.
 
