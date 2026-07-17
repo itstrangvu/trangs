@@ -4,6 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		{#- Theme the browser address bar to match the page background per OS scheme #}
+		<meta name="theme-color" content="#faf8e9" media="(prefers-color-scheme: light)">
+		<meta name="theme-color" content="#02211c" media="(prefers-color-scheme: dark)">
+
 		{#- Set the color theme before first paint so there's no flash of the wrong theme #}
 		<script>
 			(function () {
@@ -139,6 +143,12 @@
 			});
 			apply(root.getAttribute("data-theme") || "system");
 		})();
+
+		if ("serviceWorker" in navigator) {
+			window.addEventListener("load", function () {
+				navigator.serviceWorker.register("/sw.js").catch(function () {});
+			});
+		}
 		{% endjs %}
 
 		<main id="skip">
