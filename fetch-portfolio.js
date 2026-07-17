@@ -249,9 +249,11 @@ async function parseBlocksToMarkdown(blocks) {
   }
 
   if (!databaseId) {
-    console.error('Error: PORTFOLIO_DATABASE_ID not found in environment variables.');
-    console.error('Please add it to your .env file.');
-    process.exit(1);
+    // Portfolio is secondary content: don't fail the whole build if it's not
+    // configured. Warn and skip so `npm run build` still runs. Set
+    // PORTFOLIO_DATABASE_ID in .env (local) or the Netlify environment to enable.
+    console.warn('Warning: PORTFOLIO_DATABASE_ID not set — skipping portfolio sync.');
+    return;
   }
 
   try {

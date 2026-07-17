@@ -2,6 +2,13 @@
 	publish = "_site"
 	command = "node fetch-notion.js && node fetch-portfolio.js && npm run build"
 
+	[build.environment]
+		# PORTFOLIO_DATABASE_ID is the Notion database id embedded in the public
+		# "public Notion page" share link on the Portfolio page — it's public by
+		# design and useless without NOTION_API_KEY, so it isn't a real secret.
+		# Tell Netlify's secret scanner to ignore this specific key's value.
+		SECRETS_SCAN_OMIT_KEYS = "PORTFOLIO_DATABASE_ID"
+
 [[plugins]]
 
 	# Opt-in to the Netlify Lighthouse plugin (choose one):
