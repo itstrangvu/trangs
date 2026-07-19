@@ -46,7 +46,7 @@ This blog is a work in progress, and that’s part of the fun.
   <figcaption>A visual of how this blog runs</figcaption>
 </figure>
 
-## **Tools and technologies**
+## Tools and technologies
 
 - **Notion** – Content creation and organization
 
@@ -73,7 +73,7 @@ I usually start by drafting the post, refining it, and making adjustments until 
 
 ## Generate the blog
 
-After ensuring I’m happy with the note(s), I run a Node.js script named `fetch-notion.js` that:
+There’s an automation set on a Notion database that listens to an event whenever the **Is Published** field is edited. It dispatches a webhook to Netlify, which triggers a Node.js script named `fetch-notion.js` that:
 
 1. Connects to Notion via Notion API.
 
@@ -90,15 +90,16 @@ After ensuring I’m happy with the note(s), I run a Node.js script named `fetch
 
 
 <figure class="full-bleed">
-  <img src="/images/11dcebdb-5468-40b7-b4fd-b5798348a27c.png.webp" alt="Output from the script that fetches the content">
-  <figcaption>Output from the script that fetches the content</figcaption>
+  <img src="/images/11dcebdb-5468-40b7-b4fd-b5798348a27c.png.webp" alt="Output from the script that fetches the content (if run manually)">
+  <figcaption>Output from the script that fetches the content (if run manually)</figcaption>
 </figure>
-
-
 
 After checking the script output to ensure everything looks good, I commit the changes to the [Git repository](https://github.com/itstrangvu/trangs). 
 
-
+<figure class="full-bleed">
+  <img src="/images/Screenshot_2026-07-19_at_15.53.06.png.webp" alt="Repository secrets">
+  <figcaption>Repository secrets</figcaption>
+</figure>
 
 ## Deploy the site
 
