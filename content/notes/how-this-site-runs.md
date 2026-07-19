@@ -1,5 +1,5 @@
 ---
-title: "How this digital garden runs"
+title: "How this site runs"
 date: "2026-07-19"
 description: "A sneak peek how this digital garden operates"
 tags:
@@ -54,7 +54,7 @@ This site is a work in progress, and that’s part of the fun.
 
 - **Eleventy** – Static site generator
 
-- **Pipedream** – A tiny bridge that lets Notion talk to Github
+- **Pipedream** – A tiny bridge that lets Notion talk to GitHub
 
 - **GitHub (+ Actions)** – Version control, code management and the automation that syncs content
 
