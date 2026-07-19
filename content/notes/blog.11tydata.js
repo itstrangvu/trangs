@@ -3,5 +3,5 @@ module.exports = {
 		"posts"
 	],
 	"layout": "layouts/post.njk",
-	"icon": "note-pencil",
+	"icon": "tree",
 };

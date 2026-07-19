@@ -5,21 +5,26 @@
    subset a page actually needs and picks the right file deterministically. Without
    it, the latin/latin-ext/cyrillic files overlap on the same family and the browser
    races between them on every navigation (the FOUT glitch). Ranges match the Google
-   Fonts Inter subsets. The latin subset is preloaded in the <head>.
+   Fonts Inter subsets.
 
-   `font-display: block` holds text rendering until Inter is ready rather than
-   painting a fallback first. Combined with the high-priority preload of the latin
-   subset, the font is normally ready before first paint, so text renders directly
-   in Inter — with the disambiguation set applied — on the very first page (e.g.
-   Home). Because a fallback is never shown, there's also no swap-and-reflow flash
-   between pages. (`optional` was avoided: its ~100ms window would leave the first
-   uncached page in the fallback font, dropping disambiguation until a later nav.) */
+   font-display strategy (hybrid):
+   - The **latin (normal)** subset is preloaded in the <head> with high priority, so
+     it's normally ready before first paint. It uses `font-display: block` to hold
+     text until Inter is ready — with the disambiguation set applied — from the very
+     first render, and to avoid a swap-and-reflow flash on the primary body text.
+   - Every other subset (italic, latin-extended, cyrillic) is NOT preloaded, so
+     `block` would keep that text invisible until the file downloads — Lighthouse
+     flagged ~670ms of blocked rendering on the italic subset alone. Those use
+     `font-display: swap`: fallback text shows immediately and swaps to Inter once
+     the subset arrives. This also keeps the large italic file off the render-blocking
+     critical path. */
 @font-feature-values "Inter" {
 	@styleset {
 		disambiguation: 2;
 	}
 }
 
+/* Preloaded + primary body text — keep `block` (ready before first paint). */
 @font-face {
 	font-display: block;
 	font-family: "Inter";
@@ -30,8 +35,9 @@
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* Not preloaded — `swap` so text never stays invisible waiting on these files. */
 @font-face {
-	font-display: block;
+	font-display: swap;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: italic;
@@ -41,7 +47,7 @@
 }
 
 @font-face {
-	font-display: block;
+	font-display: swap;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: normal;
@@ -51,7 +57,7 @@
 }
 
 @font-face {
-	font-display: block;
+	font-display: swap;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: italic;
@@ -61,7 +67,7 @@
 }
 
 @font-face {
-	font-display: block;
+	font-display: swap;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: normal;
@@ -71,7 +77,7 @@
 }
 
 @font-face {
-	font-display: block;
+	font-display: swap;
 	font-family: "Inter";
 	font-feature-settings: "calt" 0;
 	font-style: italic;
