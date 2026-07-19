@@ -39,7 +39,7 @@ sudo pmset -b sleep 5; sudo pmset -b disablesleep 0
 
 
 
-## **Hidden files in Finder**
+## Hidden files in Finder
 
 Show hidden files
 
