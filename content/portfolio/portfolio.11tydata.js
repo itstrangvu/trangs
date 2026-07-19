@@ -3,5 +3,5 @@ module.exports = {
 		"projects"
 	],
 	"layout": "layouts/project.njk",
-	"icon": "squares-four",
+	"icon": "cards",
 }; 
