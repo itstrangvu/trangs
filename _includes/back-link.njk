@@ -1,0 +1,5 @@
+{#- Compact "back to listing" link shown above the h1 on a note/project page,
+    in place of the page icon (h1-icon.njk). It reserves the same vertical space
+    as .h1-icon so the page title lines up with the listing page's title.
+    Set `backUrl` and `backLabel` before including. -#}
+<a class="back-link" href="{{ backUrl }}">{% phosphor "arrow-left", 16 %}<span>{{ backLabel }}</span></a>

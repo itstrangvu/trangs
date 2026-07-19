@@ -4,7 +4,9 @@ layout: layouts/base.njk
 {# Only include the syntax highlighter CSS on blog posts #}
 {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
-{% include "h1-icon.njk" %}
+{% set backUrl = "/notes/" %}
+{% set backLabel = "All notes" %}
+{% include "back-link.njk" %}
 <h1>{{ title }}</h1>
 
 <ul class="post-metadata">

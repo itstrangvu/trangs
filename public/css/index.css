@@ -161,6 +161,25 @@ h1, h2, h3, h4, h5, h6 {
 	height: 2.5rem;
 }
 
+/* Compact "back to all notes/projects" link that replaces the page icon on a
+   note/project page. It reserves the same footprint as .h1-icon (2.5rem tall +
+   0.4rem margin) so the h1 sits at the same height as on the listing page. */
+.back-link {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	gap: 0.3rem;
+	min-height: 2.5rem;
+	margin-bottom: 0.4rem;
+	font-size: 0.9rem;
+	line-height: 1;
+}
+.back-link .ph-icon {
+	width: 1rem;
+	height: 1rem;
+	flex-shrink: 0;
+}
+
 a[href] {
 	color: var(--text-color-link);
 	transition: all 0.16s ease-in-out;
