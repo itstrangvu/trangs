@@ -1,0 +1,54 @@
+name: Sync content from Notion
+
+on:
+  # Fired by a Notion automation via a repository_dispatch webhook (see README).
+  repository_dispatch:
+    types: [notion-sync]
+  # Manual "Run workflow" button in the Actions tab, as a fallback.
+  workflow_dispatch:
+
+# Allow the built-in GITHUB_TOKEN to commit and push the regenerated content.
+permissions:
+  contents: write
+
+# If you publish several pages quickly, let a newer run supersede an in-flight one.
+concurrency:
+  group: notion-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch content from Notion
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          PORTFOLIO_DATABASE_ID: ${{ secrets.PORTFOLIO_DATABASE_ID }}
+        run: |
+          node fetch-notion.js
+          node fetch-portfolio.js
+
+      - name: Commit and push if content changed
+        run: |
+          git config user.name "notion-sync[bot]"
+          git config user.email "notion-sync@users.noreply.github.com"
+          git add content/notes content/portfolio public/images public/files
+          if git diff --staged --quiet; then
+            echo "No content changes to commit."
+          else
+            git commit -m "Sync content from Notion"
+            git push
+          fi

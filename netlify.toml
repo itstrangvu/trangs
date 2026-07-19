@@ -1,6 +1,10 @@
 [build]
 	publish = "_site"
-	command = "node fetch-notion.js && node fetch-portfolio.js && npm run build"
+	# Content is fetched from Notion and committed to the repo by the
+	# "Sync content from Notion" GitHub Action (.github/workflows/notion-sync.yml),
+	# so Netlify just builds from the committed markdown. That Action's push also
+	# triggers this deploy automatically.
+	command = "npm run build"
 
 	[build.environment]
 		# PORTFOLIO_DATABASE_ID is the Notion database id embedded in the public
