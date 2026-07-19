@@ -21,6 +21,6 @@ Take care.
 
 Trang (pronounced as *Cha-an*)
 
-{% imageEager "./trang-illustration2.png", "Trang's illustration of her self-portrait." %}
+{% imageEager "./trang-illustration2.png", "Trang's illustration of her self-portrait.", "(min-width: 720px) 660px, calc(100vw - 2rem)", [400, 660, 800, 1320] %}
 
 

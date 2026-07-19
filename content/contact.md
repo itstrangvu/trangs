@@ -17,6 +17,6 @@ You can find me on:
 - <a href="https://www.instagram.com/pagedeciel/" target="_blank">Instagram</a>
 
 
-Or you can <a href="mailto:thientrangvu@proton.me?subject=Hi there">send me an email</a>.
+Or you can <a href="mailto:itstrangvu@gmail.com?subject=Hi there">send me an email</a>.
 
-{% imageEager "./trang-profile-illustration2.png", "Trang's illustration of her profile." %}
+{% imageEager "./trang-profile-illustration2.png", "Trang's illustration of her profile.", "(min-width: 720px) 660px, calc(100vw - 2rem)", [400, 660, 800, 1320] %}
