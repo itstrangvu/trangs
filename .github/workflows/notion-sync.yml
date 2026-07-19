@@ -27,10 +27,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        # package-lock.json is git-ignored in this repo, so there's no lock file
+        # to cache against or to `npm ci` from — install from package.json.
+        run: npm install
 
       - name: Fetch content from Notion
         env:
