@@ -1,5 +1,5 @@
 ---
-title: "How this blog runs"
+title: "How this digital garden runs"
 date: "2026-07-19"
 description: "A sneak peek how this digital garden operates"
 tags:
@@ -27,13 +27,13 @@ Here’s what I set out to achieve:
 
 - **Content first** – The words should shine, not be buried under distractions.
 
-This digital  is a work in progress, and that’s part of the fun.
+This site is a work in progress, and that’s part of the fun.
 
 ### The process
 
 1. Draft a note or project in Notion
 
-1. Flip the Is Published switch once I’m happy with it
+1. Flip the “Is Published” switch once I’m happy with it
 
 1. A Notion automation kicks off the sync
 
