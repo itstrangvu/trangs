@@ -511,13 +511,24 @@ figure {
 }
 
 
-code {
+/* Inline code (not code blocks) — allow long tokens to wrap instead of
+   overflowing the article column. Code blocks (pre > code) are excluded. */
+:not(pre) > code {
 	background-color: var(--code-bg); /* Soft gray background */
 	color: var(--code-color);
 	font-size: 0.9em;
 	padding: 2px 4px;
 	border-radius: 4px;
-	white-space: nowrap;
+	white-space: normal;
+	overflow-wrap: break-word;
+	word-break: break-word;
+}
+
+/* Blockquotes — 2px solid rule in the same color as the flanking grid lines. */
+blockquote {
+	margin: 1.5em 0;
+	padding-left: 1em;
+	border-left: 2px solid var(--line-color);
 }
   
 /* Mobile default: images fill container, no bleed */
