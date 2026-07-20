@@ -147,7 +147,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Site-wide Phosphor icon shown before a page's h1 (see _data/metadata.js) */
 .h1-icon {
+	position: relative;
 	display: block;
+	/* Constrain the box to the icon so the hover target is just the icon and the
+	   fill overlay can stack on top of the base icon. */
+	width: 2.5rem;
+	height: 2.5rem;
 	line-height: 0;
 	margin-bottom: 0.4rem;
 	color: var(--text-color-link-active);
@@ -159,6 +164,20 @@ h1, h2, h3, h4, h5, h6 {
 	   width/height attributes remain as a no-CSS fallback. */
 	width: 2.5rem;
 	height: 2.5rem;
+	transition: opacity 200ms ease-in-out;
+}
+/* Two icons are stacked (see h1-icon.njk): the base (duotone) in flow, and the
+   `fill` version absolutely on top. On hover they cross-fade duotone -> fill. */
+.h1-icon .ph-icon:last-child {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+}
+.h1-icon:hover .ph-icon:first-child {
+	opacity: 0;
+}
+.h1-icon:hover .ph-icon:last-child {
+	opacity: 1;
 }
 
 /* Compact "back to all notes/projects" link that replaces the page icon on a
@@ -173,11 +192,20 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0.4rem;
 	font-size: 0.9rem;
 	line-height: 1;
+	text-decoration-line: none;
 }
 .back-link .ph-icon {
 	width: 1rem;
 	height: 1rem;
 	flex-shrink: 0;
+}
+/* Underline on hover only, matching .nav-item links (drawn on the text span
+   since text-decoration is unreliable on a flex container). */
+.back-link:hover span {
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+	text-decoration-line: underline;
 }
 
 a[href] {
