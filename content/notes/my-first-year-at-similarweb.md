@@ -1,0 +1,133 @@
+---
+title: "My first year at Similarweb"
+date: "2026-08-11"
+description: "What I learned during my first year at Similarweb"
+tags:
+- work
+- design
+- process
+---
+
+Here are my notes on what I learned during **my first year** at **Similarweb** as a Senior Product Designer. 
+
+**A quick note before we start:** the data, information and insights used throughout are illustrative examples chosen to make the ideas concrete. They don't represent real customer figures or actual Similarweb output.
+
+## How it all started
+
+Making sense of data and turning it into data visualizations was something I was passionate about in my spare time long before I joined Similarweb.
+
+What sealed it was the hiring process itself, especially the final rounds. I still remember visiting the office and having Lenka tell me they'd love to have me right away (no drawn-out "We'll let you know within a week"). That kind of directness told me something about the place. 
+
+<figure class="full-bleed">
+  <img src="/images/F899133C-237A-4947-9CFF-8E29CF49631D.jpeg.webp" alt="A blob on the left saying “We’d like you to join us le the blob on the right replies “Oh, wow, ok.” ">
+  <figcaption>A blob on the left saying “We’d like you to join us le the blob on the right replies “Oh, wow, ok.” </figcaption>
+</figure>
+
+
+
+I joined on the 11th of August, on the relatively new team behind a tiny but powerful product called “Monitor & Protect”. Fast forward to today, I'm a product designer working across Ad Intelligence, Web Intelligence, Rank Tracker and Market Research.
+
+But let's focus on what I learned along the way. Starting with an introduction to the realm of data, information and insight.
+
+## What turns raw numbers into something worth acting on?
+
+**Data** are numbers, values, observations without context. On their own, they don't tell us much. They’re ingredients, not the meal. 
+
+Example: `brand = Nike`, `keyword = "running shoes"`, `position = 1.2`, `ad_appearances = 4,210`, `date_range = last 28 days` . 
+
+Once they are organized, structured and given context in order to become meaningful, that’s when they turn into **information** that answers "What happened?” 
+
+Example: `Over the last 28 days, Nike appeared in paid search for "running shoes" 4,210 times at an average position of 1.2.`
+
+Information interpreted to reveal a pattern, cause or implication, becomes **insight** and answers "Why it matters?" or "So what?" Insight usually points toward a decision or action. 
+
+Example: `Nike is defending the top of "running shoes" aggressively and consistently — the high appearance count plus near-#1 position means they're bidding to own it, so trying to outrank them here would be expensive. The cheaper play is the long-tail terms they're not covering.` 
+
+> The goal is to turn data into information, and information into insight. – Carly Fiorina
+
+## What building real insight actually requires
+
+### Understand and frame the problem
+
+Before touching a dataset, figure out if it's even the right problem. Read the signals on LinkedIn, Reddit, support tickets, GTM teams (go-to-market) calls with customers and learn how your customers actually talk about the thing we're building (is it "AI ads" or "LLM ads" to them?). 
+
+Get on calls with paying customers and ask what they'd pay to know. A simple question-and-answer template: "As a PPC manager, I want to know who's bidding on my branded keywords". Yeah, this does more than a stack of dashboards. The art of discovery relies on **formulating clear, targeted inquiries** that cut straight to the core of a problem.
+
+> If you do not know how to ask the right question, you discover nothing. – W. Edwards Deming
+
+### Validate the data
+
+Coverage, frequency and methodology are the prerequisites, not the finishing touches. Does the data exist worldwide? How often is it refreshed? Is it cleansed and mapped consistently and do the numbers actually reconcile with themselves? None of the interpretation matters if the data layer is shaky. Luckily, the data teams here at Similarweb consist of smart, kind and collaborative souls (shoutout to you all, you know who you are!).
+
+### Design for the agentic era
+
+Users increasingly ask for this inside a chat, not a dashboard. That makes an API-first mindset non-negotiable: if an insight can't be delivered through an endpoint, it can't reach where users now expect it.
+
+The shift is from exploratory analytics to **guided analytics**. Curated, structured insight an agent or a person can act on immediately, without doing the interpretation themselves. So the question I keep putting to product managers and the team isn't "What does this look like on screen?" but "**How does a user consume this insight through a Similarweb API endpoint?**" If we can't answer that, we've designed merely a dashboard feature, not an insight ready for agentic experience.
+
+### Real and relevant
+
+The other discipline is testing on real, relevant data as early as possible. The user experience with Similarweb products is the data, information and insight — that's the core value and it's what we should be validating. A prototype running on hypothetical numbers validates the interface, not the value.
+
+And I cannot stress enough the "real". If we're testing with a PPC manager, the prototype should run on data that manager would actually see — their brands, their competitors, their keywords. Testing them on some unrelated company from another industry (not even a rival) tells us nothing, because there's no insight to react to (like, they can judge the layout but not whether the so what is right).
+
+<figure class="full-bleed">
+  <img src="/images/60C56194-FADC-475C-B3B7-32FF38721744.jpeg.webp" alt="User testing with a blob wearing glasses (who’s representing a customer) asking “Am I looking at real data?” and looking ">
+  <figcaption>User testing with a blob wearing glasses (who’s representing a customer) asking “Am I looking at real data?” and looking </figcaption>
+</figure>
+
+
+
+### How to package and sell it 
+
+Releasing Ad Intelligence module across every pricing tier (self-service and Enterprise) was one of the harder problems we solved. Understand how to build and wrap the entitlement logic was hard and needed to bring in clarity. Figuring out how access should map to package and building that mechanism cleanly, took real time to get right (kudos to the strong team members who did not burn out on this one!). I learned a thing or two about how claims and aggregated claims work, heh. Also, I sometimes join calls with customers who purchased the module to help them onboard smoothly. 
+
+### Measure and connect to business impact
+
+The relevant metrics and events are defined before feature development begins. So the moment the feature hits real, paying customers, we already have the numbers to watch and know how they connect to upsells, funnels, and the rest. Every so often the B2B designers hold a Data Storytelling session where we present findings and the design decisions that came out of them. Release fast, iterate faster.
+
+What makes this possible is a real, company-wide focus on data-informed decisions, plus the infrastructure to back it up. We can clearly measure how a feature improved and what it did for the business. I'm grateful for that. When anyone can pull the usage numbers, decisions get settled by evidence, not by who is loudest or most senior.
+
+### Edge cases and quirks
+
+Every product like this accumulates its own unglamorous edge cases. And they matter more than they look.
+
+**Must-fix (get these wrong and you mislead or expose someone) examples:**
+
+- Null and zero are never the same thing. Showing 0 where there's no data turns "we don't know" into a false fact.
+
+- Where "NA" is quietly propagating instead of a real null.
+
+- How incomplete periods (an unfinished quarter, say) are displayed: a half-quarter shown as if it's whole drives wrong decisions.
+
+- How sensitive content is handled. This is duty-of-care, not polish and can't be an afterthought.
+
+**Can iterate (can wait for later) examples:**
+
+- How subdomains, canonical URLs, and redirects are treated and displayed
+
+- What makes a creative or ad "unique" once you have to hash and dedupe
+
+- Which filters persist across tabs and which don't 
+
+- Newly migrated customers speaking a language the product doesn't support yet 
+
+## Personal growth
+
+The strongest lesson this year was simple: use everything I have, focus on delivering.
+
+It helps that I'm surrounded by like-minded people who are smart and kind. I've come to think in systems rather than isolated features more than ever here and I've learned that being a technical designer and a storyteller aren't two jobs. Doing both well, at the same time, is the job. That's what unlocks the most.
+
+I also get to use Claude, plenty of MCPs and other LLM tools in my daily work but that's a chapter on its own, so I'll cover it in another dedicated note.
+
+> Own your destiny. – Baruch Toledano
+
+I feel lucky to have landed from the start on a team that genuinely cares and communicates well. I've been part of other teams since but at the core I'll always be a Raven. And yes, we joined the company-wide hackathon twice, and won the second time (with one member from the data team), yay!
+
+Above all, I've learned a lot about digital marketing, ad tech and the world of website traffic. It expands your horizons more than you'd expect. Looking forward to more learnings and fueling my growth mindset. 
+
+
+
+
+
+
