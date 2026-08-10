@@ -543,6 +543,13 @@ img {
 	width: 100%;
 	height: auto;
 	object-fit: contain;
+	/* Images wider than the 40rem column overhang main's flanking dashed lines:
+	   the rule below sets bare images to 960px, and .full-bleed figures reach
+	   60vw. Several images carry an alpha channel (the home and contact
+	   illustrations, some .png.webp screenshots), which would let those lines
+	   show through. An opaque backdrop in the page colour occludes them, and is
+	   invisible everywhere else. */
+	background-color: var(--background-color);
   }
   
   /* On desktop (≥960px wide screens), fix the image width at 960px and center it */
@@ -604,12 +611,8 @@ height: auto;
 margin: 0 auto;
 object-fit: contain; /* or cover, as you prefer */
 border-radius: 4px;
-/* Above ~1200px a 60vw figure is wider than the 40rem column, so it overlaps
-   main's flanking dashed lines. Images with an alpha channel (several of the
-   .png.webp screenshots have one) would let those lines show through; an
-   opaque backdrop in the page colour occludes them. Scoped to .full-bleed
-   because it is the only image that ever extends past main's borders. */
-background-color: var(--background-color);
+/* The opaque backdrop that keeps main's dashed lines from showing through
+   transparent images lives on the global `img` rule above. */
 }
 .full-bleed figcaption {
 font-size: 0.9em;
