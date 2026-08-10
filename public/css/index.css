@@ -145,6 +145,14 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
 }
 
+/* Bold body copy matches that semibold instead of the UA default 700. This also
+   corrects <strong>-wrapped markdown headings, where the UA's bold was beating
+   the 600 they inherit from the rule above. */
+strong,
+b {
+	font-weight: 600;
+}
+
 /* Site-wide Phosphor icon shown before a page's h1 (see _data/metadata.js) */
 .h1-icon {
 	position: relative;
