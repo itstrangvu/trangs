@@ -121,6 +121,73 @@ module.exports = function(eleventyConfig) {
 		return `hsl(${hue}, 28%, 16%)`;
 	});
 
+	// Build a table of contents from already-rendered content HTML.
+	// markdown-it-anchor has run by the time a layout sees `content`, so every
+	// h2/h3 already carries the id we link to. Usage: {% set toc = content | toc %}
+	const TOC_ANCHOR_RE = /<a\b[^>]*class\s*=\s*["'][^"']*\bheader-anchor\b[^"']*["'][^>]*>[\s\S]*?<\/a>/gi;
+	const TOC_TAG_RE = /<[^>]+>/g;
+	const TOC_ID_RE = /\sid\s*=\s*["']([^"']+)["']/i;
+	const TOC_ENTITIES = {
+		amp: "&", lt: "<", gt: ">", quot: "\"", apos: "'", nbsp: " ",
+		hellip: "…", mdash: "—", ndash: "–",
+		lsquo: "‘", rsquo: "’", ldquo: "“", rdquo: "”"
+	};
+
+	function tocDecodeEntities(str) {
+		return str.replace(/&(#x?[0-9a-f]+|[a-z][a-z0-9]*);/gi, (whole, body) => {
+			if(body[0] === "#") {
+				const code = (body[1] === "x" || body[1] === "X")
+					? parseInt(body.slice(2), 16)
+					: parseInt(body.slice(1), 10);
+				return Number.isFinite(code) && code > 0 ? String.fromCodePoint(code) : whole;
+			}
+			const named = TOC_ENTITIES[body.toLowerCase()];
+			return named === undefined ? whole : named;
+		});
+	}
+
+	// Drop the "#" permalink, then any remaining inline tags (<strong>, <code>, …)
+	function tocHeadingText(inner) {
+		return tocDecodeEntities(inner.replace(TOC_ANCHOR_RE, "").replace(TOC_TAG_RE, ""))
+			.replace(/\s+/g, " ")
+			.trim();
+	}
+
+	eleventyConfig.addFilter("toc", (rawContent) => {
+		const html = typeof rawContent === "string"
+			? rawContent
+			: (rawContent == null ? "" : String(rawContent));
+		if(!html) return [];
+
+		// Declared locally: /g + .exec() carries lastIndex state between calls.
+		const headingRe = /<h([23])\b([^>]*)>([\s\S]*?)<\/h\1>/gi;
+		const flat = [];
+		let match;
+		while((match = headingRe.exec(html)) !== null) {
+			const idMatch = (match[2] || "").match(TOC_ID_RE);
+			if(!idMatch) continue;
+			const text = tocHeadingText(match[3] || "");
+			if(!text) continue;
+			flat.push({ level: Number(match[1]), id: idMatch[1], text });
+		}
+		if(!flat.length) return [];
+
+		// Nest h3 under the preceding h2. Several notes use h3 exclusively —
+		// promote those to top level so their table of contents isn't empty.
+		const hasH2 = flat.some(h => h.level === 2);
+		const tree = [];
+		for(const h of flat) {
+			const node = { id: h.id, text: h.text, level: h.level, children: [] };
+			const parent = tree[tree.length - 1];
+			if(hasH2 && h.level === 3 && parent && parent.level === 2) {
+				parent.children.push(node);
+			} else {
+				tree.push(node);
+			}
+		}
+		return tree;
+	});
+
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {
 		mdLib.use(markdownItAnchor, {

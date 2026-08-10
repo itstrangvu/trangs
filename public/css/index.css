@@ -411,6 +411,20 @@ header {
 	gap: 1.5rem;
 	align-items: baseline;
 	margin-bottom: 2rem;
+	position: relative; /* containing block for the stretched link below */
+}
+/* The whole row is the hit target — date, title and description. One real link
+   with an overlay pseudo-element, so screen readers still announce a single
+   item named by its title, and hovering anywhere reveals the title underline. */
+.postlist-link::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+/* Any genuine link in the row has to sit above that overlay to stay clickable. */
+.postlist-item a:not(.postlist-link) {
+	position: relative;
+	z-index: 1;
 }
 .postlist-date {
 	flex: 0 0 auto;
@@ -585,16 +599,28 @@ blockquote {
 }
 .full-bleed img {
 display: block;
-width: 100%; 
+width: 100%;
 height: auto;
 margin: 0 auto;
 object-fit: contain; /* or cover, as you prefer */
 border-radius: 4px;
+/* Above ~1200px a 60vw figure is wider than the 40rem column, so it overlaps
+   main's flanking dashed lines. Images with an alpha channel (several of the
+   .png.webp screenshots have one) would let those lines show through; an
+   opaque backdrop in the page colour occludes them. Scoped to .full-bleed
+   because it is the only image that ever extends past main's borders. */
+background-color: var(--background-color);
 }
 .full-bleed figcaption {
 font-size: 0.9em;
 margin-top: 0.5em;
 text-align: center;
+/* Match the paragraph measure at every width. main's content box is the 40rem
+   body less its 1rem side padding and 1px dashed borders = 682px. In `rem`,
+   not `em` — `em` would resolve against this element's own 0.9em size. */
+max-width: calc(40rem - 2rem - 2px);
+margin-left: auto;
+margin-right: auto;
 }
 
 @media (min-width: 960px) {
@@ -655,3 +681,128 @@ text-align: center;
   
 
   
+
+/* ---------- Article heading rhythm ------------------------------------ */
+/* Headings bind to the section they introduce: a large gap above separates
+   them from the previous section, a small one below keeps them attached to
+   their own body copy. Scoped to article body so the page h1, its Phosphor
+   icon and the back link keep their own spacing. */
+.markdown-content h2 { margin: 3rem 0 .75rem; }
+.markdown-content h3 { margin: 2.25rem 0 .5rem; }
+.markdown-content h4 { margin: 1.75rem 0 .5rem; }
+.markdown-content > :first-child { margin-top: 0; }
+
+/* ---------- Table of contents ---------------------------------------- */
+:root {
+	--toc-inset: 1rem;     /* 18px  from viewport left edge           */
+	--toc-width: 11rem;    /* 198px rail box                          */
+	--toc-gutter: 2rem;    /* 36px  clearance to media                */
+	--toc-reserve: 14rem;  /* 252px inset + width + gutter, each side */
+	--toc-top: 6rem;       /* 108px clears the (non-sticky) header     */
+}
+
+/* The TOC sits between .post-metadata and .markdown-content, which would stop
+   `.post-metadata + .markdown-content` above from matching. Restore that gap. */
+.post-metadata + .toc { margin-top: 1.5em; }
+.toc + .markdown-content { margin-top: 1.5em; }
+
+/* Narrow screens: a collapsible block above the article */
+.toc {
+	margin: 1.5em 0;
+	padding: .75em 1em;
+	border: 1px dashed var(--line-color);
+	border-radius: 6px;
+	font-size: 0.875em;
+}
+.toc > summary {
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 0.8125rem;
+	letter-spacing: .04em;
+	text-transform: uppercase;
+	color: var(--text-color);
+}
+
+.toc-nav { margin-top: .75em; }
+.toc-list,
+.toc-sublist { list-style: none; margin: 0; padding: 0; }
+.toc-sublist { margin: .25em 0 .5em; padding-left: .9em; }
+.toc-list > li { margin-bottom: .35em; }
+.toc-sublist > li { margin-bottom: .2em; }
+
+/* Hover and current-item states change colour and nothing else — no underline,
+   no weight shift, no rule down the side. */
+.toc-nav a[href] {
+	display: block;
+	padding: .15em 0;
+	line-height: 1.35;
+	text-decoration: none;
+	color: var(--text-color);
+	transition: color 200ms ease-in-out;
+}
+.toc-nav a[href]:visited { color: var(--text-color); }
+.toc-nav a[href]:hover,
+.toc-nav a[href]:focus-visible,
+.toc-nav a[href][aria-current="location"] {
+	color: var(--text-color-link-active);
+	text-decoration: none;
+}
+.toc-sublist a[href] { font-size: 0.95em; }
+
+/* Wide screens: park it as a fixed rail left of the 40rem column.
+   1280px is derived, not taste: --toc-reserve (252px) has to fit inside
+   0.2 * viewport, the space left of a 60vw .full-bleed image. 252 / 0.2 = 1260,
+   rounded up to 1280 so a maximised 1280-wide laptop still gets the rail. */
+@media (min-width: 1280px) {
+	.toc {
+		position: fixed;
+		top: var(--toc-top);
+		left: var(--toc-inset);
+		width: var(--toc-width);
+		max-height: calc(100vh - var(--toc-top) - 2rem);
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		scrollbar-width: thin;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		z-index: 10;
+	}
+	/* Not collapsible here — the summary is just the rail's title. Strip the
+	   disclosure marker and every interactive affordance. toc.js additionally
+	   forces `open`, so a keyboard toggle can't collapse it either. */
+	.toc > summary {
+		position: sticky;   /* title holds while a long list scrolls under it */
+		top: 0;
+		padding-bottom: .5em;
+		background-color: var(--background-color);
+		cursor: default;
+		pointer-events: none;
+		list-style: none;
+	}
+	.toc > summary::-webkit-details-marker { display: none; }
+
+	/* No-JS belt: keeps the panel open even if it was collapsed at a narrow
+	   width and the window was then widened. Chrome 131+/Safari 18.4+/FF 139+. */
+	.toc::details-content {
+		content-visibility: visible;
+		block-size: auto;
+	}
+
+	.toc-nav { margin-top: 0; }
+
+	/* Defensive only: a no-op for .full-bleed img at every width >= 1280px,
+	   since 0.6vw <= 100vw - 504px there. It rescues a future bare markdown
+	   image, which `img { width: 960px }` above would slide under the rail. */
+	body:has(.toc) img { max-width: calc(100vw - 2 * var(--toc-reserve)); }
+}
+
+@media print { .toc { display: none; } }
+
+/* ---------- Anchor scrolling ------------------------------------------ */
+/* `html` carries overflow-y: scroll, so it is the scroller, not `body`. */
+@media (prefers-reduced-motion: no-preference) {
+	html { scroll-behavior: smooth; }
+}
+/* Purely cosmetic breathing room — nothing on the page is sticky. */
+h1, h2, h3, h4 { scroll-margin-top: 2rem; }

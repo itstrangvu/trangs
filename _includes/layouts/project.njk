@@ -24,6 +24,30 @@ layout: layouts/base.njk
 </figure>
 {% endif %}
 
+{%- set toc = content | toc %}
+{%- if toc.length %}
+<details class="toc" open>
+	<summary id="toc-heading">On this page</summary>
+	<nav class="toc-nav" aria-labelledby="toc-heading">
+		<ol class="toc-list">
+		{%- for item in toc %}
+			<li>
+				<a href="#{{ item.id }}">{{ item.text }}</a>
+				{%- if item.children.length %}
+				<ol class="toc-sublist">
+					{%- for child in item.children %}
+					<li><a href="#{{ child.id }}">{{ child.text }}</a></li>
+					{%- endfor %}
+				</ol>
+				{%- endif %}
+			</li>
+		{%- endfor %}
+		</ol>
+	</nav>
+</details>
+{%- js %}{% include "public/js/toc.js" %}{% endjs %}
+{%- endif %}
+
 <div class="markdown-content">
 {{ content | safe }}
 </div>
