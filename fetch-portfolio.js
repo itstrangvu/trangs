@@ -76,21 +76,37 @@ async function getBlocks(blockId) {
 
 /**
  * Download and optimize an image from a URL, then store it locally as .webp
+ *
+ * Animated sources (GIF, animated WebP) keep every frame: sharp reads only the
+ * first one unless it is told the input is animated, which turned GIFs into
+ * stills. Animated WebP output keeps the frame delays and the loop flag.
  */
 async function downloadAndOptimizeImage(url, filename) {
   const response = await axios.get(url, { responseType: 'arraybuffer' });
   const buffer = Buffer.from(response.data, 'binary');
 
+  const { pages } = await sharp(buffer).metadata();
+  const isAnimated = (pages || 1) > 1;
+
   // Resize to max width of 1200px, apply sharpen with parameters, then convert to WebP
-  const optimizedImageBuffer = await sharp(buffer)
-    .resize(1200, null, { withoutEnlargement: true }) // Optional: Prevents enlarging the image if smaller than 1200px
-    .sharpen({ 
+  let pipeline = sharp(buffer, { animated: isAnimated })
+    .resize(1200, null, { withoutEnlargement: true }); // Optional: Prevents enlarging the image if smaller than 1200px
+
+  // Sharpening runs over the whole frame strip of an animation, so its kernel
+  // bleeds between frames — skip it there.
+  if (!isAnimated) {
+    pipeline = pipeline.sharpen({
       sigma: 1.5,  // Increase to sharpen more
       flat: 1,     // Helps preserve flat areas
       jagged: 1    // Helps preserve jagged edges
-    })
-    .webp({ quality: 80 })
-    .toBuffer();
+    });
+  }
+
+  const optimizedImageBuffer = await pipeline.webp({ quality: 80 }).toBuffer();
+
+  if (isAnimated) {
+    console.log(`Kept ${pages} animated frames for: ${filename}`);
+  }
 
   const localPath = path.join(imageDir, `${filename}.webp`);
   await fs.promises.writeFile(localPath, optimizedImageBuffer);
