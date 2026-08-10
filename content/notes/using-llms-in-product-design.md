@@ -82,15 +82,15 @@ Then it’s time to roll up the sleeves and reach out.
 
 ### Good practices
 
-**Translation**
+
 
 I believe good design begins with good translation. When speaking with users, we often operate in different "languages," so I make it a point to reframe the problem in their terms and check for mutual understanding. 
 
-**Framing**
+
 
 When reaching out, clearly state what you're looking for while remaining open-minded. Often, someone will share unexpected information that proves incredibly valuable. 
 
-**Solid relationships**
+
 
 Strong collaboration is key, especially with stakeholders from other teams. I invest time in building trust and open lines of communication. These relationships not only help surface edge cases and constraints early but also ensure smoother execution down the line.
 
