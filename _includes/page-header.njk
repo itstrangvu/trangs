@@ -1,0 +1,9 @@
+{#- The opener every page shares: the portrait, the page heading and its
+    one-line intro. Set `headerTitle` (and optionally `headerSubtitle`, which
+    may contain markup) before including. -#}
+<div class="page-header">
+	{%- if icon %}{% include "h1-icon.njk" %}
+	{%- else %}<span class="avatar">{% imageEagerSync metadata.avatar, "Trang Vu", "45px", [45, 90, 135] %}</span>{% endif %}
+	<h1 class="profile-name">{{ headerTitle }}</h1>
+	{%- if headerSubtitle %}<p class="profile-role">{{ headerSubtitle | safe }}</p>{% endif %}
+</div>

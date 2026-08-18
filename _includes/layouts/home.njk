@@ -2,8 +2,49 @@
 layout: layouts/base.njk
 ---
 
-{% include "h1-icon.njk" %}
-{% if heading %}<h1>{{ heading | safe }}</h1>{% endif %}
+{%- set headerTitle = name or heading %}
+{%- set headerSubtitle = role or subtitle %}
+{%- if headerTitle %}{% include "page-header.njk" %}
+{%- else %}{% include "h1-icon.njk" %}{% endif %}
+
+{%- if highlights %}
+<section class="home-section">
+	<div class="home-section-head">
+		<h2 class="home-section-title">About</h2>
+	</div>
+	<div class="markdown-content">
+	{{ content | safe }}
+	</div>
+</section>
+
+<section class="home-section">
+	<div class="home-section-head">
+		<h2 class="home-section-title">Projects</h2>
+		<a class="home-section-link" href="/portfolio/">See all</a>
+	</div>
+	{#- Same cards as the Portfolio page: portfolio.css plus project-card.njk. -#}
+	{%- css %}{% include "public/css/portfolio.css" %}{% endcss %}
+	<div class="portfolio-page">
+		<ul class="portfolio-grid">
+		{%- for project in collections.projects | reverse | head(2) %}
+			{% include "project-card.njk" %}
+		{%- endfor %}
+		</ul>
+	</div>
+</section>
+
+<section class="home-section">
+	<div class="home-section-head">
+		<h2 class="home-section-title">Notes</h2>
+		<a class="home-section-link" href="/notes/">See all</a>
+	</div>
+	{#- Same rows as the Notes page: postslist.njk reverses, so hand it the last 4. -#}
+	{%- set postslist = collections.notes | head(-4) %}
+	{% include "postslist.njk" %}
+</section>
+
+{%- else %}
 <div class="markdown-content">
 {{ content | safe }}
 </div>
+{%- endif %}

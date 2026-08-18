@@ -1,0 +1,17 @@
+{#- One portfolio card. Shared by projectslist.njk (the Portfolio page) and the
+    homepage highlights, so both render identical markup and styling. Expects a
+    `project` variable in context. -#}
+<li class="portfolio-card" data-categories="{{ project.data.categories | categorySlugs }}" data-status="{% if project.data.comingSoon %}in-progress{% else %}done{% endif %}">
+	<a href="{{ project.url }}" class="portfolio-card-link">
+		<div class="portfolio-card-media" style="--portfolio-card-bg: {{ project.data.title | colorFromString }};">
+			{%- if project.data.featuredImage %}
+			<img src="{{ project.data.featuredImage }}" alt="{{ project.data.title }}" loading="lazy" decoding="async">
+			{%- else %}
+			<span class="portfolio-card-wordmark">{{ project.data.title }}</span>
+			{%- endif %}
+			{%- if project.data.comingSoon %}<span class="portfolio-badge">Coming Soon</span>{% endif %}
+		</div>
+		<h2 class="portfolio-card-title">{{ project.data.title }}</h2>
+		{%- if project.data.description %}<p class="portfolio-card-description">{{ project.data.description }}</p>{% endif %}
+	</a>
+</li>

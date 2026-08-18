@@ -6,9 +6,9 @@ eleventyNavigation:
   key: Notes
   order: 2
 ---
-{% include "h1-icon.njk" %}
-<h1>Trang's Notes</h1>
-<p class="page-intro">This is my mind garden, a space for my thoughts written down.</p>
+{%- set headerTitle = "Trang's Notes" %}
+{%- set headerSubtitle = "This is my mind garden, a space for my thoughts written down." %}
+{% include "page-header.njk" %}
 
 {% set postslist = collections.notes %}
 {% include "postslist.njk" %} 

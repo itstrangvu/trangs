@@ -1,6 +1,6 @@
 /* Defaults */
 :root {
-	--font-family: "Inter", -apple-system, system-ui, sans-serif;
+	--font-family: "Geist", -apple-system, system-ui, sans-serif;
 	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
@@ -83,12 +83,6 @@ body {
 	padding: 0 0 2em 0;
 	margin: 0 auto;
 	font-family: var(--font-family);
-	/* Enable Inter's "disambiguation" set (ss02) via the low-level property so it
-	   stays applied through repaints (e.g. nav link hover transitions); the
-	   font-variant-alternates line is kept as a higher-level equivalent. "calt" 0
-	   turns off contextual alternates. */
-	font-feature-settings: "calt" 0, "ss02" 1;
-	font-variant-alternates: styleset(disambiguation);
 	color: var(--text-color);
 	background-color: var(--background-color);
 	max-width: 40em;
@@ -132,12 +126,13 @@ body {
 p:last-child {
 	margin-bottom: 0;
 }
+/* 28px at the 18px body size, kept unitless so it scales with the font. */
 p {
-	line-height: 1.5;
+	line-height: 1.5556;
 }
 
 li {
-	line-height: 1.5;
+	line-height: 1.5556;
 }
 
 /* Headings use semibold rather than the browser-default bold */
@@ -162,7 +157,7 @@ b {
 	width: 2.5rem;
 	height: 2.5rem;
 	line-height: 0;
-	margin-bottom: 0.4rem;
+	margin-bottom: 1rem;
 	color: var(--text-color-link-active);
 }
 .h1-icon .ph-icon {
@@ -186,6 +181,27 @@ b {
 }
 .h1-icon:hover .ph-icon:last-child {
 	opacity: 1;
+}
+
+/* Homepage portrait shown in place of the Phosphor icon above the h1 (see
+   layouts/home.njk). Same 2.5rem box + 0.4rem margin as .h1-icon so the h1 sits
+   at the same height as on every other page. */
+.avatar {
+	display: block;
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-bottom: 1rem;
+	line-height: 0;
+	border-radius: 50%;
+	overflow: hidden;
+}
+/* Needed to beat the global `img { width: 100% }` and its 960px desktop override. */
+/* The width rules beat the global `img { width: 100% }` and its 960px desktop
+   override. */
+.avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 /* Compact "back to all notes/projects" link that replaces the page icon on a
@@ -229,7 +245,6 @@ a[href]:active {
 }
 
 /* Shared underline geometry for titles, nav/home links, and markdown links */
-.home-link,
 .nav-item a[href],
 .postlist-link,
 .markdown-content a[href]:not(.header-anchor),
@@ -242,7 +257,9 @@ a[href].header-anchor:hover,
 }
 
 main {
-	padding: 2rem 1rem 1rem;
+	/* The bottom padding gives every page the same 4.5rem gap above the footer
+	   that the homepage sections keep between themselves. */
+	padding: 2rem 1rem 4.5rem;
 	/* Grow to fill the space below the header so the dashed lines run down to
 	   the footer; the lines flank the content and stop at the footer's top. */
 	flex: 1 0 auto;
@@ -251,6 +268,10 @@ main {
 }
 main :first-child {
 	margin-top: 0;
+}
+/* A trailing margin (a list's own, say) would add to main's bottom padding. */
+main > :last-child {
+	margin-bottom: 0;
 }
 /* On mobile the content column fills the viewport, so the flanking dashed lines
    would hug the screen edges — hide them there. */
@@ -306,19 +327,10 @@ header {
 	align-items: center;
 	padding: 1em;
 }
-.home-link {
-	font-size: 1em; /* matches the nav items */
-	line-height: 1.5; /* matches the nav items */
-	font-weight: 600;
-	margin-right: 2em;
-}
-.home-link:link:not(:hover) {
-	text-decoration-line: none;
-}
-
 /* Nav */
 .nav {
 	display: flex;
+	flex-wrap: wrap;
 	padding: 0;
 	margin: 0;
 	list-style: none;
@@ -326,7 +338,9 @@ header {
 .nav-item {
 	display: inline-block;
 	margin-right: 1em;
-	line-height: 1.5; /* matches the home link */
+	line-height: 1.5;
+	/* Multi-word labels wrap as a whole item rather than breaking mid-phrase. */
+	white-space: nowrap;
 }
 .nav-item a[href]:not(:hover) {
 	text-decoration-line: none;
@@ -384,13 +398,6 @@ header {
 
 /* Mobile header: brand (left) + theme toggle (right) on one row, nav on the row below */
 @media (max-width: 600px) {
-	.home-link {
-		order: 1;
-		margin-right: 0;
-	}
-	.theme-toggle {
-		order: 2;
-	}
 	/* 48px min tap target on mobile (Lighthouse mobile-friendly). */
 	.theme-toggle button {
 		width: 3em;
@@ -398,15 +405,67 @@ header {
 		min-width: 48px;
 		min-height: 48px;
 	}
-	header nav {
-		order: 3;
-		flex-basis: 100%;
-	}
 }
 
 /* Intro paragraph on the Notes / Portfolio listing pages */
-.page-intro {
-	margin-bottom: 2rem;
+/* The opener every page shares (see _includes/page-header.njk): the portrait,
+   the page heading as a semibold line the size of a lead paragraph, and the
+   muted intro underneath. The bottom margin collapses with the 4.5rem above a
+   .home-section, so the homepage keeps its wider rhythm. */
+.page-header {
+	margin-bottom: 4.5rem;
+}
+.profile-name {
+	font-size: 1.25rem;
+	line-height: 1.3;
+	margin: 0;
+}
+.profile-role {
+	margin: 0.15rem 0 0;
+	color: var(--color-gray-90);
+}
+
+/* Homepage sections: the newest notes, the newest projects and the about copy
+   (see layouts/home.njk). Only the label row and the spacing live here — the
+   lists themselves reuse the Notes and Portfolio page components. */
+.home-section {
+	margin-top: 4.5rem;
+}
+.home-section-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+.home-section-title {
+	margin: 0;
+	font-size: 0.9rem;
+	font-weight: 400;
+	color: var(--color-gray-90);
+}
+/* Underlines only on hover, so the label row stays quiet next to the titles. */
+.home-section-link {
+	font-size: 0.9rem;
+	color: var(--color-gray-90);
+	text-decoration-color: transparent;
+	transition: text-decoration-color 0.16s ease-in-out;
+}
+.home-section-link:hover,
+.home-section-link:focus-visible {
+	text-decoration-color: currentColor;
+}
+/* The lists themselves are the ones from the Notes and Portfolio pages
+   (postslist.njk and project-card.njk), so they need no styling here — only
+   the portfolio grid's own top margin is dropped, to keep the gap under every
+   section label the same. */
+.home-section .postlist,
+.home-section .portfolio-page {
+	margin: 0;
+}
+/* The last row's own bottom margin would otherwise add to the gap that follows. */
+.postlist-item:last-child {
+	margin-bottom: 0;
 }
 
 /* Posts list */

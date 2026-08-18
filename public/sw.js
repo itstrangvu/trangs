@@ -4,7 +4,7 @@
 //   falling back to cache (then the cached home page) when offline.
 // - Other same-origin GETs (fonts, images, icons): stale-while-revalidate.
 // Bump CACHE when the strategy or precache list changes to evict old caches.
-const CACHE = "trangs-v1";
+const CACHE = "trangs-v2";
 const PRECACHE = ["/"];
 
 self.addEventListener("install", (event) => {

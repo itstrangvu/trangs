@@ -80,6 +80,52 @@ module.exports = function(eleventyConfig) {
   const imageEagerShortcode = (src, alt, sizes, widths) =>
     imageShortcode(src, alt, sizes, widths, true);
 
+  // Synchronous variant, for the one place an async shortcode can't be used:
+  // inside an include that a *layout* pulls in, where Nunjucks drops async
+  // output silently (see _includes/page-header.njk). `Image()` starts the file
+  // generation in the background while `statsSync` reads the dimensions off the
+  // source, so the markup is identical to the async path.
+  const pendingImages = [];
+
+  function imageSyncShortcode(src, alt = "", sizes = "100vw", widths = [400, 800, 1280], eager = false) {
+    if (!alt) {
+      throw new Error(`Missing \`alt\` for image: ${src}`);
+    }
+
+    const options = {
+      formats: DEFAULT_FORMATS,
+      widths,
+      urlPath: "/img/",
+      outputDir: "./_site/img/",
+      useCache: true,
+    };
+
+    // Generation is fire-and-forget here, so hold the promise and let the
+    // `eleventy.after` hook below wait on it — otherwise a build could finish
+    // before the files land on disk.
+    pendingImages.push(Image(src, options));
+    const metadata = Image.statsSync(src, options);
+
+    const imageAttributes = {
+      alt,
+      sizes,
+      loading: eager ? "eager" : "lazy",
+      decoding: "async",
+    };
+    if (eager) {
+      imageAttributes.fetchpriority = "high";
+    }
+
+    return Image.generateHTML(metadata, imageAttributes);
+  }
+
+  eleventyConfig.addNunjucksShortcode("imageEagerSync", (src, alt, sizes, widths) =>
+    imageSyncShortcode(src, alt, sizes, widths, true));
+
+  eleventyConfig.on("eleventy.after", async () => {
+    await Promise.all(pendingImages.splice(0));
+  });
+
   // Nunjucks and 11ty.js async shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
