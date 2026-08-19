@@ -1,7 +1,7 @@
 ---
 layout: layouts/home.njk
 title: Contact and now
-icon: hand-peace
+icon: flower-lotus
 heading: Contact and now
 subtitle: "How you can get in touch and what I am up to"
 eleventyNavigation:
