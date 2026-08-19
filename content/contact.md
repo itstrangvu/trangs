@@ -5,7 +5,7 @@ icon: hand-peace
 heading: Contact and now
 subtitle: "How you can get in touch and what I am up to"
 eleventyNavigation:
-  key: Now and contact
+  key: Contact and now
   order: 4
 ---
 
