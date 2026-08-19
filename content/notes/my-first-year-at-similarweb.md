@@ -49,7 +49,7 @@ Information interpreted to reveal a pattern, cause or implication, becomes **ins
 
 ## How to build real insights
 
-### Understand and frame the problem
+### Frame the problem
 
 Before touching a dataset, figure out if it's even the right problem. Read the signals on LinkedIn, Reddit, support tickets, GTM teams (go-to-market) calls with customers and learn how your customers actually talk about the thing we're building (is it "AI ads" or "LLM ads" to them?). 
 
