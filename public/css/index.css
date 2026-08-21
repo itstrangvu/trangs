@@ -85,19 +85,39 @@ body {
 	font-family: var(--font-family);
 	font-weight: 400;
 	color: var(--text-color);
-	background-color: var(--background-color);
-	max-width: 40em;
 }
 
 html {
 	font-size: 1.125em; /* 18px, relative to the 16px browser default */
 	overflow-y: scroll;
+	/* Reserve the band's own height under the footer so the clouds sit fully
+	   below it rather than behind it. The image is 2400×738, and it is drawn at
+	   `100% auto`, so it is always 30.75% of the page width tall. What is left
+	   between the footer and the band is <body>'s 2em of padding-bottom. */
+	padding-bottom: 30.75vw;
+	/* The root spans the full viewport width — the 40em reading column lives on
+	   <body>. The root's background paints the whole canvas either way, but its
+	   background *image* is positioned against this box, so a full-width root is
+	   what lets the cloud band run edge to edge. */
+	background-color: var(--background-color);
+	/* Decorative cloud band sitting below the footer, flush with the bottom of
+	   the page: `bottom` puts it against the root's padding box, whose bottom
+	   edge is the document's bottom edge, so there is no gap under it. */
+	background-image: url("/images/footer-clouds.webp");
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-size: 100% auto;
 }
 body {
 	font-size: 1rem; /* 18px, relative to html's root font-size */
 	max-width: 40em;
-	/* Flex column so main can grow to fill the height below the header */
-	min-height: 100vh;
+	/* Left transparent on purpose: the page colour comes from <html>, so the
+	   clouds stay visible behind the content column instead of being covered. */
+	background-color: transparent;
+	/* Flex column so main can grow to fill the height below the header. The
+	   band's height is subtracted so a short page still fills exactly one
+	   screen — page plus clouds — instead of spilling into a scroll. */
+	min-height: calc(100vh - 30.75vw);
 	display: flex;
 	flex-direction: column;
 }
