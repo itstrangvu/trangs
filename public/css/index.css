@@ -25,6 +25,10 @@
 	--surface-subtle-hover: rgba(0, 0, 0, 0.08);
 
 	--line-color: var(--color-gray-20);
+
+	/* Quieter than --text-color, for labels that should sit behind the content
+	   they introduce. Still ~5:1 on the page background. */
+	--text-color-subtle: #6b6b64;
 }
 
 /* Dark theme values. Applied when the OS prefers dark (System mode, unless the
@@ -50,6 +54,8 @@
 
 		/* Subtler than gray-20 so the flanking dashed lines don't pop on dark */
 		--line-color: rgba(255, 255, 255, 0.1);
+
+		--text-color-subtle: #8f9b97;
 	}
 }
 :root[data-theme="dark"] {
@@ -70,6 +76,8 @@
 
 	/* Subtler than gray-20 so the flanking dashed lines don't pop on dark */
 	--line-color: rgba(255, 255, 255, 0.1);
+
+	--text-color-subtle: #8f9b97;
 }
 
 
@@ -808,10 +816,29 @@ margin-right: auto;
 .toc > summary {
 	cursor: pointer;
 	font-weight: 600;
-	font-size: 0.8125rem;
+	font-size: 0.6667rem; /* 12px against the 18px root */
 	letter-spacing: .04em;
 	text-transform: uppercase;
-	color: var(--text-color);
+	color: var(--text-color-subtle);
+	/* The disclosure marker is a Phosphor caret in the markup instead of the
+	   browser's triangle. `display: flex` drops the marker box in Chrome,
+	   `list-style` in Firefox, and the ::-webkit rule below in Safari. */
+	display: flex;
+	align-items: center;
+	gap: .4em;
+	list-style: none;
+}
+.toc > summary::-webkit-details-marker { display: none; }
+
+/* A quarter turn of caret-right lands exactly on Phosphor's caret-down — same
+   chevron, rotated — so one icon covers both states and the swap can be a
+   200ms turn rather than a cut. */
+.toc > summary .ph-icon {
+	flex: none;
+	transition: transform 200ms ease-in-out;
+}
+.toc[open] > summary .ph-icon {
+	transform: rotate(90deg);
 }
 
 .toc-nav { margin-top: .75em; }
@@ -872,6 +899,8 @@ margin-right: auto;
 		list-style: none;
 	}
 	.toc > summary::-webkit-details-marker { display: none; }
+	/* Nothing to disclose here, so the caret would be a lie. */
+	.toc > summary .ph-icon { display: none; }
 
 	/* No-JS belt: keeps the panel open even if it was collapsed at a narrow
 	   width and the window was then widened. Chrome 131+/Safari 18.4+/FF 139+. */

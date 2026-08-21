@@ -27,7 +27,7 @@ layout: layouts/base.njk
 {%- set toc = content | toc %}
 {%- if toc.length %}
 <details class="toc" open>
-	<summary id="toc-heading">On this page</summary>
+	<summary id="toc-heading">{% phosphor "caret-right", 14, "bold" %}On this page</summary>
 	<nav class="toc-nav" aria-labelledby="toc-heading">
 		<ol class="toc-list">
 		{%- for item in toc %}
