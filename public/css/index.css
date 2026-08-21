@@ -664,14 +664,22 @@ footer {
 	padding: 1em;
 }
 
+/* Captions and quote attributions share a voice: small and quiet, sitting under
+   the thing they refer to. Sized in rem, not em, so both land on the same 14.4px
+   whatever the block around them is set in. */
+figcaption,
+.quote-attribution {
+	font-size: 0.8rem; /* 14.4px against the 18px root */
+	color: var(--text-color-subtle);
+}
+
 figcaption {
-	font-size: 0.8em;
 	padding-top: 0.6em;
 }
 
 figure {
 	padding: 0;
-	margin: 0; /* Optionally reset margins if needed */
+	margin: 4em 0; /* the same beat a .full-bleed figure and a quote keep */
 }
 
 
@@ -689,15 +697,35 @@ figure {
 }
 
 /* Blockquotes — 2px solid rule in the same color as the flanking grid lines. */
+/* A quote is set apart by size rather than by a rule down its side: the quoted
+   words are larger and sit inside curly quotation marks, with the attribution
+   at body size on the line below. */
 blockquote {
-	margin: 1.5em 0;
-	padding-left: 1em;
-	border-left: 2px solid var(--line-color);
+	/* Wide enough that the quote reads as its own beat, not as an indented
+	   paragraph of the surrounding text. Same gap as a content image. */
+	margin: 4em 0;
+	quotes: "\201C" "\201D";
+}
+/* The quotation marks belong to the quoted words, so they open on the first
+   paragraph and close on the last — never around the attribution. */
+blockquote p:first-of-type::before { content: open-quote; }
+blockquote p:last-of-type::after { content: close-quote; }
+blockquote p {
+	margin: 0;
+	font-size: 1.3333rem; /* 24px against the 18px root */
+}
+blockquote p + p { margin-top: .75em; }
+/* Size and colour come from the shared caption rule above. */
+.quote-attribution {
+	display: block;
+	margin-top: .8rem;
+	/* <cite> is italic by default; this block is roman throughout. */
+	font-style: normal;
 }
   
 /* Mobile default: images fill container, no bleed */
 .full-bleed {
-	margin: 2em 0; /* space above/below figure */
+	margin: 4em 0; /* space above/below figure, matching a blockquote's */
 	text-align: center; /* center the figcaption text */
 }
 .full-bleed img {
@@ -711,13 +739,13 @@ border-radius: 4px;
    transparent images lives on the global `img` rule above. */
 }
 .full-bleed figcaption {
-font-size: 0.9em;
 margin-top: 0.5em;
 text-align: center;
 /* Match the paragraph measure at every width. main's content box is the 40rem
    body less its 1rem side padding and 1px dashed borders = 682px. In `rem`,
    not `em` — `em` would resolve against this element's own 0.9em size. */
 max-width: calc(40rem - 2rem - 2px);
+/* Size and colour come from the shared `figcaption, .quote-attribution` rule. */
 margin-left: auto;
 margin-right: auto;
 }

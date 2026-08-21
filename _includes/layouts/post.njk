@@ -42,7 +42,7 @@ layout: layouts/base.njk
 {%- endif %}
 
 <div class="markdown-content">
-{{ content | externalLinksNewTab | safe }}
+{{ content | externalLinksNewTab | quoteAttribution | safe }}
 </div>
 
 {%- if collections.notes %}

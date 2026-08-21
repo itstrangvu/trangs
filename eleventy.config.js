@@ -61,6 +61,24 @@ module.exports = function(eleventyConfig) {
 		});
 	});
 
+	// Notion writes a quote's attribution inline, after a dash:
+	//   > The goal is to turn data into insight. – Carly Fiorina
+	// Lift that name out of the quoted sentence and onto its own line, dropping
+	// the dash, so the quotation marks close around the words the person
+	// actually said. Only a dash near the end of the last paragraph counts, so
+	// dashes used mid-quote are left alone. Quotes with no attribution pass
+	// through untouched.
+	const QUOTE_ATTRIBUTION_RE = /\s+[–—-]\s*([^<>]{1,60}?)\s*(<\/p>\s*)$/;
+	eleventyConfig.addFilter("quoteAttribution", (html) => {
+		if (typeof html !== "string") return html;
+		return html.replace(/<blockquote(\s[^>]*)?>([\s\S]*?)<\/blockquote>/gi, (match, attrs, inner) => {
+			const found = inner.match(QUOTE_ATTRIBUTION_RE);
+			if (!found) return match;
+			const quote = inner.slice(0, found.index) + found[2];
+			return `<blockquote${attrs || ""}>${quote}<cite class="quote-attribution">${found[1]}</cite></blockquote>`;
+		});
+	});
+
 	// Get the first `n` elements of a collection.
 	eleventyConfig.addFilter("head", (array, n) => {
 		if(!Array.isArray(array) || array.length === 0) {

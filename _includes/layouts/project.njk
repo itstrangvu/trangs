@@ -49,7 +49,7 @@ layout: layouts/base.njk
 {%- endif %}
 
 <div class="markdown-content">
-{{ content | safe }}
+{{ content | quoteAttribution | safe }}
 </div>
 
 {%- if collections.projects %}
