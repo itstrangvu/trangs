@@ -1,5 +1,5 @@
 ---
-title: "Ad verification"
+title: "Ad evidence widget"
 year: ""
 date: "2026-05-28"
 client: ""
